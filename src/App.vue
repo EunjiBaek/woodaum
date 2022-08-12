@@ -1,5 +1,6 @@
 <template>
   <div>
+    <widget-container-modal />
     <Header />
     <router-view />
     <Footer />
@@ -7,12 +8,13 @@
 </template>
 
 <script>
+import { container } from "jenesius-vue-modal";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 
 export default {
   name: "App",
-  components: { Header, Footer },
+  components: { Header, Footer, widgetContainerModal: container },
 };
 </script>
 

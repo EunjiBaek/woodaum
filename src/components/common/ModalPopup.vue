@@ -1,11 +1,17 @@
 <template>
-  <modal name="modal-popup" height="auto"> This is an example. </modal>
+  <p>{{ title }}</p>
 </template>
 
 <script>
 export default {
-  name: "ModalPopup",
+  props: {
+    title: String,
+  },
 };
 </script>
 
-<style></style>
+<style>
+.modal-container {
+  z-index: 1001;
+}
+</style>

@@ -27,18 +27,20 @@
         <div class="tab-content">
           <!--메뉴-->
           <div class="menu_wrap" v-show="currentTab == 0">
-            <div class="menu_box">
+            <div
+              class="menu_box"
+              v-for="menu in menuDetails"
+              :key="menu.id"
+              @click="modalOpen"
+            >
               <div class="img">
-                <img src="../assets/brandstory/wodawum02.jpg" alt="" />
+                <img :src="menu.imgSrc" alt="" />
               </div>
               <div class="content">
-                <span>특안심</span>
-                <p>Aged Korean beef sirloin</p>
+                <span>{{ menu.name }}</span>
+                <p>{{ menu.en_name }}</p>
               </div>
             </div>
-            <div class="menu_box"></div>
-            <div class="menu_box"></div>
-            <div class="menu_box"></div>
           </div>
           <!--//메뉴-->
 
@@ -71,7 +73,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     > strong {
       font-size: 64px;
       font-weight: 100;
@@ -80,7 +81,6 @@
       line-height: 1.2em;
       margin-bottom: 30px;
     }
-
     > p {
       color: #ffffff;
       text-align: center;
@@ -146,22 +146,24 @@
 
 .sub_content {
   margin-top: 60px;
+  margin-bottom: 100px;
 }
 
 .menu_wrap {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 22px;
 
   > .menu_box {
     position: relative;
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
-    width: 33.3334%;
+    width: 32.3%;
     box-sizing: border-box;
     transition: all 0.2s ease;
+    margin-bottom: 22px;
 
     &:hover {
       > .img > img {
@@ -183,10 +185,13 @@
       width: 100%;
       height: 100%;
       transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       > img {
         width: auto;
-        max-height: 100%;
+        max-width: 100%;
         transition: all 0.2s ease;
       }
     }
@@ -204,9 +209,10 @@
         font-weight: 700;
         color: #ffffff;
         text-align: center;
-        margin-bottom: 2px;
+        margin-bottom: 6px;
       }
       > p {
+        font-size: 12px;
         color: #ffffff;
         text-align: center;
       }
@@ -216,11 +222,19 @@
 </style>
 
 <script>
+import { openModal } from "jenesius-vue-modal";
+import ModalPopup from "@/components/common/ModalPopup.vue";
+
 export default {
   name: "MenuPage",
   props: {
     name: {
       type: String,
+    },
+  },
+  methods: {
+    modalOpen() {
+      openModal(ModalPopup, { title: "hello" });
     },
   },
   data() {
@@ -230,10 +244,73 @@ export default {
       },
       currentTab: 0, // 기본 currentTab 값 지정
       tabs: ["구이류", "특수부위", "일품요리"],
+      menuDetails: [
+        {
+          id: 1,
+          name: "스페셜",
+          en_name: "Assorted Korean beef",
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+        },
+        {
+          id: 2,
+          name: "꽃등심",
+          en_name: "Aged Korean beef rib-eye Korean beef",
+          imgSrc: require("../assets/menu/menu-2.jpg"),
+        },
+        {
+          id: 3,
+          name: "등심",
+          en_name: "Aged Korean beef rib-eye Korean beef",
+          imgSrc: require("../assets/menu/menu-3.jpg"),
+        },
+        {
+          id: 4,
+          name: "특안심",
+          en_name: "Aged Korean beef sirloin ",
+          imgSrc: require("../assets/menu/menu-4.jpg"),
+        },
+        {
+          id: 5,
+          name: "살치살",
+          en_name: "Aged Korean beef chuck flap tail",
+          imgSrc: require("../assets/menu/menu-5.jpg"),
+        },
+        {
+          id: 6,
+          name: "새우살",
+          en_name: "Aged Korean beef rib-eye cap",
+          imgSrc: require("../assets/menu/menu-6.jpg"),
+        },
+        {
+          id: 7,
+          name: "안창살",
+          en_name: "Aged Korean beef rib-eye cap",
+          imgSrc: require("../assets/menu/menu-7.jpg"),
+        },
+        {
+          id: 8,
+          name: "치마살",
+          en_name: "Aged Korean beef thin flank meat",
+          imgSrc: require("../assets/menu/menu-8.jpg"),
+        },
+        {
+          id: 9,
+          name: "한우 로스편채",
+          en_name:
+            "Aged Korean Broiled sliced Korean beef with fresh vegetables & sauce chuck flap tail",
+          imgSrc: require("../assets/menu/menu-9.jpg"),
+        },
+        {
+          id: 10,
+          name: "한우 육회",
+          en_name: "Aged Korean beef chuck flap tail",
+          imgSrc: require("../assets/menu/menu-10.jpg"),
+        },
+      ],
     };
   },
   created() {
-    console.log(this.$route);
+    console.log(this.$route.params);
   },
 };
 </script>

@@ -84,7 +84,7 @@ export default {
   data() {
     return {
       logoImage: [
-        { imgSrc: require("../../assets/Logo.png") },
+        { imgSrc: require("../../assets/logo.png") },
         { imgSrc: require("../../assets/Logo@2x.png") },
         { imgSrc: require("../../assets/Logo@3x.png") },
       ],
