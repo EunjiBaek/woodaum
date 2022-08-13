@@ -151,4 +151,52 @@ button {
 .row {
   padding: 0 20px;
 }
+
+.sub_top {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .sub_desc {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    > strong {
+      font-size: 64px;
+      font-weight: 100;
+      font-family: Montserrat, sans-serif;
+      color: #ffffff;
+      line-height: 1.2em;
+      margin-bottom: 30px;
+    }
+    > p {
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+}
+
+.sub_content {
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+select {
+  border: 1px solid #cccccc;
+  appearance: none;
+  font-size: 14px;
+  height: 30px;
+  padding: 0 2em 0 0.5em;
+  background-image: url("./assets/icon/select_arrow.png");
+  background-position: 95% 50%;
+  background-repeat: no-repeat;
+}
 </style>

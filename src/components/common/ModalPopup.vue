@@ -1,17 +1,90 @@
 <template>
-  <p>{{ title }}</p>
+  <div class="modal_wrap">
+    <button class="close_btn" type="button">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    <div class="img_wrap">
+      <img :src="imgSrc" />
+    </div>
+    <div class="cnt_wrap">
+      <h2>{{ name }}</h2>
+      <span>{{ en_name }}</span>
+
+      <p class="menu_desc">한우의 다양한 부위를 맛볼 수 있는 메뉴</p>
+
+      <p class="warnnig">
+        신선한 야채가 정량으로 제공되며, 상기 이미지는 실제와 다를 수 있습니다.
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    title: String,
+    name: String,
+    en_name: String,
+    imgSrc: String,
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+.modal_wrap {
+  position: relative;
+  width: 620px;
+  padding: 4px 4px 28px 4px;
+  background-color: #fff;
+
+  > .close_btn {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    background: none;
+
+    > i {
+      font-size: 28px;
+      color: #ffffff;
+    }
+  }
+
+  > .img_wrap {
+    width: 100%;
+    height: 560px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  > .cnt_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      display: inline-block;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    > p.menu_desc {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 33px;
+    }
+
+    > p.warnnig {
+      font-size: 12px;
+    }
+  }
+}
 .modal-container {
   z-index: 1001;
+  background: rgba(0, 0, 0, 0.65);
 }
 </style>

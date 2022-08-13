@@ -31,7 +31,7 @@
               class="menu_box"
               v-for="menu in menuDetails"
               :key="menu.id"
-              @click="modalOpen"
+              @click="modalOpen(menu.id)"
             >
               <div class="img">
                 <img :src="menu.imgSrc" alt="" />
@@ -56,37 +56,6 @@
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
 
-.sub_top {
-  width: 100%;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  .sub_desc {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    > strong {
-      font-size: 64px;
-      font-weight: 100;
-      font-family: Montserrat, sans-serif;
-      color: #ffffff;
-      line-height: 1.2em;
-      margin-bottom: 30px;
-    }
-    > p {
-      color: #ffffff;
-      text-align: center;
-    }
-  }
-}
 .tab_btn {
   width: 100%;
   padding-top: 40px;
@@ -142,11 +111,6 @@
       }
     }
   }
-}
-
-.sub_content {
-  margin-top: 60px;
-  margin-bottom: 100px;
 }
 
 .menu_wrap {
@@ -232,9 +196,17 @@ export default {
       type: String,
     },
   },
+  //   setup() {
+  //     openModal(ModalPopup, { title: "hello" });
+  //   },
   methods: {
-    modalOpen() {
-      openModal(ModalPopup, { title: "hello" });
+    modalOpen: function (id) {
+      let menu = this.menuDetails.find((v) => v.id == id);
+      openModal(ModalPopup, {
+        name: menu.name,
+        en_name: menu.en_name,
+        imgSrc: menu.imgSrc,
+      });
     },
   },
   data() {
