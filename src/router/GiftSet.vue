@@ -54,6 +54,26 @@
               </div>
             </div>
           </div>
+
+          <div class="product_detail_img_wrap">
+            <h3>상품설명</h3>
+            <div class="img_wrap">
+              <img
+                :src="
+                  require('../assets/prodcutDetails/product_details_01.png')
+                "
+              />
+            </div>
+            <div class="service_center_wrap">
+              <h2>고객 행복 센터</h2>
+              <p class="desc">
+                궁금하신 점이나 서비스 이용에 불편한 점이 있으신가요? 아래
+                전화번호로 연락주시면 빠르게 도와드리겠습니다.
+              </p>
+              <p class="call">전화문의 (02)6900 - 0000</p>
+              <span>오전 8시 - 오후 5시 (월~금)</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -61,12 +81,13 @@
 </template>
 
 <style lang="scss" scoped>
+@import "@/scss/main.scss";
 .product_cnt {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 464px auto;
+  gap: 0 55px;
 
   > .img {
-    width: 464px;
     height: 420px;
     display: flex;
     align-items: center;
@@ -75,6 +96,85 @@
 
     > img {
       width: 100%;
+    }
+  }
+
+  > .content {
+    padding-top: 20px;
+
+    > h3 {
+      margin-bottom: 8px;
+    }
+
+    > p.product_configuration {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    > strong.price {
+      display: block;
+      font-size: 24px;
+      color: #872e28;
+      margin-bottom: 55px;
+    }
+
+    > .icon_wrap {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #c4cdd4;
+    }
+
+    > .detail_desc {
+      padding-top: 18px;
+
+      > ul {
+        > li {
+          display: grid;
+          grid-template-columns: 118px auto;
+          margin-bottom: 24px;
+
+          > span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.product_detail_img_wrap {
+  margin-top: 100px;
+  > h3 {
+    margin-bottom: 8px;
+  }
+
+  > .img_wrap {
+    height: auto;
+    margin-bottom: 130px;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  > .service_center_wrap {
+    > h2 {
+      color: #2e383f;
+      margin-bottom: 16px;
+    }
+
+    > p.call {
+      display: block;
+      height: 28px;
+      color: $secondary_color_01;
+      font-weight: 600;
+      padding-right: 20px;
+    }
+
+    > p.desc {
+      color: #2e383f;
+      font-weight: 600;
+      margin-bottom: 35px;
     }
   }
 }
