@@ -2,17 +2,19 @@
   <div id="header">
     <div class="header container">
       <div class="logo">
-        <v-lazy-image
-          :src="logoImage[0].imgSrc"
-          :srcset="
-            logoImage[0].imgSrc +
-            ' 1x,' +
-            logoImage[1].imgSrc +
-            ' 2x,' +
-            logoImage[2].imgSrc +
-            ' 3x'
-          "
-        />
+        <router-link to="/">
+          <v-lazy-image
+            :src="logoImage[0].imgSrc"
+            :srcset="
+              logoImage[0].imgSrc +
+              ' 1x,' +
+              logoImage[1].imgSrc +
+              ' 2x,' +
+              logoImage[2].imgSrc +
+              ' 3x'
+            "
+          />
+        </router-link>
       </div>
       <div class="header-slide-menu">
         <ul>
@@ -20,7 +22,7 @@
             v-on:mouseover="overEvent($event)"
             v-on:mouseleave="leaveEvent($event)"
           >
-            <a href="#">BRAND STORY</a>
+            <router-link to="/brandStory">BRAND STORY</router-link>
             <div class="sub-menu">
               <ul>
                 <li><a href="#">우다움 이야기</a></li>
@@ -30,29 +32,58 @@
             </div>
           </li>
           <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <a href="#">MENU</a>
+            <router-link :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+              >MENU</router-link
+            >
             <div class="sub-menu">
               <ul>
-                <li><a href="#">구이류</a></li>
-                <li><a href="#">특수 부위</a></li>
-                <li><a href="#">일품 요리</a></li>
+                <li>
+                  <router-link
+                    :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+                    >구이류</router-link
+                  >
+                </li>
+                <li>
+                  <router-link
+                    :to="{ name: 'MenuPage', params: { name: 'menu2' } }"
+                    >특수 부위</router-link
+                  >
+                </li>
+                <li>
+                  <router-link
+                    :to="{ name: 'MenuPage', params: { name: 'menu3' } }"
+                    >일품 요리</router-link
+                  >
+                </li>
               </ul>
             </div>
           </li>
           <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <a href="#">GIFT</a>
+            <router-link :to="{ name: 'Gift', params: { name: 'giftset' } }"
+              >GIFT</router-link
+            >
             <div class="sub-menu">
               <ul>
-                <li><a href="#">선물 세트</a></li>
-                <li><a href="#">포장 안내</a></li>
+                <li>
+                  <router-link
+                    :to="{ name: 'Gift', params: { name: 'giftset' } }"
+                    >선물 세트</router-link
+                  >
+                </li>
+                <li>
+                  <router-link
+                    :to="{ name: 'Gift', params: { name: 'package' } }"
+                    >포장 안내</router-link
+                  >
+                </li>
               </ul>
             </div>
           </li>
           <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <a href="#">STORE</a>
+            <router-link to="/store">STORE</router-link>
             <div class="sub-menu">
               <ul>
-                <li><a href="#">지점 안내</a></li>
+                <li><router-link to="/store">지점 안내</router-link></li>
               </ul>
             </div>
           </li>
@@ -124,6 +155,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     > .header-slide-menu {
@@ -176,7 +208,7 @@ export default {
             padding: 13px 0;
             background-color: rgba($color: $basic_color_01, $alpha: 0.6);
             color: #ffffff;
-            z-index: 5;
+            z-index: 550;
 
             &.active {
               display: block;

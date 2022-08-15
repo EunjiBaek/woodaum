@@ -2,7 +2,7 @@
   <div>
     <widget-container-modal />
     <Header />
-    <router-view />
+    <router-view :key="$route.fullPath" />
     <Footer />
   </div>
 </template>
@@ -75,6 +75,10 @@ table {
   color: $text_color_01;
   font-size: 13px;
   line-height: 1.5;
+}
+
+body {
+  overflow-x: scroll;
 }
 
 /* 폰트 스타일 초기화 */

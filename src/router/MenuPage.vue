@@ -9,6 +9,7 @@
             :key="tab.index"
           >
             <a href="#" v-on:click.prevent="currentTab = index">{{ tab }}</a>
+            <!-- <a v-on:click.prevent="select($event)">{{ tab }}</a> -->
           </li>
         </ul>
       </div>
@@ -200,6 +201,10 @@ export default {
   //     openModal(ModalPopup, { title: "hello" });
   //   },
   methods: {
+    select: function (event) {
+      console.log(event.currentTarget.parentNode);
+      // this.currentTab = index;
+    },
     modalOpen: function (id) {
       let menu = this.menuDetails.find((v) => v.id == id);
       openModal(ModalPopup, {
@@ -282,7 +287,13 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.params);
+    if (this.$route.params.name === "menu1") {
+      this.currentTab = 0;
+    } else if (this.$route.params.name === "menu2") {
+      this.currentTab = 1;
+    } else if (this.$route.params.name === "menu3") {
+      this.currentTab = 2;
+    }
   },
 };
 </script>

@@ -37,25 +37,34 @@
 
             <div class="gift_box_wrap">
               <div class="box" v-for="gift in sort(sortOrder)" :key="gift.id">
-                <div class="img">
-                  <img :src="gift.imgSrc" />
-                  <div v-if="gift.soldout === true" class="caption">
-                    sold out
+                <router-link
+                  :to="{
+                    name: 'GiftSet',
+                    params: { id: gift.id, giftList: JSON.stringify(gift) },
+                    // path: `/gift/giftset/${gift.id}`,
+                    // params: { id: gift.id, giftList: gift },
+                  }"
+                >
+                  <div class="img">
+                    <img :src="gift.imgSrc" />
+                    <div v-if="gift.soldout === true" class="caption">
+                      sold out
+                    </div>
                   </div>
-                </div>
 
-                <div class="cnt">
-                  <h3>{{ gift.name }}</h3>
-                  <p class="desc_01">
-                    {{ gift.desc_01 }}
-                  </p>
-                  <p class="desc_02">{{ gift.desc_02 }}</p>
-                  <strong
-                    class="price"
-                    :class="{ soldout: gift.soldout === true }"
-                    >{{ gift.price }}</strong
-                  >
-                </div>
+                  <div class="cnt">
+                    <h3>{{ gift.name }}</h3>
+                    <p class="desc_01">
+                      {{ gift.desc_01 }}
+                    </p>
+                    <p class="desc_02">{{ gift.desc_02 }}</p>
+                    <strong
+                      class="price"
+                      :class="{ soldout: gift.soldout === true }"
+                      >{{ gift.price }}</strong
+                    >
+                  </div>
+                </router-link>
               </div>
             </div>
           </div>
@@ -155,7 +164,7 @@
     box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
-    > .img {
+    .img {
       position: relative;
       width: 100%;
       height: 330px;
@@ -227,6 +236,14 @@ export default {
     name: {
       type: String,
     },
+  },
+  created() {
+    // console.log(this.$route.params.name);
+    if (this.$route.params.name === "giftset") {
+      this.currentTab = 0;
+    } else if (this.$route.params.name === "package") {
+      this.currentTab = 1;
+    }
   },
   data() {
     return {

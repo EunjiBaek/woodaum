@@ -4,6 +4,8 @@ import MenuPage from "./MenuPage.vue";
 import BrandStory from "./BrandStory";
 import Gift from "./Gift";
 import GiftSet from "./GiftSet";
+import StoreInfo from "./StoreInfo";
+import NotFound from "./NotFound";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,21 +19,33 @@ const router = createRouter({
       path: "/menu/:name",
       name: "MenuPage",
       component: MenuPage,
+      props: true,
     },
     {
       path: "/gift/:name",
       name: "Gift",
       component: Gift,
+      props: true,
     },
     {
-      path: "/giftset",
+      path: "/gift/giftset/:id",
       name: "GiftSet",
       component: GiftSet,
+      props: true,
     },
     // 브랜드 스토리
     {
       path: "/brandstory",
       component: BrandStory,
+    },
+    {
+      path: "/store",
+      name: "StoreInfo",
+      component: StoreInfo,
+    },
+    {
+      path: "/:pathMatch(.*)",
+      component: NotFound,
     },
   ],
 });

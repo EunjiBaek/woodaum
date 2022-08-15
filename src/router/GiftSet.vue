@@ -14,17 +14,15 @@
       <div class="container">
         <div class="product_desc_wrap">
           <div class="product_cnt">
-            <div class="img">
-              <img :src="require('../assets/menu/menu-1.jpg')" />
-            </div>
+            <div class="img"><img :src="giftDetails[index].imgSrc" /></div>
 
             <div class="content">
-              <h3>한우 스페셜 세트 A (3.1kg)</h3>
+              <h3>{{ giftDetails[index].name }}</h3>
               <p class="product_configuration">
-                꽃등심 900g, 등심 900g, 안심 500g, 불고기 800g
+                {{ giftDetails[index].desc_01 }}
               </p>
 
-              <strong class="price">500,000 원</strong>
+              <strong class="price">{{ giftDetails[index].price }}원</strong>
 
               <div class="icon_wrap"></div>
               <div class="detail_desc">
@@ -55,7 +53,10 @@
             </div>
           </div>
 
-          <div class="product_detail_img_wrap">
+          <div
+            class="product_detail_img_wrap"
+            :class="{ active: show === true }"
+          >
             <h3>상품설명</h3>
             <div class="img_wrap">
               <img
@@ -70,9 +71,15 @@
                 궁금하신 점이나 서비스 이용에 불편한 점이 있으신가요? 아래
                 전화번호로 연락주시면 빠르게 도와드리겠습니다.
               </p>
-              <p class="call">전화문의 (02)6900 - 0000</p>
+              <div class="call">
+                <span>전화문의 (02)6900 - 0000</span>
+              </div>
               <span>오전 8시 - 오후 5시 (월~금)</span>
             </div>
+            <div v-if="!show" class="gradation"></div>
+          </div>
+          <div v-if="!show" class="more_btn" @click="detailShow">
+            상품설명 더보기
           </div>
         </div>
       </div>
@@ -82,6 +89,10 @@
 
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
+.product_desc_wrap {
+  margin-bottom: 200px;
+}
+
 .product_cnt {
   display: grid;
   grid-template-columns: 464px auto;
@@ -143,7 +154,35 @@
 }
 
 .product_detail_img_wrap {
+  position: relative;
   margin-top: 100px;
+
+  //   임시작업
+  height: 725px;
+  overflow: hidden;
+
+  &.active {
+    height: auto;
+  }
+
+  .gradation {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 12%,
+      rgba(255, 255, 255, 0.28) 45%,
+      #fff 86%,
+      #fcfcfc 100%,
+      rgba(255, 255, 255, 0.33) 100%,
+      #fff 100%,
+      #fff 100%,
+      #fff 100%
+    );
+  }
   > h3 {
     margin-bottom: 8px;
   }
@@ -158,17 +197,36 @@
   }
 
   > .service_center_wrap {
+    padding-bottom: 50px;
     > h2 {
       color: #2e383f;
       margin-bottom: 16px;
     }
 
-    > p.call {
-      display: block;
+    > div.call {
+      position: relative;
+      display: flex;
+      align-items: center;
       height: 28px;
-      color: $secondary_color_01;
-      font-weight: 600;
-      padding-right: 20px;
+      padding-left: 20px;
+      margin-bottom: 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 28px;
+        background-color: $secondary_color_01;
+      }
+
+      > span {
+        font-size: 18px;
+        color: $secondary_color_01;
+        font-weight: 600;
+      }
     }
 
     > p.desc {
@@ -176,18 +234,109 @@
       font-weight: 600;
       margin-bottom: 35px;
     }
+
+    > span {
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
+}
+.more_btn {
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  height: 58px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000000;
 }
 </style>
 
 <script>
 export default {
+  name: "GiftSet",
+  props: {
+    id: {
+      type: String,
+    },
+  },
+  created() {
+    this.index = this.$route.params.id;
+  },
   data() {
     return {
       subtop_img: {
         backgroundImage: `url(${require("../assets/brandstory/wodawum02.jpg")})`,
       },
+      index: null,
+      show: false,
+      giftDetails: [
+        {
+          id: 1,
+          name: "한우 스페셜 세트 A (3.1kg)",
+          desc_01: "꽃등심 900g, 등심 900g, 안심 500g, 불고기 800g",
+          desc_02: "안심 보냉가방/박스 포장",
+          price: 500000,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+          soldout: true,
+        },
+        {
+          id: 2,
+          name: "한우 스페셜 세트 B (1.7kg)",
+          desc_01: "등심 600g, 안심 600g, 불고기 500g",
+          desc_02: "안심 보냉가방/박스 포장",
+          price: 300000,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+          soldout: false,
+        },
+        {
+          id: 3,
+          name: "한우 스페셜 세트 C",
+          desc_01: "한우 등심 00kg + 한우 등심 00kg",
+          desc_02: "안심 보냉가방/박스 포장",
+          price: 200000,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+          soldout: false,
+        },
+        {
+          id: 4,
+          name: "한우 꽃등심",
+          desc_01: "꽃등심 1kg",
+          desc_02: "안심 보냉박스 포장",
+          price: 250000,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+          soldout: false,
+        },
+        {
+          id: 5,
+          name: "한우 안심",
+          desc_01: "안심 1kg",
+          desc_02: "안심 보냉박스 포장",
+          price: 240000,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+          soldout: false,
+        },
+        {
+          id: 6,
+          name: "한우 안심",
+          desc_01: "등심 1kg",
+          desc_02: "안심 보냉박스 포장",
+          price: 230000,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+          soldout: false,
+        },
+      ],
     };
+  },
+  mounted() {
+    console.log(this.gift);
+  },
+  methods: {
+    detailShow() {
+      this.show = true;
+    },
   },
 };
 </script>
