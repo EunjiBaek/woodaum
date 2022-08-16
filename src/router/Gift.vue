@@ -238,7 +238,6 @@ export default {
     },
   },
   created() {
-    // console.log(this.$route.params.name);
     if (this.$route.params.name === "giftset") {
       this.currentTab = 0;
     } else if (this.$route.params.name === "package") {

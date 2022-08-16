@@ -203,4 +203,12 @@ select {
   background-position: 95% 50%;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 1250px) {
+  .container {
+    width: 100%;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+}
 </style>

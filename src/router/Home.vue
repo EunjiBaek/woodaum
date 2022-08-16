@@ -2,38 +2,25 @@
   <div>
     <div class="main_slide">
       <swiper
-        :effect="'fade'"
         :modules="modules"
         :slides-per-view="1"
         :loop="true"
         :pagination="{
           clickable: true,
         }"
-        :speed="800"
+        :speed="1000"
         :parallax="true"
         class="main_top_swiper"
       >
-        <swiper-slide>
+        <!-- main_slide -->
+        <swiper-slide v-for="mainslide in main_slide" :key="mainslide.id">
           <div class="img">
-            <img src="../assets/mainImage/main_slide_01.jpg" alt="" />
+            <img :src="mainslide.imgSrc" alt="" />
           </div>
           <div class="text">
-            <h1 data-swiper-parallax="-500">숙성투뿔한우 전문점</h1>
+            <h1 data-swiper-parallax="-500">{{ mainslide.title }}</h1>
             <p data-swiper-parallax="-300">
-              우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여 <br />
-              한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.
-            </p>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="img">
-            <img src="../assets/mainImage/main_slide_01.jpg" alt="" />
-          </div>
-          <div class="text">
-            <h1 data-swiper-parallax="-500">숙성투뿔한우 전문점</h1>
-            <p data-swiper-parallax="-300">
-              우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여 <br />
-              한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.
+              {{ mainslide.sub_title }}
             </p>
           </div>
         </swiper-slide>
@@ -41,57 +28,175 @@
     </div>
 
     <div class="container content">
+      <div class="mobile_navigation">
+        <ul>
+          <li>
+            <router-link to="/">
+              <div class="img">
+                <v-lazy-image
+                  :src="mobile_nav_home[0].imgSrc"
+                  :srcset="
+                    mobile_nav_home[0].imgSrc +
+                    ' 1x,' +
+                    mobile_nav_home[1].imgSrc +
+                    ' 2x,' +
+                    mobile_nav_home[2].imgSrc +
+                    ' 3x'
+                  "
+                />
+              </div>
+              <span>HOME</span>
+            </router-link>
+          </li>
+
+          <li>
+            <router-link to="/">
+              <div class="img">
+                <v-lazy-image
+                  :src="mobile_nav_reserve[0].imgSrc"
+                  :srcset="
+                    mobile_nav_reserve[0].imgSrc +
+                    ' 1x,' +
+                    mobile_nav_reserve[1].imgSrc +
+                    ' 2x,' +
+                    mobile_nav_reserve[2].imgSrc +
+                    ' 3x'
+                  "
+                />
+              </div>
+              <span>예약하기</span>
+            </router-link>
+          </li>
+
+          <li>
+            <router-link to="/">
+              <div class="img">
+                <v-lazy-image
+                  :src="mobile_nav_gift[0].imgSrc"
+                  :srcset="
+                    mobile_nav_gift[0].imgSrc +
+                    ' 1x,' +
+                    mobile_nav_gift[1].imgSrc +
+                    ' 2x,' +
+                    mobile_nav_gift[2].imgSrc +
+                    ' 3x'
+                  "
+                />
+              </div>
+              <span>선물세트</span>
+            </router-link>
+          </li>
+
+          <li>
+            <router-link to="/">
+              <div class="img">
+                <v-lazy-image
+                  :src="mobile_nav_store_search[0].imgSrc"
+                  :srcset="
+                    mobile_nav_store_search[0].imgSrc +
+                    ' 1x,' +
+                    mobile_nav_store_search[1].imgSrc +
+                    ' 2x,' +
+                    mobile_nav_store_search[2].imgSrc +
+                    ' 3x'
+                  "
+                />
+              </div>
+              <span>매장찾기</span>
+            </router-link>
+          </li>
+
+          <li>
+            <router-link to="/">
+              <div class="img">
+                <v-lazy-image
+                  :src="mobile_nav_insta[0].imgSrc"
+                  :srcset="
+                    mobile_nav_insta[0].imgSrc +
+                    ' 1x,' +
+                    mobile_nav_insta[1].imgSrc +
+                    ' 2x,' +
+                    mobile_nav_insta[2].imgSrc +
+                    ' 3x'
+                  "
+                />
+              </div>
+              <span>SNS</span>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+
       <div class="card-list">
         <!-- 카드1 -->
         <div class="card">
-          <div class="cnt">
-            <h2>RESERVATION</h2>
-            <span>예약하기</span>
-          </div>
-          <div class="icon">
-            <v-lazy-image
-              :src="reservation_img[0].imgSrc"
-              :srcset="
-                reservation_img[0].imgSrc +
-                ' 1x,' +
-                reservation_img[1].imgSrc +
-                ' 2x,' +
-                reservation_img[2].imgSrc +
-                ' 3x'
-              "
-            />
-          </div>
+          <router-link to="/">
+            <div class="cnt">
+              <h2>RESERVATION</h2>
+              <span>예약하기</span>
+            </div>
+            <div class="icon">
+              <v-lazy-image
+                :src="reservation_img[0].imgSrc"
+                :srcset="
+                  reservation_img[0].imgSrc +
+                  ' 1x,' +
+                  reservation_img[1].imgSrc +
+                  ' 2x,' +
+                  reservation_img[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+          </router-link>
         </div>
         <!-- //카드1 -->
 
         <!-- 카드2 -->
         <div class="card">
-          <div class="cnt">
-            <h2>GIFT</h2>
-            <span>선물세트 보러가기</span>
-          </div>
-          <div class="icon">
-            <v-lazy-image
-              :src="gift_img[0].imgSrc"
-              :srcset="
-                gift_img[0].imgSrc +
-                ' 1x,' +
-                gift_img[1].imgSrc +
-                ' 2x,' +
-                gift_img[2].imgSrc +
-                ' 3x'
-              "
-            />
-          </div>
+          <router-link to="/gift/giftset">
+            <div class="cnt">
+              <h2>GIFT</h2>
+              <span>선물세트 보러가기</span>
+            </div>
+            <div class="icon">
+              <v-lazy-image
+                :src="gift_img[0].imgSrc"
+                :srcset="
+                  gift_img[0].imgSrc +
+                  ' 1x,' +
+                  gift_img[1].imgSrc +
+                  ' 2x,' +
+                  gift_img[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+          </router-link>
         </div>
         <!-- //카드2 -->
 
         <!-- 카드3 -->
         <div class="card">
-          <div class="cnt">
-            <h2>SEARCH</h2>
-            <span>매장 찾기</span>
-          </div>
+          <router-link to="/store">
+            <div class="cnt">
+              <h2>SEARCH</h2>
+              <span>매장 찾기</span>
+            </div>
+            <div class="icon">
+              <v-lazy-image
+                :src="store_search_img[0].imgSrc"
+                :srcset="
+                  store_search_img[0].imgSrc +
+                  ' 1x,' +
+                  store_search_img[1].imgSrc +
+                  ' 2x,' +
+                  store_search_img[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+          </router-link>
         </div>
         <!-- //카드3 -->
       </div>
@@ -136,59 +241,29 @@
     <div class="bottom_swiper_wrap">
       <swiper
         :navigation="true"
+        :autoplay="{
+          delay: 5000,
+          disableOnInteraction: false,
+        }"
         :modules="modules"
         :slides-per-view="1"
         :space-between="30"
         :loop="true"
         class="main_bot_swiper"
       >
-        <swiper-slide>
+        <!-- main_bot_slide -->
+        <swiper-slide v-for="botslide in main_bot_slide" :key="botslide.id">
           <div class="container">
             <div class="box">
               <div class="box_cnt">
-                <h2>살치살</h2>
-                <span>Assorted Korean beef</span>
+                <h2>{{ botslide.title }}</h2>
+                <span>{{ botslide.sub_title }}</span>
                 <p>
-                  균형잡힌 마블링과 부드러운 조직감을 지닌 <br />
-                  최상등급(1++) 살치살
+                  {{ botslide.desc }}
                 </p>
               </div>
               <div class="box_img">
-                <img src="../assets/mainImage/main_slide_01.jpg" alt="" />
-              </div>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="container">
-            <div class="box">
-              <div class="box_cnt">
-                <h2>살치살</h2>
-                <span>Assorted Korean beef</span>
-                <p>
-                  균형잡힌 마블링과 부드러운 조직감을 지닌 <br />
-                  최상등급(1++) 살치살
-                </p>
-              </div>
-              <div class="box_img">
-                <img src="../assets/mainImage/main_slide_01.jpg" alt="" />
-              </div>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="container">
-            <div class="box">
-              <div class="box_cnt">
-                <h2>살치살</h2>
-                <span>Assorted Korean beef</span>
-                <p>
-                  균형잡힌 마블링과 부드러운 조직감을 지닌 <br />
-                  최상등급(1++) 살치살
-                </p>
-              </div>
-              <div class="box_img">
-                <img src="../assets/mainImage/main_slide_01.jpg" alt="" />
+                <img :src="botslide.imgSrc" alt="" />
               </div>
             </div>
           </div>
@@ -210,6 +285,31 @@ export default {
   name: "HomePage",
   data() {
     return {
+      mobile_nav_home: [
+        { imgSrc: require("../assets/icon/mobilenav_home.png") },
+        { imgSrc: require("../assets/icon/mobilenav_home@2x.png") },
+        { imgSrc: require("../assets/icon/mobilenav_home@3x.png") },
+      ],
+      mobile_nav_reserve: [
+        { imgSrc: require("../assets/icon/mobilenav_reserve.png") },
+        { imgSrc: require("../assets/icon/mobilenav_reserve@2x.png") },
+        { imgSrc: require("../assets/icon/mobilenav_reserve@3x.png") },
+      ],
+      mobile_nav_gift: [
+        { imgSrc: require("../assets/icon/mobilenav_gift.png") },
+        { imgSrc: require("../assets/icon/mobilenav_gift@2x.png") },
+        { imgSrc: require("../assets/icon/mobilenav_gift@3x.png") },
+      ],
+      mobile_nav_store_search: [
+        { imgSrc: require("../assets/icon/mobilenav_store_search.png") },
+        { imgSrc: require("../assets/icon/mobilenav_store_search@2x.png") },
+        { imgSrc: require("../assets/icon/mobilenav_store_search@3x.png") },
+      ],
+      mobile_nav_insta: [
+        { imgSrc: require("../assets/icon/mobilenav_insta.png") },
+        { imgSrc: require("../assets/icon/mobilenav_insta@2x.png") },
+        { imgSrc: require("../assets/icon/mobilenav_insta@3x.png") },
+      ],
       reservation_img: [
         { imgSrc: require("../assets/mainImage/reservation_img.png") },
         { imgSrc: require("../assets/mainImage/reservation_img@2x.png") },
@@ -219,6 +319,45 @@ export default {
         { imgSrc: require("../assets/mainImage/gift_img.png") },
         { imgSrc: require("../assets/mainImage/gift_img@2x.png") },
         { imgSrc: require("../assets/mainImage/gift_img@3x.png") },
+      ],
+      store_search_img: [
+        { imgSrc: require("../assets/mainImage/store_search.png") },
+        { imgSrc: require("../assets/mainImage/store_search@2x.png") },
+        { imgSrc: require("../assets/mainImage/store_search@3x.png") },
+      ],
+      main_slide: [
+        {
+          id: 1,
+          title: "숙성투뿔한우 전문점",
+          sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
+              한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
+          imgSrc: require("../assets/mainImage/main_slide_01.jpg"),
+        },
+        {
+          id: 2,
+          title: "숙성투뿔한우 전문점",
+          sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
+              한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
+          imgSrc: require("../assets/mainImage/main_slide_02.jpg"),
+        },
+      ],
+      main_bot_slide: [
+        {
+          id: 1,
+          title: "살치살",
+          sub_title: "Assorted Korean beef",
+          desc: `균형잡힌 마블링과 부드러운 조직감을 지닌
+          최상등급(1++) 살치살`,
+          imgSrc: require("../assets/menu/menu-1.jpg"),
+        },
+        {
+          id: 2,
+          title: "꽂등심",
+          sub_title: "Aged Korean beef rib-eye Korean beef ",
+          desc: `균형잡힌 마블링과 부드러운 조직감을 지닌
+          최상등급(1++) 살치살`,
+          imgSrc: require("../assets/menu/menu-2.jpg"),
+        },
       ],
     };
   },
@@ -238,6 +377,35 @@ export default {
 <style lang="scss">
 @import "@/scss/main.scss";
 
+.mobile_navigation {
+  width: 100%;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  ul {
+    > li {
+      display: inline-block;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      > a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        > .img {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
+
 .swiper-slide-duplicate {
   font-size: 18px;
   background: #fafaf6;
@@ -247,6 +415,9 @@ export default {
 }
 
 .main_slide {
+  .swiper-slide {
+    overflow: hidden;
+  }
   .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   .swiper-pagination-horizontal.swiper-pagination-bullets
     .swiper-pagination-bullet {
@@ -335,6 +506,9 @@ export default {
         }
 
         > p {
+          display: inline-block;
+          width: 350px;
+          word-break: keep-all;
           text-align: center;
           color: #ffffff;
           text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -355,9 +529,16 @@ export default {
     width: 33.3334%;
     height: 130px;
     box-sizing: border-box;
-    padding: 24px;
     background-color: blue;
-    > .cnt {
+
+    > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 24px;
+    }
+    .cnt {
       > h2 {
         color: #ffffff;
         line-height: 1.2em;
@@ -368,7 +549,7 @@ export default {
         color: #ffffff;
       }
     }
-    > .icon {
+    .icon {
       position: absolute;
       right: 24px;
       bottom: 24px;
@@ -422,13 +603,13 @@ export default {
   > .instagram {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 10px 1%;
     > div {
       position: relative;
       display: inline-block;
       overflow: hidden;
       cursor: pointer;
-      width: 24%;
+      width: 24.25%;
       box-sizing: border-box;
       background-color: grey;
 
@@ -484,6 +665,9 @@ export default {
         }
 
         > p {
+          display: inline-block;
+          width: 300px;
+          word-break: keep-all;
           font-weight: 600;
         }
       }
@@ -497,10 +681,57 @@ export default {
         justify-content: center;
 
         > img {
-          max-height: 100%;
+          width: 100%;
         }
       }
     }
+  }
+}
+
+@media (max-width: 1250px) {
+  .main_slide {
+    height: 620px;
+    .main_top_swiper .swiper-slide > .text > h1 {
+      font-size: 24px;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile_navigation {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  .main_slide {
+    margin-bottom: 15px;
+  }
+  .card-list,
+  .video_wrap {
+    display: none;
+  }
+  .insta_wrap > .instagram {
+    gap: 5px 1%;
+  }
+  .insta_wrap > .instagram > div {
+    width: 32.3334%;
+  }
+}
+@media (max-width: 650px) {
+  .insta_wrap > .tit {
+    margin-bottom: 12px;
+  }
+  .insta_wrap > .tit > span {
+    display: none;
+  }
+  .insta_wrap > .tit > h2 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .main_slide .main_top_swiper .swiper-slide > .text > p {
+    width: 250px;
   }
 }
 </style>

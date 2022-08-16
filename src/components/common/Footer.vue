@@ -1,15 +1,6 @@
 <template>
   <div class="footer">
     <div class="footer-content container">
-      <div class="footer-top-list">
-        <ul>
-          <li>이용약관</li>
-          <li>개인정보취급방침</li>
-          <li>이메일무단수집거부</li>
-          <li>사이트맵</li>
-        </ul>
-      </div>
-
       <div class="bottom">
         <ul>
           <li>
@@ -35,36 +26,11 @@ export default {
 .footer {
   text-align: center;
   background-color: #272727;
-  padding: 35px 0;
+  padding: 40px 0;
 
   .footer-content {
-    .footer-top-list {
-      margin-bottom: 20px;
-      ul {
-        > li {
-          position: relative;
-          display: inline-block;
-          color: #c4cdd4;
-          font-size: 14px;
-          padding: 0 30px;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            display: inline-block;
-            width: 1px;
-            height: 13px;
-            background-color: #c4cdd4;
-          }
-        }
-      }
-    }
-
     .bottom {
-      margin-bottom: 50px;
+      margin-bottom: 25px;
       ul {
         > li {
           font-size: 12px;

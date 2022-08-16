@@ -1,108 +1,149 @@
 <template>
-  <div id="header">
-    <div class="header container">
-      <div class="logo">
-        <router-link to="/">
-          <v-lazy-image
-            :src="logoImage[0].imgSrc"
-            :srcset="
-              logoImage[0].imgSrc +
-              ' 1x,' +
-              logoImage[1].imgSrc +
-              ' 2x,' +
-              logoImage[2].imgSrc +
-              ' 3x'
-            "
-          />
-        </router-link>
-      </div>
-      <div class="header-slide-menu">
-        <ul>
-          <li
-            v-on:mouseover="overEvent($event)"
-            v-on:mouseleave="leaveEvent($event)"
-          >
-            <router-link to="/brandStory">BRAND STORY</router-link>
-            <div class="sub-menu">
-              <ul>
-                <li><a href="#">우다움 이야기</a></li>
-                <li><a href="#">한우 이야기</a></li>
-                <li><a href="#">공간 이야기</a></li>
-              </ul>
-            </div>
-          </li>
-          <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <router-link :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
-              >MENU</router-link
+  <div>
+    <div id="header">
+      <div class="header container">
+        <div class="hamburger" v-on:click="navOpen = true">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+          <router-link to="/">
+            <v-lazy-image
+              :src="logoImage[0].imgSrc"
+              :srcset="
+                logoImage[0].imgSrc +
+                ' 1x,' +
+                logoImage[1].imgSrc +
+                ' 2x,' +
+                logoImage[2].imgSrc +
+                ' 3x'
+              "
+            />
+          </router-link>
+        </div>
+        <div class="header-slide-menu">
+          <ul>
+            <li
+              v-on:mouseover="overEvent($event)"
+              v-on:mouseleave="leaveEvent($event)"
             >
-            <div class="sub-menu">
-              <ul>
-                <li>
-                  <router-link
-                    :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
-                    >구이류</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    :to="{ name: 'MenuPage', params: { name: 'menu2' } }"
-                    >특수 부위</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    :to="{ name: 'MenuPage', params: { name: 'menu3' } }"
-                    >일품 요리</router-link
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <router-link :to="{ name: 'Gift', params: { name: 'giftset' } }"
-              >GIFT</router-link
-            >
-            <div class="sub-menu">
-              <ul>
-                <li>
-                  <router-link
-                    :to="{ name: 'Gift', params: { name: 'giftset' } }"
-                    >선물 세트</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    :to="{ name: 'Gift', params: { name: 'package' } }"
-                    >포장 안내</router-link
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <router-link to="/store">STORE</router-link>
-            <div class="sub-menu">
-              <ul>
-                <li><router-link to="/store">지점 안내</router-link></li>
-              </ul>
-            </div>
-          </li>
-          <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
-            <a href="#">RESERVATION</a>
-            <div class="sub-menu">
-              <ul>
-                <li><a href="#">매장 예약</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+              <router-link to="/brandStory">BRAND STORY</router-link>
+              <div class="sub-menu">
+                <ul>
+                  <li><a href="#">우다움 이야기</a></li>
+                  <li><a href="#">한우 이야기</a></li>
+                  <li><a href="#">공간 이야기</a></li>
+                </ul>
+              </div>
+            </li>
+            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+              <router-link :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+                >MENU</router-link
+              >
+              <div class="sub-menu">
+                <ul>
+                  <li>
+                    <router-link
+                      :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+                      >구이류</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      :to="{ name: 'MenuPage', params: { name: 'menu2' } }"
+                      >특수 부위</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      :to="{ name: 'MenuPage', params: { name: 'menu3' } }"
+                      >일품 요리</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+              <router-link :to="{ name: 'Gift', params: { name: 'giftset' } }"
+                >GIFT</router-link
+              >
+              <div class="sub-menu">
+                <ul>
+                  <li>
+                    <router-link
+                      :to="{ name: 'Gift', params: { name: 'giftset' } }"
+                      >선물 세트</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      :to="{ name: 'Gift', params: { name: 'package' } }"
+                      >포장 안내</router-link
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+              <router-link to="/store">STORE</router-link>
+              <div class="sub-menu">
+                <ul>
+                  <li><router-link to="/store">지점 안내</router-link></li>
+                </ul>
+              </div>
+            </li>
+            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+              <a href="#">RESERVATION</a>
+              <div class="sub-menu">
+                <ul>
+                  <li><a href="#">매장 예약</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="lang-list">
+          <ul>
+            <li class="on"><a href="#">KOR</a></li>
+            <li><a href="#">EN</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="lang-list">
-        <ul>
-          <li class="on"><a href="#">KOR</a></li>
-          <li><a href="#">EN</a></li>
-        </ul>
-      </div>
+    </div>
+    <div class="slide_wrap">
+      <transition name="translateX">
+        <nav id="slide_menu" v-show="navOpen">
+          <div class="slide_menu_top">
+            <div class="close_btn" v-on:click="navOpen = false">
+              <i class="fas fa-times"></i>
+            </div>
+            <div class="lang-list">
+              <ul>
+                <li class="on"><a href="#">KOR</a></li>
+                <li><a href="#">EN</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="slide_menu_bot">
+            <ul>
+              <li>
+                <router-link to="/">BRAND STORY</router-link>
+              </li>
+              <li>
+                <router-link to="/">MENU</router-link>
+              </li>
+              <li>
+                <router-link to="/">GIFT</router-link>
+              </li>
+              <li>
+                <router-link to="/">RESERVATION</router-link>
+              </li>
+              <li>
+                <router-link to="/">STORE</router-link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </transition>
     </div>
   </div>
 </template>
@@ -114,6 +155,7 @@ export default {
   name: "Header",
   data() {
     return {
+      navOpen: false,
       logoImage: [
         { imgSrc: require("../../assets/logo.png") },
         { imgSrc: require("../../assets/Logo@2x.png") },
@@ -142,7 +184,15 @@ export default {
 <style lang="scss" scoped>
 @import "../../scss/main.scss";
 
+// .slide_wrap {
+//   position: fixed;
+//   background-color: rgba;
+//   width: 100%;
+//   height: 100%;
+// }
+
 #header {
+  position: relative;
   background-color: #272727;
   height: 100px;
   .header {
@@ -150,6 +200,20 @@ export default {
     display: flex;
     align-content: center;
     justify-content: space-between;
+
+    .hamburger {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 25px;
+      cursor: pointer;
+
+      > i {
+        font-size: 30px;
+        color: #ffffff;
+      }
+    }
 
     .logo {
       display: flex;
@@ -271,5 +335,132 @@ export default {
       }
     }
   }
+}
+
+#slide_menu {
+  .slide_menu_top {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 28px;
+    border-bottom: 1px solid #2e383f;
+    box-sizing: border-box;
+
+    .close_btn {
+      position: absolute;
+      top: 50%;
+      right: 28px;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      > i {
+        font-size: 24px;
+        color: #ffffff;
+      }
+    }
+    .lang-list {
+      > ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        li {
+          position: relative;
+          &:first-child {
+            padding-right: 18px;
+
+            &::after {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 8px;
+              content: "";
+              width: 1px;
+              height: 12px;
+              background-color: #666666;
+            }
+          }
+
+          &.on {
+            > a {
+              color: #ffffff;
+            }
+          }
+          > a {
+            font-size: 14px;
+            font-weight: 600;
+            font-family: "Montserrat", sans-serif;
+            color: #666666;
+          }
+        }
+      }
+    }
+  }
+
+  .slide_menu_bot {
+    > ul {
+      li {
+        height: 55px;
+        border-bottom: 1px solid #2e383f;
+
+        > a {
+          width: 100%;
+          height: 100%;
+          transition: 0.4s ease;
+          color: #ffffff;
+          font-size: 18px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+#slide_menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: #272727;
+  z-index: 600;
+  transition: 0.2s ease;
+}
+
+@media (max-width: 1250px) {
+  .header-slide-menu {
+    display: none;
+  }
+  #header .header {
+    .hamburger {
+      display: block;
+    }
+    justify-content: center;
+    .lang-list {
+      display: none;
+    }
+  }
+}
+
+.translateX-enter {
+  transform: translateX(-280px);
+  opacity: 0;
+}
+
+.translateX-enter-active,
+.translateX-leave-active {
+  transform-origin: top left 0;
+  transition: 0.2s ease;
+}
+
+.translateX-leave-to {
+  transform: translateX(-280px);
+  opacity: 0;
 }
 </style>
