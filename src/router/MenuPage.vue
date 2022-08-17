@@ -46,8 +46,6 @@
           <!--//메뉴-->
 
           <div v-show="currentTab == 1">2</div>
-
-          <div v-show="currentTab == 2">3</div>
         </div>
       </div>
     </div>
@@ -117,18 +115,17 @@
 .menu_wrap {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1em 1.8%;
 
   > .menu_box {
     position: relative;
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
-    width: 32.3%;
+    width: 32.1334%;
     box-sizing: border-box;
     transition: all 0.2s ease;
-    margin-bottom: 22px;
 
     &:hover {
       > .img > img {
@@ -162,11 +159,13 @@
     }
 
     > .content {
+      box-sizing: border-box;
       position: absolute;
       left: 0;
       right: 0;
       bottom: 25px;
       width: 100%;
+      padding: 0 10px;
 
       > span {
         display: block;
@@ -182,6 +181,21 @@
         text-align: center;
       }
     }
+  }
+}
+
+@media (max-width: 890px) {
+  .menu_wrap > .menu_box {
+    width: 49.1%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tab_btn > ul > li > a {
+    color: $header_color_01;
+  }
+  .tab_btn {
+    padding-top: 15px;
   }
 }
 </style>
@@ -220,7 +234,7 @@ export default {
         backgroundImage: `url(${require("../assets/brandstory/wodawum02.jpg")})`,
       },
       currentTab: 0, // 기본 currentTab 값 지정
-      tabs: ["구이류", "특수부위", "일품요리"],
+      tabs: ["구이류", "일품요리"],
       menuDetails: [
         {
           id: 1,

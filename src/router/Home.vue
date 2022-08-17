@@ -28,105 +28,6 @@
     </div>
 
     <div class="container content">
-      <div class="mobile_navigation">
-        <ul>
-          <li>
-            <router-link to="/">
-              <div class="img">
-                <v-lazy-image
-                  :src="mobile_nav_home[0].imgSrc"
-                  :srcset="
-                    mobile_nav_home[0].imgSrc +
-                    ' 1x,' +
-                    mobile_nav_home[1].imgSrc +
-                    ' 2x,' +
-                    mobile_nav_home[2].imgSrc +
-                    ' 3x'
-                  "
-                />
-              </div>
-              <span>HOME</span>
-            </router-link>
-          </li>
-
-          <li>
-            <router-link to="/">
-              <div class="img">
-                <v-lazy-image
-                  :src="mobile_nav_reserve[0].imgSrc"
-                  :srcset="
-                    mobile_nav_reserve[0].imgSrc +
-                    ' 1x,' +
-                    mobile_nav_reserve[1].imgSrc +
-                    ' 2x,' +
-                    mobile_nav_reserve[2].imgSrc +
-                    ' 3x'
-                  "
-                />
-              </div>
-              <span>예약하기</span>
-            </router-link>
-          </li>
-
-          <li>
-            <router-link to="/">
-              <div class="img">
-                <v-lazy-image
-                  :src="mobile_nav_gift[0].imgSrc"
-                  :srcset="
-                    mobile_nav_gift[0].imgSrc +
-                    ' 1x,' +
-                    mobile_nav_gift[1].imgSrc +
-                    ' 2x,' +
-                    mobile_nav_gift[2].imgSrc +
-                    ' 3x'
-                  "
-                />
-              </div>
-              <span>선물세트</span>
-            </router-link>
-          </li>
-
-          <li>
-            <router-link to="/">
-              <div class="img">
-                <v-lazy-image
-                  :src="mobile_nav_store_search[0].imgSrc"
-                  :srcset="
-                    mobile_nav_store_search[0].imgSrc +
-                    ' 1x,' +
-                    mobile_nav_store_search[1].imgSrc +
-                    ' 2x,' +
-                    mobile_nav_store_search[2].imgSrc +
-                    ' 3x'
-                  "
-                />
-              </div>
-              <span>매장찾기</span>
-            </router-link>
-          </li>
-
-          <li>
-            <router-link to="/">
-              <div class="img">
-                <v-lazy-image
-                  :src="mobile_nav_insta[0].imgSrc"
-                  :srcset="
-                    mobile_nav_insta[0].imgSrc +
-                    ' 1x,' +
-                    mobile_nav_insta[1].imgSrc +
-                    ' 2x,' +
-                    mobile_nav_insta[2].imgSrc +
-                    ' 3x'
-                  "
-                />
-              </div>
-              <span>SNS</span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-
       <div class="card-list">
         <!-- 카드1 -->
         <div class="card">
@@ -275,7 +176,9 @@
           </div>
         </swiper-slide>
       </swiper>
-      <div class="control_wrap" v-on:click="playEvent">
+
+      <!--임시주석처리-->
+      <!-- <div class="control_wrap" v-on:click="playEvent">
         <div class="paly_btn">
           <img v-show="paly === true" :src="iconImg[1].imgSrc" />
           <img
@@ -287,7 +190,7 @@
         <div class="index_wrap">
           <span>1/10</span>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -318,31 +221,6 @@ export default {
         { imgSrc: require("../assets/icon/paly_btn.png") },
         { imgSrc: require("../assets/icon/pause_btn.png") },
       ],
-      mobile_nav_home: [
-        { imgSrc: require("../assets/icon/mobilenav_home.png") },
-        { imgSrc: require("../assets/icon/mobilenav_home@2x.png") },
-        { imgSrc: require("../assets/icon/mobilenav_home@3x.png") },
-      ],
-      mobile_nav_reserve: [
-        { imgSrc: require("../assets/icon/mobilenav_reserve.png") },
-        { imgSrc: require("../assets/icon/mobilenav_reserve@2x.png") },
-        { imgSrc: require("../assets/icon/mobilenav_reserve@3x.png") },
-      ],
-      mobile_nav_gift: [
-        { imgSrc: require("../assets/icon/mobilenav_gift.png") },
-        { imgSrc: require("../assets/icon/mobilenav_gift@2x.png") },
-        { imgSrc: require("../assets/icon/mobilenav_gift@3x.png") },
-      ],
-      mobile_nav_store_search: [
-        { imgSrc: require("../assets/icon/mobilenav_store_search.png") },
-        { imgSrc: require("../assets/icon/mobilenav_store_search@2x.png") },
-        { imgSrc: require("../assets/icon/mobilenav_store_search@3x.png") },
-      ],
-      mobile_nav_insta: [
-        { imgSrc: require("../assets/icon/mobilenav_insta.png") },
-        { imgSrc: require("../assets/icon/mobilenav_insta@2x.png") },
-        { imgSrc: require("../assets/icon/mobilenav_insta@3x.png") },
-      ],
       reservation_img: [
         { imgSrc: require("../assets/mainImage/reservation_img.png") },
         { imgSrc: require("../assets/mainImage/reservation_img@2x.png") },
@@ -361,13 +239,21 @@ export default {
       main_slide: [
         {
           id: 1,
+          title: "우다움 추석 선물세트",
+          sub_title: `소중한 분께 우다움+82 선물세트로 마음을 전하세요.
+                      우다움 선물세트 예약안내
+                      용산점 (02)792-1992 ㅣ 분당점(031)726-829`,
+          imgSrc: require("../assets/mainImage/main_slide_03.png"),
+        },
+        {
+          id: 2,
           title: "숙성투뿔한우 전문점",
           sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
               한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
           imgSrc: require("../assets/mainImage/main_slide_01.jpg"),
         },
         {
-          id: 2,
+          id: 3,
           title: "숙성투뿔한우 전문점",
           sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
               한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
@@ -444,35 +330,6 @@ export default {
 <style lang="scss">
 @import "@/scss/main.scss";
 
-.mobile_navigation {
-  width: 100%;
-  display: none;
-  align-items: flex-start;
-  justify-content: center;
-  ul {
-    > li {
-      display: inline-block;
-      margin-right: 8px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      > a {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        > .img {
-          margin-bottom: 4px;
-        }
-      }
-    }
-  }
-}
-
 .swiper-slide-duplicate {
   font-size: 18px;
   background: #fafaf6;
@@ -544,7 +401,7 @@ export default {
 
 .main_slide {
   width: 100%;
-  height: 1010px;
+  height: 100vh;
   margin-bottom: 80px;
 
   .main_top_swiper {
@@ -836,10 +693,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .mobile_navigation {
-    display: flex;
-    margin-bottom: 40px;
-  }
   .main_slide {
     margin-bottom: 15px;
   }
@@ -852,6 +705,12 @@ export default {
   }
   .insta_wrap > .instagram > div {
     width: 32.3334%;
+  }
+  .main_bot_swiper {
+    height: 210px;
+  }
+  .insta_wrap {
+    margin-bottom: 40px;
   }
 }
 @media (max-width: 650px) {

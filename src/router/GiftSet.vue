@@ -252,6 +252,27 @@
   justify-content: center;
   border: 1px solid #000000;
 }
+
+@media (max-width: 950px) {
+  .product_cnt {
+    grid-template-columns: 320px auto;
+    gap: 0 25px;
+
+    > .img {
+      height: 320px;
+    }
+  }
+  .product_cnt > .content > strong.price {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product_cnt {
+    grid-template-columns: auto;
+    gap: 0;
+  }
+}
 </style>
 
 <script>

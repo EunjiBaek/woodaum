@@ -174,12 +174,16 @@ button {
     align-items: center;
     justify-content: center;
     > strong {
+      display: block;
+      width: 100%;
       font-size: 64px;
       font-weight: 100;
       font-family: Montserrat, sans-serif;
       color: #ffffff;
       line-height: 1.2em;
+      text-align: center;
       margin-bottom: 30px;
+      padding: 0 20px;
     }
     > p {
       color: #ffffff;
@@ -209,6 +213,19 @@ select {
     width: 100%;
     padding: 0 25px;
     box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub_top {
+    height: auto;
+    background: none !important;
+    .sub_desc {
+      display: none;
+    }
+  }
+  .sub_content {
+    margin-top: 15px;
   }
 }
 </style>

@@ -1,5 +1,103 @@
 <template>
   <div>
+    <div class="mobile_navigation">
+      <ul>
+        <li>
+          <router-link to="/">
+            <div class="img">
+              <v-lazy-image
+                :src="mobile_nav_home[0].imgSrc"
+                :srcset="
+                  mobile_nav_home[0].imgSrc +
+                  ' 1x,' +
+                  mobile_nav_home[1].imgSrc +
+                  ' 2x,' +
+                  mobile_nav_home[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+            <span>HOME</span>
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/">
+            <div class="img">
+              <v-lazy-image
+                :src="mobile_nav_reserve[0].imgSrc"
+                :srcset="
+                  mobile_nav_reserve[0].imgSrc +
+                  ' 1x,' +
+                  mobile_nav_reserve[1].imgSrc +
+                  ' 2x,' +
+                  mobile_nav_reserve[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+            <span>예약하기</span>
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/">
+            <div class="img">
+              <v-lazy-image
+                :src="mobile_nav_gift[0].imgSrc"
+                :srcset="
+                  mobile_nav_gift[0].imgSrc +
+                  ' 1x,' +
+                  mobile_nav_gift[1].imgSrc +
+                  ' 2x,' +
+                  mobile_nav_gift[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+            <span>선물세트</span>
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/">
+            <div class="img">
+              <v-lazy-image
+                :src="mobile_nav_store_search[0].imgSrc"
+                :srcset="
+                  mobile_nav_store_search[0].imgSrc +
+                  ' 1x,' +
+                  mobile_nav_store_search[1].imgSrc +
+                  ' 2x,' +
+                  mobile_nav_store_search[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+            <span>매장찾기</span>
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/">
+            <div class="img">
+              <v-lazy-image
+                :src="mobile_nav_insta[0].imgSrc"
+                :srcset="
+                  mobile_nav_insta[0].imgSrc +
+                  ' 1x,' +
+                  mobile_nav_insta[1].imgSrc +
+                  ' 2x,' +
+                  mobile_nav_insta[2].imgSrc +
+                  ' 3x'
+                "
+              />
+            </div>
+            <span>SNS</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
     <div id="header">
       <div class="header container">
         <div class="hamburger" v-on:click="navOpen = true">
@@ -161,6 +259,31 @@ export default {
         { imgSrc: require("../../assets/Logo@2x.png") },
         { imgSrc: require("../../assets/Logo@3x.png") },
       ],
+      mobile_nav_home: [
+        { imgSrc: require("../../assets/icon/mobilenav_home.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_home@2x.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_home@3x.png") },
+      ],
+      mobile_nav_reserve: [
+        { imgSrc: require("../../assets/icon/mobilenav_reserve.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_reserve@2x.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_reserve@3x.png") },
+      ],
+      mobile_nav_gift: [
+        { imgSrc: require("../../assets/icon/mobilenav_gift.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_gift@2x.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_gift@3x.png") },
+      ],
+      mobile_nav_store_search: [
+        { imgSrc: require("../../assets/icon/mobilenav_store_search.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_store_search@2x.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_store_search@3x.png") },
+      ],
+      mobile_nav_insta: [
+        { imgSrc: require("../../assets/icon/mobilenav_insta.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_insta@2x.png") },
+        { imgSrc: require("../../assets/icon/mobilenav_insta@3x.png") },
+      ],
       active: false,
     };
   },
@@ -190,6 +313,41 @@ export default {
 //   width: 100%;
 //   height: 100%;
 // }
+.mobile_navigation {
+  width: 100%;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 600;
+  padding: 15px 0 45px 0;
+  ul {
+    > li {
+      display: inline-block;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      > a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        > .img {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
 
 #header {
   position: relative;
@@ -462,5 +620,11 @@ export default {
 .translateX-leave-to {
   transform: translateX(-280px);
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .mobile_navigation {
+    display: flex;
+  }
 }
 </style>

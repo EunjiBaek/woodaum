@@ -76,6 +76,8 @@ export default {
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 33px;
+      text-align: center;
+      word-break: keep-all;
     }
 
     > p.warnnig {
@@ -84,7 +86,24 @@ export default {
   }
 }
 .modal-container {
-  z-index: 1001;
-  background: rgba(0, 0, 0, 0.65);
+  z-index: 1001 !important;
+  background: rgba(0, 0, 0, 0.65) !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 680px) {
+  .modal-container {
+    padding: 0 20px;
+  }
+  .modal_wrap {
+    width: 100%;
+    > .cnt_wrap {
+      box-sizing: border-box;
+      padding: 0 20px;
+    }
+    > .img_wrap {
+      height: 400px;
+    }
+  }
 }
 </style>

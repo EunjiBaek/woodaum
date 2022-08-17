@@ -141,6 +141,31 @@
     }
   }
 }
+
+@media (max-width: 950px) {
+  .store_info_wrap > .box .img > img {
+    width: auto;
+    height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .store_info_wrap {
+    gap: 15px 0;
+    > .box {
+      width: 100%;
+    }
+  }
+  .store_info_wrap > .box .img {
+    height: 250px;
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .store_info_wrap > .box .content {
+    padding: 28px;
+  }
+}
 </style>
 
 <script>
