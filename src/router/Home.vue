@@ -237,21 +237,27 @@
           delay: 5000,
           disableOnInteraction: false,
         }"
+                :pagination="{
+          type: 'fraction',
+        }"
     -->
     <div class="bottom_swiper_wrap">
       <swiper
-        :navigation="true"
         :autoplay="{
           delay: 5000,
           disableOnInteraction: false,
         }"
+        :controller="{ control: controlledSwiper }"
+        :navigation="true"
         :modules="modules"
         :slides-per-view="1"
         :space-between="30"
         :loop="true"
         class="main_bot_swiper"
+        ref="main_bot_swiper"
+        @swiper="onSwiper"
+        @slideChangeTransitionEnd="slideChangeTransitionEnd"
       >
-        <!-- main_bot_slide -->
         <swiper-slide v-for="botslide in main_bot_slide" :key="botslide.id">
           <div class="container">
             <div class="box">
@@ -269,22 +275,49 @@
           </div>
         </swiper-slide>
       </swiper>
+      <div class="control_wrap" v-on:click="playEvent">
+        <div class="paly_btn">
+          <img v-show="paly === true" :src="iconImg[1].imgSrc" />
+          <img
+            v-show="paly === false"
+            :src="iconImg[0].imgSrc"
+            style="display: none"
+          />
+        </div>
+        <div class="index_wrap">
+          <span>1/10</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import VLazyImage from "v-lazy-image";
+import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation, Pagination, Autoplay, Parallax, EffectFade } from "swiper";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Parallax,
+  EffectFade,
+  Controller,
+} from "swiper";
 
 export default {
   name: "HomePage",
   data() {
     return {
+      paly: true,
+      swiperObj: null,
+      iconImg: [
+        { imgSrc: require("../assets/icon/paly_btn.png") },
+        { imgSrc: require("../assets/icon/pause_btn.png") },
+      ],
       mobile_nav_home: [
         { imgSrc: require("../assets/icon/mobilenav_home.png") },
         { imgSrc: require("../assets/icon/mobilenav_home@2x.png") },
@@ -366,9 +399,43 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  computed: {
+    swiper() {
+      return this.$refs.main_bot_slide;
+    },
+  },
+  methods: {
+    slideChangeTransitionEnd(index) {
+      // this.main_bot_slide.length
+      // console.log(index.realIndex, index);
+      if (this.paly === false) {
+        index.autopaly.paused = true;
+      }
+    },
+    playEvent: function () {
+      if (this.paly === true) {
+        this.paly = false;
+      } else {
+        this.paly = true;
+      }
+    },
+  },
   setup() {
+    const controlledSwiper = ref(null);
+    const setControlledSwiper = (swiper) => {
+      controlledSwiper.value = swiper;
+    };
     return {
-      modules: [Navigation, Pagination, Autoplay, Parallax, EffectFade],
+      controlledSwiper,
+      setControlledSwiper,
+      modules: [
+        Navigation,
+        Pagination,
+        Autoplay,
+        Parallax,
+        EffectFade,
+        Controller,
+      ],
     };
   },
 };
@@ -442,6 +509,13 @@ export default {
 }
 
 .main_bot_swiper {
+  .swiper-pagination {
+    color: #ffffff;
+    > span {
+      color: #ffffff;
+    }
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     height: 38px;
@@ -452,6 +526,15 @@ export default {
   .swiper-button-prev:after {
     font-size: 38px;
     font-weight: 600;
+  }
+}
+
+@media (max-width: 1300px) {
+  .main_bot_swiper {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
   }
 }
 </style>
@@ -621,9 +704,41 @@ export default {
     }
   }
 }
+
 .bottom_swiper_wrap {
+  position: relative;
   margin-bottom: 100px;
+  > .control_wrap {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    padding: 0 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    > div {
+      line-height: initial;
+      font-size: 0;
+    }
+
+    .paly_btn {
+      margin-right: 12px;
+      cursor: pointer;
+    }
+
+    .index_wrap {
+      span {
+        font-size: 12px;
+        color: #ffffff;
+      }
+    }
+  }
 }
+
 .main_bot_swiper {
   width: 100%;
   height: 560px;
@@ -694,6 +809,28 @@ export default {
     .main_top_swiper .swiper-slide > .text > h1 {
       font-size: 24px;
       margin-bottom: 35px;
+    }
+  }
+}
+
+@media (max-width: 965px) {
+  .main_bot_swiper .swiper-slide .container {
+    padding: 0;
+  }
+  .main_bot_swiper .swiper-slide .box {
+    position: relative;
+
+    .box_img {
+      width: 100%;
+    }
+    .box_cnt {
+      position: absolute;
+      left: 40px;
+      > h2,
+      span,
+      p {
+        color: #ffffff;
+      }
     }
   }
 }
