@@ -127,9 +127,9 @@
               <router-link to="/brandStory">BRAND STORY</router-link>
               <div class="sub-menu" v-if="actived === true">
                 <ul>
-                  <li><a href="#">우다움 이야기</a></li>
-                  <li><a href="#">한우 이야기</a></li>
-                  <li><a href="#">공간 이야기</a></li>
+                  <li><a href="/brandStory#section1">우다움 이야기</a></li>
+                  <li><a href="/brandStory#section2">한우 이야기</a></li>
+                  <li><a href="/brandStory#section3">공간 이야기</a></li>
                 </ul>
               </div>
             </li>
