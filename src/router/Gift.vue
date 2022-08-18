@@ -69,9 +69,9 @@
             </div>
           </div>
 
-          <div class="gift_wrap" v-show="currentTab == 1">
-            <div>
-              <img :src="require('../assets/package.png')" />
+          <div class="package_wrap" v-show="currentTab == 1">
+            <div class="img_wrap">
+              <img :src="require('../assets/package.jpg')" />
             </div>
           </div>
         </div>
@@ -82,6 +82,26 @@
 
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
+.gift_content {
+  padding: 0 !important;
+}
+
+.package_wrap {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  overflow: hidden;
+  > .img_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .tab_btn {
   width: 100%;
   padding-top: 40px;

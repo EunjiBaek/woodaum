@@ -193,8 +193,9 @@ button {
 }
 
 .sub_content {
-  margin-top: 60px;
-  margin-bottom: 100px;
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 100px;
 }
 
 select {
@@ -233,7 +234,7 @@ select {
     }
   }
   .sub_content {
-    margin-top: 15px;
+    padding-top: 15px;
   }
 }
 </style>
