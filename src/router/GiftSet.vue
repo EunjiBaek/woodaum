@@ -285,7 +285,7 @@ export default {
     },
   },
   created() {
-    this.index = this.$route.params.id;
+    this.index = this.$route.params.id - 1;
   },
   data() {
     return {
@@ -317,13 +317,13 @@ export default {
         },
         {
           id: 3,
-          name: "한우 스페셜 세트 C",
-          desc_01: "한우 등심 00kg + 한우 등심 00kg",
-          desc_02: "안심 보냉가방/박스 포장",
-          price: 200000,
+          name: "우다움 양념LA갈비 세트",
+          desc_01: "양념 LA갈비 1.2kg X 2pack",
+          desc_02: "스티로폼박스/아이스팩/부직포 가방",
+          price: 120000,
           imgSrc: require("../assets/gift/gift_03.png"),
           soldout: false,
-          pageDetail: "",
+          pageDetail: require("../assets/prodcutDetails/product_details_03.jpg"),
         },
         {
           id: 4,

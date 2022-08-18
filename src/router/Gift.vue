@@ -316,7 +316,7 @@ export default {
         {
           id: 1,
           name: "한우 스페셜 세트 A (3.1kg)",
-          desc_01: "꽃등심 900g, 등심 900g, 안심 500g, 불고기 800g",
+          desc_01: "꽃등심 900g, 등심 800g, 안심 500g, 불고기 800g",
           desc_02: "안심 보냉가방/박스 포장",
           price: 500000,
           imgSrc: require("../assets/gift/gift_01.png"),
@@ -333,10 +333,10 @@ export default {
         },
         {
           id: 3,
-          name: "한우 스페셜 세트 C",
-          desc_01: "한우 등심 00kg + 한우 등심 00kg",
-          desc_02: "안심 보냉가방/박스 포장",
-          price: 200000,
+          name: "우다움 양념LA갈비 세트",
+          desc_01: "양념 LA갈비 1.2kg X 2pack",
+          desc_02: "스티로폼박스/아이스팩/부직포 가방",
+          price: 120000,
           imgSrc: require("../assets/gift/gift_03.png"),
           soldout: false,
         },
