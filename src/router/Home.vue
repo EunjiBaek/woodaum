@@ -1,5 +1,5 @@
 <template>
-  <div class="top_pad">
+  <div>
     <div class="main_slide">
       <swiper
         :autoplay="{

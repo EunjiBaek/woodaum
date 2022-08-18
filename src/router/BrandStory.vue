@@ -1,5 +1,5 @@
 <template>
-  <div class="top_pad">
+  <div>
     <main id="brandstory">
       <!-- <modal-popup /> -->
       <section id="section1" class="content_item show">
