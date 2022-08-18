@@ -78,7 +78,7 @@ table {
 }
 
 body {
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 /* 폰트 스타일 초기화 */
@@ -195,7 +195,7 @@ button {
 .sub_content {
   position: relative;
   padding-top: 60px;
-  padding-bottom: 100px;
+  padding-bottom: 130px;
 }
 
 select {
@@ -224,7 +224,7 @@ select {
 @media (max-width: 768px) {
   .top_pad {
     padding-top: 80px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
   .sub_top {
     height: auto;

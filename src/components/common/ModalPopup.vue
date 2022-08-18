@@ -61,7 +61,7 @@ export default {
     margin-bottom: 28px;
 
     > img {
-      width: 100%;
+      height: 100%;
     }
   }
 
@@ -102,10 +102,15 @@ export default {
     width: 100%;
     > .cnt_wrap {
       box-sizing: border-box;
-      padding: 0 20px;
+      padding: 0 40px;
     }
     > .img_wrap {
       height: 400px;
+
+      // > img {
+      //   width: 100%;
+      //   height: auto;
+      // }
     }
   }
 }

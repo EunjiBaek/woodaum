@@ -91,7 +91,7 @@
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
 .product_desc_wrap {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 }
 
 .product_cnt {
@@ -272,6 +272,9 @@
   .product_cnt {
     grid-template-columns: auto;
     gap: 0;
+  }
+  .product_detail_img_wrap > .img_wrap {
+    margin-bottom: 50px;
   }
 }
 </style>
