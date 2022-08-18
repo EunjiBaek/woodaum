@@ -2,7 +2,7 @@
   <div class="top_pad">
     <main id="brandstory">
       <!-- <modal-popup /> -->
-      <section id="section1" class="content_item">
+      <section id="section1" class="content_item show">
         <div class="content">
           <h2>우다움 이야기</h2>
           <p class="sub-tit">‘숙성 투뿔 한우 전문점’</p>
@@ -121,7 +121,7 @@
     > .image {
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center top;
+      background-position: center 45%;
       background-attachment: fixed;
       width: 100%;
       height: 100%;
@@ -140,6 +140,9 @@
         color: white;
         font-size: 32px;
         margin-bottom: 24px;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 1.2s 0.3s cubic-bezier(0, 0.66, 0.38, 1.01);
       }
 
       > p {
@@ -149,10 +152,31 @@
         &.sub-tit {
           font-size: 24px;
           margin-bottom: 30px;
+          opacity: 0;
+          transform: translateY(100px);
+          transition: all 1.4s 0.5s cubic-bezier(0, 0.66, 0.38, 1.01);
         }
 
         &.content {
           font-size: 18px;
+          opacity: 0;
+          transform: translateY(100px);
+          transition: all 1.6s 0.7s cubic-bezier(0, 0.66, 0.38, 1.01);
+        }
+      }
+    }
+    &.show {
+      > .content {
+        > h2 {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        > p {
+          &.sub-tit,
+          &.content {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       }
     }
@@ -291,8 +315,26 @@ export default {
   },
   methods: {
     handleScroll() {
+      let scrollTop =
+        (document.documentElement.scrollTop ||
+          window.scrollY ||
+          window.pageYOffset) + window.innerHeight;
       let st = window.scrollY;
-      this.$refs.section1.style.backgroundPositionY = -(st / 10) + "px";
+      const items = document.querySelectorAll("#brandstory .content_item");
+      for (let i = 0; i < items.length; i++) {
+        if (scrollTop > items[0].offsetTop) {
+          this.$refs.section1.style.backgroundPositionY = -(st / 50) + "px";
+        } else if (scrollTop > items[1].offsetTop) {
+          this.$refs.section2.style.backgroundPositionY = -(st / 50) + "px";
+        } else if (scrollTop > items[2].offsetTop) {
+          this.$refs.section3.style.backgroundPositionY = -(st / 50) + "px";
+        }
+      }
+      document.querySelectorAll("#brandstory .content_item").forEach((item) => {
+        scrollTop > item.offsetTop
+          ? item.classList.add("show")
+          : item.classList.remove("show");
+      });
     },
     handleScroll_02() {
       let scrollTop =
@@ -307,17 +349,6 @@ export default {
             ? item.classList.add("show")
             : item.classList.remove("show");
         });
-      // const contentItem = document.querySelectorAll(
-      //   "#mobile_brandstory .content_item"
-      // );
-      // for (let i = 0; i < contentItem.length; i++) {
-      //   // contentItem[0].classList.add("show");
-      //   if (scrollTop > contentItem[1].offsetTop) {
-      //     contentItem[1].classList.add("show");
-      //   } else if (scrollTop > contentItem[2].offsetTop) {
-      //     contentItem[2].classList.add("show");
-      //   }
-      // }
     },
   },
 };
