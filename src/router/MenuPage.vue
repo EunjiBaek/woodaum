@@ -188,7 +188,7 @@
 
       > img {
         width: auto;
-        max-width: 100%;
+        height: 100%;
         transition: all 0.2s ease;
       }
     }
@@ -283,56 +283,56 @@ export default {
           id: 1,
           name: "스페셜",
           en_name: "Assorted Korean beef",
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/menu/menu-1.png"),
           special: false,
         },
         {
           id: 2,
           name: "꽃등심",
           en_name: "Aged Korean beef rib-eye Korean beef",
-          imgSrc: require("../assets/menu/menu-2.jpg"),
+          imgSrc: require("../assets/menu/menu-2.png"),
           special: false,
         },
         {
           id: 3,
           name: "등심",
           en_name: "Aged Korean beef rib-eye Korean beef",
-          imgSrc: require("../assets/menu/menu-3.jpg"),
+          imgSrc: require("../assets/menu/menu-3.png"),
           special: false,
         },
         {
           id: 4,
           name: "특안심",
           en_name: "Aged Korean beef sirloin ",
-          imgSrc: require("../assets/menu/menu-4.jpg"),
+          imgSrc: require("../assets/menu/menu-4.png"),
           special: false,
         },
         {
           id: 5,
           name: "살치살",
           en_name: "Aged Korean beef chuck flap tail",
-          imgSrc: require("../assets/menu/menu-5.jpg"),
+          imgSrc: require("../assets/menu/menu-5.png"),
           special: true,
         },
         {
           id: 6,
           name: "새우살",
           en_name: "Aged Korean beef rib-eye cap",
-          imgSrc: require("../assets/menu/menu-6.jpg"),
+          imgSrc: require("../assets/menu/menu-6.png"),
           special: true,
         },
         {
           id: 7,
           name: "안창살",
           en_name: "Aged Korean beef rib-eye cap",
-          imgSrc: require("../assets/menu/menu-7.jpg"),
+          imgSrc: require("../assets/menu/menu-7.png"),
           special: true,
         },
         {
           id: 8,
           name: "치마살",
           en_name: "Aged Korean beef thin flank meat",
-          imgSrc: require("../assets/menu/menu-8.jpg"),
+          imgSrc: require("../assets/menu/menu-8.png"),
           special: true,
         },
       ],
@@ -342,14 +342,14 @@ export default {
           name: "한우 로스편채",
           en_name:
             "Aged Korean Broiled sliced Korean beef with fresh vegetables & sauce chuck flap tail",
-          imgSrc: require("../assets/menu/menu-9.jpg"),
+          imgSrc: require("../assets/menu/menu-9.png"),
           special: false,
         },
         {
           id: 10,
           name: "한우 육회",
           en_name: "Aged Korean beef chuck flap tail",
-          imgSrc: require("../assets/menu/menu-10.jpg"),
+          imgSrc: require("../assets/menu/menu-10.png"),
           special: false,
         },
       ],

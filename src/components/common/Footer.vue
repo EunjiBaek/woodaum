@@ -46,4 +46,10 @@ export default {
     }
   }
 }
+
+@media (max-width: 768px) {
+  .footer {
+    display: none;
+  }
+}
 </style>

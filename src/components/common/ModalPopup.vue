@@ -1,7 +1,7 @@
 <template>
   <div class="modal_wrap">
-    <button class="close_btn" type="button">
-      <i class="fa fa-times" aria-hidden="true"></i>
+    <button class="close_btn" type="button" v-on:click="modalClose">
+      <img :src="require('../../assets/icon/close_btn.png')" />
     </button>
     <div class="img_wrap">
       <img :src="imgSrc" />
@@ -20,11 +20,18 @@
 </template>
 
 <script>
+import { closeModal } from "jenesius-vue-modal";
+
 export default {
   props: {
     name: String,
     en_name: String,
     imgSrc: String,
+  },
+  methods: {
+    modalClose: function () {
+      closeModal();
+    },
   },
 };
 </script>
@@ -41,11 +48,7 @@ export default {
     right: 14px;
     top: 14px;
     background: none;
-
-    > i {
-      font-size: 28px;
-      color: #ffffff;
-    }
+    cursor: pointer;
   }
 
   > .img_wrap {

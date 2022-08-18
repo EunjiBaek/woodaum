@@ -22,7 +22,10 @@
         </li>
 
         <li>
-          <router-link to="/">
+          <a
+            href="https://app.catchtable.co.kr/ct/search/total"
+            target="_blank"
+          >
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_reserve[0].imgSrc"
@@ -37,11 +40,11 @@
               />
             </div>
             <span>예약하기</span>
-          </router-link>
+          </a>
         </li>
 
         <li>
-          <router-link to="/">
+          <router-link to="/gift/giftset">
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_gift[0].imgSrc"
@@ -60,7 +63,7 @@
         </li>
 
         <li>
-          <router-link to="/">
+          <router-link to="/store">
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_store_search[0].imgSrc"
@@ -79,7 +82,7 @@
         </li>
 
         <li>
-          <router-link to="/">
+          <a href="https://www.instagram.com/woodaumplus82/" target="_blank">
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_insta[0].imgSrc"
@@ -94,7 +97,7 @@
               />
             </div>
             <span>SNS</span>
-          </router-link>
+          </a>
         </li>
       </ul>
     </div>
@@ -187,7 +190,11 @@
               </div>
             </li>
             <li>
-              <a href="#">RESERVATION</a>
+              <a
+                href="https://app.catchtable.co.kr/ct/search/total"
+                target="_blank"
+                >RESERVATION</a
+              >
               <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li><a href="#">매장 예약</a></li>
@@ -214,7 +221,7 @@
         <nav id="slide_menu" v-show="navOpen">
           <div class="slide_menu_top">
             <div class="close_btn" v-on:click="navOpen = false">
-              <i class="fas fa-times"></i>
+              <img :src="require('../../assets/icon/close_btn.png')" />
             </div>
             <div class="lang-list">
               <ul>
@@ -243,7 +250,11 @@
                 <router-link to="/store">STORE</router-link>
               </li>
               <li>
-                <router-link to="/">RESERVATION</router-link>
+                <a
+                  href="https://app.catchtable.co.kr/ct/search/total"
+                  target="_blank"
+                  >RESERVATION</a
+                >
               </li>
             </ul>
           </div>
@@ -333,10 +344,12 @@ export default {
 // }
 .mobile_navigation {
   width: 100%;
+  height: 145px;
   display: none;
   align-items: flex-start;
   justify-content: center;
   position: fixed;
+  box-sizing: border-box;
   bottom: 0;
   left: 0;
   right: 0;

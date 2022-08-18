@@ -223,6 +223,7 @@ select {
 @media (max-width: 768px) {
   .top_pad {
     padding-top: 80px;
+    padding-bottom: 100px;
   }
   .sub_top {
     height: auto;
