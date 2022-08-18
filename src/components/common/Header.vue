@@ -98,7 +98,7 @@
         </li>
       </ul>
     </div>
-    <div id="header">
+    <div id="header" v-on:mouseleave="leaveEvent">
       <div class="header container">
         <div class="hamburger" v-on:click="navOpen = true">
           <i class="fas fa-bars"></i>
@@ -205,7 +205,6 @@
       </div>
       <div
         v-on:mouseover="overEvent"
-        v-on:mouseleave="leaveEvent"
         v-if="actived === true"
         class="background"
       ></div>
@@ -309,7 +308,6 @@ export default {
   methods: {
     overEvent: function () {
       // document.querySelector(".background").style.dispaly = "block";
-      console.log(this.actived);
       this.actived = true;
       // let ob = evnet.currentTarget.getElementsByClassName("sub-menu")[0];
       // ob.classList.add("active");
@@ -436,6 +434,7 @@ export default {
           &:hover {
             > a {
               box-sizing: border-box;
+              overflow: hidden;
               border-bottom: 2px solid $secondary_color_01;
             }
           }
@@ -448,18 +447,20 @@ export default {
             line-height: 1.8em;
             box-sizing: border-box;
             color: #ffffff;
+            overflow: hidden;
+          }
+          &:hover {
+            .sub-menu {
+              top: 119px;
+            }
           }
 
           > .sub-menu {
             position: absolute;
-            top: 105px;
+            top: 120px;
             width: 100%;
             color: #ffffff;
             z-index: 550;
-
-            &.active {
-              display: block;
-            }
 
             > ul {
               font-size: 0;
@@ -468,6 +469,12 @@ export default {
                 align-items: center;
                 justify-content: center;
                 height: 28px;
+
+                &:hover {
+                  > a {
+                    text-decoration: underline;
+                  }
+                }
 
                 > a {
                   font-size: 14px;
