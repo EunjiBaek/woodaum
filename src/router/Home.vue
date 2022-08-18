@@ -2,6 +2,10 @@
   <div class="top_pad">
     <div class="main_slide">
       <swiper
+        :autoplay="{
+          delay: 6000,
+          disableOnInteraction: false,
+        }"
         :modules="modules"
         :slides-per-view="1"
         :loop="true"
@@ -49,6 +53,9 @@
                 "
               />
             </div>
+            <div class="img">
+              <img :src="require('../assets/mainImage/main_reservation.png')" />
+            </div>
           </router-link>
         </div>
         <!-- //카드1 -->
@@ -72,6 +79,9 @@
                   ' 3x'
                 "
               />
+            </div>
+            <div class="img">
+              <img :src="require('../assets/mainImage/main_gift.png')" />
             </div>
           </router-link>
         </div>
@@ -97,6 +107,9 @@
                 "
               />
             </div>
+            <div class="img">
+              <img :src="require('../assets/mainImage/main_search.png')" />
+            </div>
           </router-link>
         </div>
         <!-- //카드3 -->
@@ -104,7 +117,15 @@
 
       <div class="video_wrap">
         <div class="video_cnt">
-          <video></video>
+          <iframe
+            width="100%"
+            height="385px"
+            src="https://www.youtube.com/embed/oknrs7qFI10"
+            controls
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
 
         <div class="video_desc">
@@ -122,12 +143,19 @@
           <h2>WOODAUM INSTAGRAM</h2>
           <span></span>
         </div>
+
+        <!-- iframeList -->
         <div class="instagram">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div v-for="insta in iframeList" :key="insta.id">
+            <iframe
+              :src="insta.src"
+              frameborder="0"
+              width="100%"
+              height="393px"
+              scrolling="no"
+              allowtransparency="true"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -217,6 +245,40 @@ export default {
     return {
       paly: true,
       swiperObj: null,
+      iframeList: [
+        {
+          id: 1,
+          src: "https://www.instagram.com/p/CYP5GvKBRiG/embed",
+        },
+        {
+          id: 2,
+          src: "https://www.instagram.com/p/CQFpcAJjl9M/embed",
+        },
+        {
+          id: 3,
+          src: "https://www.instagram.com/p/CP7E-7KD---/embed",
+        },
+        {
+          id: 4,
+          src: "https://www.instagram.com/p/CPzvidljPA4/embed",
+        },
+        {
+          id: 5,
+          src: "https://www.instagram.com/p/CPmttTQjr-U/embed",
+        },
+        {
+          id: 6,
+          src: "https://www.instagram.com/p/CPU5C8lD2em/embed",
+        },
+        {
+          id: 7,
+          src: "https://www.instagram.com/p/CPFTjTyj7bX/embed",
+        },
+        {
+          id: 8,
+          src: "https://www.instagram.com/p/COj6TA-hr2G/embed",
+        },
+      ],
       iconImg: [
         { imgSrc: require("../assets/icon/paly_btn.png") },
         { imgSrc: require("../assets/icon/pause_btn.png") },
@@ -243,7 +305,7 @@ export default {
           sub_title: `소중한 분께 우다움+82 선물세트로 마음을 전하세요.
                       우다움 선물세트 예약안내
                       용산점 (02)792-1992 ㅣ 분당점(031)726-829`,
-          imgSrc: require("../assets/mainImage/main_slide_03.png"),
+          imgSrc: require("../assets/mainImage/main_slide_03.jpg"),
         },
         {
           id: 2,
@@ -284,6 +346,11 @@ export default {
     VLazyImage,
     Swiper,
     SwiperSlide,
+  },
+  created() {
+    // if (document.domain.toString().indexOf("www.instagram.com") != -1) {
+    //   document.domain = "www.instagram.com";
+    // }
   },
   computed: {
     swiper() {
@@ -477,7 +544,21 @@ export default {
     width: 33.3334%;
     height: 130px;
     box-sizing: border-box;
-    background-color: blue;
+    overflow: hidden;
+
+    .img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+
+      > img {
+        width: 100%;
+      }
+    }
 
     > a {
       display: block;
@@ -487,6 +568,8 @@ export default {
       padding: 24px;
     }
     .cnt {
+      position: relative;
+      z-index: 11;
       > h2 {
         color: #ffffff;
         line-height: 1.2em;
@@ -498,6 +581,7 @@ export default {
       }
     }
     .icon {
+      z-index: 11;
       position: absolute;
       right: 24px;
       bottom: 24px;
@@ -514,7 +598,6 @@ export default {
   > .video_cnt {
     width: 65%;
     height: 385px;
-    background-color: #000000;
   }
   > .video_desc {
     width: 35%;
@@ -548,6 +631,11 @@ export default {
       text-align: center;
     }
   }
+
+  .Header {
+    display: none !important;
+  }
+
   > .instagram {
     display: flex;
     flex-wrap: wrap;
@@ -560,6 +648,13 @@ export default {
       width: 24.25%;
       box-sizing: border-box;
       background-color: grey;
+
+      > iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
       &::after {
         content: "";
@@ -676,6 +771,18 @@ export default {
       margin-bottom: 35px;
     }
   }
+  .insta_wrap > .instagram > div {
+    width: 32.6667%;
+    > iframe {
+      height: 470px;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .insta_wrap {
+    display: none;
+  }
 }
 
 @media (max-width: 965px) {
@@ -702,10 +809,33 @@ export default {
 
 @media (max-width: 768px) {
   .main_slide {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
-  .card-list,
+  .main_bot_swiper .swiper-slide .box > .box_cnt > p {
+    display: none;
+  }
   .video_wrap {
+    flex-direction: column;
+    gap: 15px 0;
+    margin-bottom: 40px;
+    > .video_cnt {
+      width: 100%;
+      height: 250px;
+
+      > iframe {
+        height: 250px;
+      }
+    }
+
+    > .video_desc {
+      width: 100%;
+
+      > p {
+        font-size: 16px;
+      }
+    }
+  }
+  .card-list {
     display: none;
   }
   .insta_wrap > .instagram {
