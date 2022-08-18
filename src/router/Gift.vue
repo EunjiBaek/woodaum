@@ -70,8 +70,8 @@
           </div>
 
           <div class="package_wrap" v-show="currentTab == 1">
-            <div class="img_wrap">
-              <img :src="require('../assets/package.jpg')" />
+            <div>
+              <p>준비중입니다.</p>
             </div>
           </div>
         </div>
@@ -89,16 +89,10 @@
 .package_wrap {
   position: relative;
   width: 100%;
-  height: 1000px;
-  overflow: hidden;
-  > .img_wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  > div {
+    width: 100%;
+    height: 500px;
   }
 }
 
