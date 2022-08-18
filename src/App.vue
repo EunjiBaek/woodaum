@@ -208,6 +208,10 @@ select {
   background-repeat: no-repeat;
 }
 
+.top_pad {
+  padding-top: 100px;
+}
+
 @media (max-width: 1250px) {
   .container {
     width: 100%;
@@ -217,6 +221,9 @@ select {
 }
 
 @media (max-width: 768px) {
+  .top_pad {
+    padding-top: 80px;
+  }
   .sub_top {
     height: auto;
     background: none !important;

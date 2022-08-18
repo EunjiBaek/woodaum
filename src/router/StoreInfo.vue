@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="top_pad">
     <div class="sub_top" :style="subtop_img">
       <div class="sub_desc">
         <strong>WOODAUM+82 Store</strong>

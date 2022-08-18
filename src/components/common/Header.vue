@@ -224,19 +224,24 @@
           <div class="slide_menu_bot">
             <ul>
               <li>
-                <router-link to="/">BRAND STORY</router-link>
+                <router-link to="/brandStory">BRAND STORY</router-link>
               </li>
               <li>
-                <router-link to="/">MENU</router-link>
+                <router-link
+                  :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+                  >MENU</router-link
+                >
               </li>
               <li>
-                <router-link to="/">GIFT</router-link>
+                <router-link :to="{ name: 'Gift', params: { name: 'giftset' } }"
+                  >GIFT</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/store">STORE</router-link>
               </li>
               <li>
                 <router-link to="/">RESERVATION</router-link>
-              </li>
-              <li>
-                <router-link to="/">STORE</router-link>
               </li>
             </ul>
           </div>
@@ -290,6 +295,12 @@ export default {
   components: {
     VLazyImage,
   },
+  created() {
+    window.addEventListener("beforeunload", this.refreshAll);
+  },
+  destroyed() {
+    window.removeEventListener("beforeunload", this.refreshAll);
+  },
   methods: {
     overEvent: function (evnet) {
       let ob = evnet.currentTarget.getElementsByClassName("sub-menu")[0];
@@ -299,6 +310,9 @@ export default {
       evnet.currentTarget
         .getElementsByClassName("sub-menu")[0]
         .classList.remove("active");
+    },
+    refreshAll() {
+      this.navOpen = false;
     },
   },
 };
@@ -350,9 +364,14 @@ export default {
 }
 
 #header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: #272727;
   height: 100px;
+  z-index: 700;
   .header {
     height: inherit;
     display: flex;
@@ -587,7 +606,7 @@ export default {
   width: 280px;
   height: 100%;
   background-color: #272727;
-  z-index: 600;
+  z-index: 710;
   transition: 0.2s ease;
 }
 
@@ -623,6 +642,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  #header {
+    height: 80px;
+  }
   .mobile_navigation {
     display: flex;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="top_pad">
     <div class="main_slide">
       <swiper
         :modules="modules"
@@ -398,6 +398,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
+
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 500;
+}
 
 .main_slide {
   width: 100%;
