@@ -34,6 +34,9 @@
               :key="menu.id"
               @click="modalOpen(menu.id)"
             >
+              <div v-if="menu.special === true" class="special_badge">
+                Special Part
+              </div>
               <div class="img">
                 <img :src="menu.imgSrc" alt="" />
               </div>
@@ -45,7 +48,25 @@
           </div>
           <!--//메뉴-->
 
-          <div v-show="currentTab == 1">2</div>
+          <div class="menu_wrap" v-show="currentTab == 1">
+            <div
+              class="menu_box"
+              v-for="menu in menuDetails_02"
+              :key="menu.id"
+              @click="modalOpen_02(menu.id)"
+            >
+              <div v-if="menu.special === true" class="special_badge">
+                Special Part
+              </div>
+              <div class="img">
+                <img :src="menu.imgSrc" alt="" />
+              </div>
+              <div class="content">
+                <span>{{ menu.name }}</span>
+                <p>{{ menu.en_name }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -121,11 +142,24 @@
   > .menu_box {
     position: relative;
     display: inline-block;
-    overflow: hidden;
     cursor: pointer;
     width: 32.1334%;
     box-sizing: border-box;
     transition: all 0.2s ease;
+
+    > .special_badge {
+      position: absolute;
+      top: 12px;
+      left: -5px;
+      background-color: #a8854e;
+      z-index: 100;
+      color: #ffffff;
+      height: 20px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     &:hover {
       > .img > img {
@@ -150,6 +184,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
 
       > img {
         width: auto;
@@ -227,11 +262,19 @@ export default {
         imgSrc: menu.imgSrc,
       });
     },
+    modalOpen_02: function (id) {
+      let menu = this.menuDetails_02.find((v) => v.id == id);
+      openModal(ModalPopup, {
+        name: menu.name,
+        en_name: menu.en_name,
+        imgSrc: menu.imgSrc,
+      });
+    },
   },
   data() {
     return {
       subtop_img: {
-        backgroundImage: `url(${require("../assets/brandstory/wodawum02.jpg")})`,
+        backgroundImage: `url(${require("../assets/subtopImage/subtop_menu.png")})`,
       },
       currentTab: 0, // 기본 currentTab 값 지정
       tabs: ["구이류", "일품요리"],
@@ -241,61 +284,73 @@ export default {
           name: "스페셜",
           en_name: "Assorted Korean beef",
           imgSrc: require("../assets/menu/menu-1.jpg"),
+          special: false,
         },
         {
           id: 2,
           name: "꽃등심",
           en_name: "Aged Korean beef rib-eye Korean beef",
           imgSrc: require("../assets/menu/menu-2.jpg"),
+          special: false,
         },
         {
           id: 3,
           name: "등심",
           en_name: "Aged Korean beef rib-eye Korean beef",
           imgSrc: require("../assets/menu/menu-3.jpg"),
+          special: false,
         },
         {
           id: 4,
           name: "특안심",
           en_name: "Aged Korean beef sirloin ",
           imgSrc: require("../assets/menu/menu-4.jpg"),
+          special: false,
         },
         {
           id: 5,
           name: "살치살",
           en_name: "Aged Korean beef chuck flap tail",
           imgSrc: require("../assets/menu/menu-5.jpg"),
+          special: true,
         },
         {
           id: 6,
           name: "새우살",
           en_name: "Aged Korean beef rib-eye cap",
           imgSrc: require("../assets/menu/menu-6.jpg"),
+          special: true,
         },
         {
           id: 7,
           name: "안창살",
           en_name: "Aged Korean beef rib-eye cap",
           imgSrc: require("../assets/menu/menu-7.jpg"),
+          special: true,
         },
         {
           id: 8,
           name: "치마살",
           en_name: "Aged Korean beef thin flank meat",
           imgSrc: require("../assets/menu/menu-8.jpg"),
+          special: true,
         },
+      ],
+      menuDetails_02: [
         {
           id: 9,
           name: "한우 로스편채",
           en_name:
             "Aged Korean Broiled sliced Korean beef with fresh vegetables & sauce chuck flap tail",
           imgSrc: require("../assets/menu/menu-9.jpg"),
+          special: false,
         },
         {
           id: 10,
           name: "한우 육회",
           en_name: "Aged Korean beef chuck flap tail",
           imgSrc: require("../assets/menu/menu-10.jpg"),
+          special: false,
         },
       ],
     };

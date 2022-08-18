@@ -69,7 +69,11 @@
             </div>
           </div>
 
-          <div class="gift_wrap" v-show="currentTab == 1"></div>
+          <div class="gift_wrap" v-show="currentTab == 1">
+            <div>
+              <img :src="require('../assets/package.png')" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -304,7 +308,7 @@ export default {
     return {
       sortOrder: "popularSort",
       subtop_img: {
-        backgroundImage: `url(${require("../assets/brandstory/wodawum02.jpg")})`,
+        backgroundImage: `url(${require("../assets/subtopImage/subtop_gift.png")})`,
       },
       currentTab: 0, // 기본 currentTab 값 지정
       tabs: ["선물세트", "포장안내"],
@@ -315,7 +319,7 @@ export default {
           desc_01: "꽃등심 900g, 등심 900g, 안심 500g, 불고기 800g",
           desc_02: "안심 보냉가방/박스 포장",
           price: 500000,
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/gift/gift_01.png"),
           soldout: true,
         },
         {
@@ -324,7 +328,7 @@ export default {
           desc_01: "등심 600g, 안심 600g, 불고기 500g",
           desc_02: "안심 보냉가방/박스 포장",
           price: 300000,
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/gift/gift_02.png"),
           soldout: false,
         },
         {
@@ -333,7 +337,7 @@ export default {
           desc_01: "한우 등심 00kg + 한우 등심 00kg",
           desc_02: "안심 보냉가방/박스 포장",
           price: 200000,
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/gift/gift_03.png"),
           soldout: false,
         },
         {
@@ -342,7 +346,7 @@ export default {
           desc_01: "꽃등심 1kg",
           desc_02: "안심 보냉박스 포장",
           price: 250000,
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/gift/gift_04.png"),
           soldout: false,
         },
         {
@@ -351,7 +355,7 @@ export default {
           desc_01: "안심 1kg",
           desc_02: "안심 보냉박스 포장",
           price: 240000,
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/gift/gift_05.png"),
           soldout: false,
         },
         {
@@ -360,7 +364,7 @@ export default {
           desc_01: "등심 1kg",
           desc_02: "안심 보냉박스 포장",
           price: 230000,
-          imgSrc: require("../assets/menu/menu-1.jpg"),
+          imgSrc: require("../assets/gift/gift_06.png"),
           soldout: false,
         },
       ],

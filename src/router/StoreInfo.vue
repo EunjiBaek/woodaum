@@ -173,7 +173,7 @@ export default {
   data() {
     return {
       subtop_img: {
-        backgroundImage: `url(${require("../assets/brandstory/wodawum02.jpg")})`,
+        backgroundImage: `url(${require("../assets/subtopImage/subtop_store.png")})`,
       },
       stores: [
         {
@@ -189,20 +189,6 @@ export default {
           address: "경기도 성남시 분당구 정자일로 156번길 6, 뉴본타워 2F",
           number: "031-726-8292",
           imgSrc: require("../assets/store/store-2.jpg"),
-        },
-        {
-          id: 3,
-          name: "용산 2호점",
-          address: "서울시 용산구 ",
-          number: "02-000-0000",
-          imgSrc: "",
-        },
-        {
-          id: 4,
-          name: "분당 오마카세점",
-          address: "경기도 성남시 분당구 정자일로 156번길 6, 뉴본타워 2F ",
-          number: "031-726-8292",
-          imgSrc: "",
         },
       ],
     };

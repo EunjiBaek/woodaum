@@ -118,14 +118,11 @@
             />
           </router-link>
         </div>
-        <div class="header-slide-menu">
+        <div class="header-slide-menu" v-on:mouseover="overEvent">
           <ul>
-            <li
-              v-on:mouseover="overEvent($event)"
-              v-on:mouseleave="leaveEvent($event)"
-            >
+            <li>
               <router-link to="/brandStory">BRAND STORY</router-link>
-              <div class="sub-menu">
+              <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li><a href="#">우다움 이야기</a></li>
                   <li><a href="#">한우 이야기</a></li>
@@ -133,11 +130,11 @@
                 </ul>
               </div>
             </li>
-            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+            <li>
               <router-link :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
                 >MENU</router-link
               >
-              <div class="sub-menu">
+              <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li>
                     <router-link
@@ -160,11 +157,11 @@
                 </ul>
               </div>
             </li>
-            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+            <li>
               <router-link :to="{ name: 'Gift', params: { name: 'giftset' } }"
                 >GIFT</router-link
               >
-              <div class="sub-menu">
+              <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li>
                     <router-link
@@ -181,17 +178,17 @@
                 </ul>
               </div>
             </li>
-            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+            <li>
               <router-link to="/store">STORE</router-link>
-              <div class="sub-menu">
+              <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li><router-link to="/store">지점 안내</router-link></li>
                 </ul>
               </div>
             </li>
-            <li v-on:mouseover="overEvent($event)" v-on:mouseleave="leaveEvent">
+            <li>
               <a href="#">RESERVATION</a>
-              <div class="sub-menu">
+              <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li><a href="#">매장 예약</a></li>
                 </ul>
@@ -206,6 +203,12 @@
           </ul>
         </div>
       </div>
+      <div
+        v-on:mouseover="overEvent"
+        v-on:mouseleave="leaveEvent"
+        v-if="actived === true"
+        class="background"
+      ></div>
     </div>
     <div class="slide_wrap">
       <transition name="translateX">
@@ -259,6 +262,7 @@ export default {
   data() {
     return {
       navOpen: false,
+      actived: false,
       logoImage: [
         { imgSrc: require("../../assets/logo.png") },
         { imgSrc: require("../../assets/Logo@2x.png") },
@@ -303,14 +307,18 @@ export default {
     },
   },
   methods: {
-    overEvent: function (evnet) {
-      let ob = evnet.currentTarget.getElementsByClassName("sub-menu")[0];
-      ob.classList.add("active");
+    overEvent: function () {
+      // document.querySelector(".background").style.dispaly = "block";
+      console.log(this.actived);
+      this.actived = true;
+      // let ob = evnet.currentTarget.getElementsByClassName("sub-menu")[0];
+      // ob.classList.add("active");
     },
-    leaveEvent: function (evnet) {
-      evnet.currentTarget
-        .getElementsByClassName("sub-menu")[0]
-        .classList.remove("active");
+    leaveEvent: function () {
+      this.actived = false;
+      // evnet.currentTarget
+      //   .getElementsByClassName("sub-menu")[0]
+      //   .classList.remove("active");
     },
   },
 };
@@ -370,6 +378,15 @@ export default {
   background-color: #272727;
   height: 100px;
   z-index: 700;
+
+  .background {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 128px;
+    background-color: rgba($color: $basic_color_01, $alpha: 0.6);
+  }
   .header {
     height: inherit;
     display: flex;
@@ -433,19 +450,10 @@ export default {
             color: #ffffff;
           }
 
-          // &:first-child {
-          //   .sub-menu {
-          //     display: block;
-          //   }
-          // }
-
           > .sub-menu {
-            display: none;
             position: absolute;
-            top: 99px;
+            top: 105px;
             width: 100%;
-            padding: 13px 0;
-            background-color: rgba($color: $basic_color_01, $alpha: 0.6);
             color: #ffffff;
             z-index: 550;
 
