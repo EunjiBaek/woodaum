@@ -672,7 +672,7 @@ export default {
 
 .bottom_swiper_wrap {
   position: relative;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
   > .control_wrap {
     position: absolute;
     top: 25px;
@@ -813,6 +813,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .bottom_swiper_wrap {
+    padding-bottom: 180px;
+  }
   .main_slide {
     margin-bottom: 25px;
   }

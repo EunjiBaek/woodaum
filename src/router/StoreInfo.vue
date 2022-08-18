@@ -26,8 +26,12 @@
               <p>{{ store.address }}</p>
               <strong>{{ store.number }}</strong>
               <div class="btn_wrap">
-                <button type="button" class="view">View</button>
-                <button type="button" class="reserve">예약하기</button>
+                <button type="button" class="view">
+                  <a :href="store.viewSrc">View</a>
+                </button>
+                <button type="button" class="reserve" target="_blank">
+                  <a :href="store.reserve">예약하기</a>
+                </button>
               </div>
             </div>
           </div>
@@ -116,24 +120,41 @@
           box-sizing: border-box;
           overflow: hidden;
 
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+          }
+
           &.view {
             background-color: #fff;
             border: 1px solid $secondary_color_01;
-            color: $secondary_color_01;
+
+            > a {
+              color: $secondary_color_01;
+            }
 
             &:hover {
               background-color: $secondary_color_01;
-              color: #ffffff;
+              a {
+                color: #ffffff;
+              }
             }
           }
 
           &.reserve {
             background-color: #fff;
             border: 1px solid #000000;
-            color: #000000;
+            a {
+              color: #000000;
+            }
             &:hover {
               background-color: #000000;
-              color: #ffffff;
+              a {
+                color: #ffffff;
+              }
             }
           }
         }
@@ -182,6 +203,8 @@ export default {
           address: "서울시 용산구 한강대로 40길 26 1층",
           number: "02-792-1992",
           imgSrc: require("../assets/store/store-1.jpg"),
+          reserve: "https://app.catchtable.co.kr/ct/search/total",
+          viewSrc: "https://test.ducon.co.kr/en/tour/7ntbh52wn",
         },
         {
           id: 2,
@@ -189,6 +212,8 @@ export default {
           address: "경기도 성남시 분당구 정자일로 156번길 6, 뉴본타워 2F",
           number: "031-726-8292",
           imgSrc: require("../assets/store/store-2.jpg"),
+          reserve: "https://app.catchtable.co.kr/ct/search/total",
+          viewSrc: "https://test.ducon.co.kr/en/tour/7ntbh52wn",
         },
       ],
     };

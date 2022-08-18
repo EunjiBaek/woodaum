@@ -197,7 +197,13 @@
               >
               <div class="sub-menu" v-if="actived === true">
                 <ul>
-                  <li><a href="#">매장 예약</a></li>
+                  <li>
+                    <a
+                      href="https://app.catchtable.co.kr/ct/search/total"
+                      target="_blank"
+                      >매장 예약</a
+                    >
+                  </li>
                 </ul>
               </div>
             </li>

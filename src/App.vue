@@ -97,7 +97,7 @@ ol {
 /* 제목 태그 초기화 */
 h1 {
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700;
 }
 h2 {
   font-size: 24px;
