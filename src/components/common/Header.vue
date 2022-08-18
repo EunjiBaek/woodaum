@@ -295,11 +295,12 @@ export default {
   components: {
     VLazyImage,
   },
-  created() {
-    window.addEventListener("beforeunload", this.refreshAll);
-  },
-  destroyed() {
-    window.removeEventListener("beforeunload", this.refreshAll);
+  watch: {
+    $route(to, from) {
+      if (to.path != from.path) {
+        this.navOpen = false;
+      }
+    },
   },
   methods: {
     overEvent: function (evnet) {
@@ -310,9 +311,6 @@ export default {
       evnet.currentTarget
         .getElementsByClassName("sub-menu")[0]
         .classList.remove("active");
-    },
-    refreshAll() {
-      this.navOpen = false;
     },
   },
 };
