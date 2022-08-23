@@ -306,14 +306,15 @@ export default {
       main_slide: [
         {
           id: 1,
-          title: this.$t("cancel"),
+          title: "숙성 1++ 한우 전문점",
+          // title: this.$t("cancel"),
           sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
               한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
           imgSrc: require("../assets/mainImage/main_slide_01.jpg"),
         },
         {
           id: 2,
-          title: "우다움 추석 선물세트",
+          title: "선물세트 예약안내",
           sub_title: `소중한 분께 우다움+82 선물세트로 마음을 전하세요.
                       우다움 선물세트 예약안내
                       용산점 (02)792-1992 ㅣ 분당점(031)726-829`,
