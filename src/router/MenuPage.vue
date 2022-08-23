@@ -237,6 +237,7 @@
 
 <script>
 import { openModal } from "jenesius-vue-modal";
+import LazyImage from "@/components/LazyImage.vue";
 import ModalPopup from "@/components/common/ModalPopup.vue";
 
 export default {
@@ -246,6 +247,9 @@ export default {
       type: String,
     },
   },
+  // components: {
+  //   LazyImage,
+  // },
   //   setup() {
   //     openModal(ModalPopup, { title: "hello" });
   //   },

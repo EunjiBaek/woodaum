@@ -51,6 +51,9 @@ const router = createRouter({
   scrollBehavior() {
     return { top: 0 };
   },
+  mounted() {
+    if (localStorage.currentlang) this.currentlang = localStorage.currentlang;
+  },
 });
 
 export default router;

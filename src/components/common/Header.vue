@@ -211,8 +211,9 @@
         </div>
         <div class="lang-list">
           <ul>
-            <li class="on"><a href="#">KOR</a></li>
-            <li><a href="#">EN</a></li>
+            <!-- $i18n.locale = 'en' -->
+            <li><a href="#" v-on:click="choiceLang('ko')">ko</a></li>
+            <li><a href="#" v-on:click="choiceLang('en')">en</a></li>
           </ul>
         </div>
       </div>
@@ -272,11 +273,23 @@
 
 <script>
 import VLazyImage from "v-lazy-image";
+import { i18n } from "@/locales/i18n";
 
 export default {
   name: "Header",
   data() {
     return {
+      langs: [
+        {
+          id: "ko",
+          val: "ko",
+        },
+        {
+          id: "en",
+          val: "en",
+        },
+      ],
+      currentLang: this.$i18n.locale,
       navOpen: false,
       actived: false,
       logoImage: [
@@ -315,25 +328,32 @@ export default {
   components: {
     VLazyImage,
   },
+  mounted() {
+    if (localStorage.currentlang) this.currentlang = localStorage.currentlang;
+  },
   watch: {
     $route(to, from) {
       if (to.path != from.path) {
         this.navOpen = false;
       }
     },
+    currentlang(newLang) {
+      localStorage.currentlang = newLang;
+    },
   },
   methods: {
+    choiceLang: function (lang) {
+      if (lang === this.currentLang) return;
+      this.currentLang = lang;
+      localStorage.setItem("currentlang", this.currentLang);
+      window.location.reload();
+    },
     overEvent: function () {
       // document.querySelector(".background").style.dispaly = "block";
       this.actived = true;
-      // let ob = evnet.currentTarget.getElementsByClassName("sub-menu")[0];
-      // ob.classList.add("active");
     },
     leaveEvent: function () {
       this.actived = false;
-      // evnet.currentTarget
-      //   .getElementsByClassName("sub-menu")[0]
-      //   .classList.remove("active");
     },
   },
 };

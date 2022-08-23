@@ -20,5 +20,7 @@ module.exports = {
         ignores: ["Home", "Footer", "Header", "Gift"],
       },
     ],
+    "no-unused-vars": "off",
+    "no-undef": "off",
   },
 };

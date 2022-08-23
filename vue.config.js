@@ -1,16 +1,10 @@
-const { defineConfig } = require("@vue/cli-service");
-module.exports = defineConfig({
-  transpileDependencies: true,
+const TerserPlugin = require("terser-webpack-plugin");
 
-  pluginOptions: {
-    i18n: {
-      locale: "en",
-      fallbackLocale: "en",
-      localeDir: "locales",
-      enableLegacy: false,
-      runtimeOnly: false,
-      compositionOnly: false,
-      fullInstall: true,
-    },
+module.exports = {
+  configureWebpack: (config) => {
+    config.optimization = {
+      minimize: true,
+      minimizer: [new TerserPlugin()],
+    };
   },
-});
+};

@@ -289,6 +289,7 @@
 
 <script>
 // import ModalPopup from "@/components/common/ModalPopup.vue";
+import LazyImage from "@/components/LazyImage.vue";
 
 export default {
   name: "BrandStory",
@@ -305,6 +306,9 @@ export default {
       },
     };
   },
+  // components: {
+  //   LazyImage,
+  // },
   created() {
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("scroll", this.handleScroll_02);

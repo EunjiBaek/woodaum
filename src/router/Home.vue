@@ -233,7 +233,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import i18n from "@/i18n";
+import { i18n } from "@/locales/i18n";
 
 import {
   Navigation,
@@ -306,7 +306,7 @@ export default {
       main_slide: [
         {
           id: 1,
-          title: "숙성투뿔한우 전문점",
+          title: this.$t("cancel"),
           sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
               한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
           imgSrc: require("../assets/mainImage/main_slide_01.jpg"),
