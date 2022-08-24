@@ -147,12 +147,6 @@
                   </li>
                   <li>
                     <router-link
-                      :to="{ name: 'MenuPage', params: { name: 'menu2' } }"
-                      >특수 부위</router-link
-                    >
-                  </li>
-                  <li>
-                    <router-link
                       :to="{ name: 'MenuPage', params: { name: 'menu3' } }"
                       >일품 요리</router-link
                     >
@@ -212,8 +206,8 @@
         <div class="lang-list">
           <ul>
             <!-- $i18n.locale = 'en' -->
-            <li><a href="#" v-on:click="choiceLang('ko')">ko</a></li>
-            <li><a href="#" v-on:click="choiceLang('en')">en</a></li>
+            <li><a href="#" v-on:click="choiceLang('ko')">KOR</a></li>
+            <li><a href="#" v-on:click="choiceLang('en')">EN</a></li>
           </ul>
         </div>
       </div>

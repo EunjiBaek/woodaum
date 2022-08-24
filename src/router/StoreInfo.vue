@@ -199,8 +199,8 @@ export default {
       stores: [
         {
           id: 1,
-          name: "용산 1호점",
-          address: "서울시 용산구 한강대로 40길 26 1층",
+          name: "용산점",
+          address: "서울시 용산구 한강대로 40길 26, 1층",
           number: "02-792-1992",
           imgSrc: require("../assets/store/store-1.jpg"),
           reserve: "https://app.catchtable.co.kr/ct/search/total",

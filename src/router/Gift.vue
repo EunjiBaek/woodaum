@@ -61,7 +61,7 @@
                     <strong
                       class="price"
                       :class="{ soldout: gift.soldout === true }"
-                      >{{ gift.price }}</strong
+                      >{{ numberFormat(gift.price) }}원</strong
                     >
                   </div>
                 </router-link>
@@ -412,6 +412,9 @@ export default {
     sortSelect(event) {
       // console.log(event.target.value);
       return (this.sortOrder = event.target.value);
+    },
+    numberFormat(val) {
+      return String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 };

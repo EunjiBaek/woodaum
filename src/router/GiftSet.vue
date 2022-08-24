@@ -22,7 +22,9 @@
                 {{ giftDetails[index].desc_01 }}
               </p>
 
-              <strong class="price">{{ giftDetails[index].price }}원</strong>
+              <strong class="price"
+                >{{ numberFormat(giftDetails[index].price) }}원</strong
+              >
 
               <div class="icon_wrap"></div>
               <div class="detail_desc">
@@ -61,17 +63,6 @@
             <h3>상품설명</h3>
             <div class="img_wrap">
               <img :src="giftDetails[index].pageDetail" />
-            </div>
-            <div class="service_center_wrap">
-              <h2>고객 행복 센터</h2>
-              <p class="desc">
-                궁금하신 점이나 서비스 이용에 불편한 점이 있으신가요? 아래
-                전화번호로 연락주시면 빠르게 도와드리겠습니다.
-              </p>
-              <div class="call">
-                <span>전화문의 (02)6900 - 0000</span>
-              </div>
-              <span>오전 8시 - 오후 5시 (월~금)</span>
             </div>
             <div v-if="!show" class="gradation"></div>
           </div>
@@ -196,51 +187,6 @@
       width: 100%;
     }
   }
-
-  > .service_center_wrap {
-    padding-bottom: 50px;
-    > h2 {
-      color: #2e383f;
-      margin-bottom: 16px;
-    }
-
-    > div.call {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 28px;
-      padding-left: 20px;
-      margin-bottom: 16px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 5px;
-        height: 28px;
-        background-color: $secondary_color_01;
-      }
-
-      > span {
-        font-size: 18px;
-        color: $secondary_color_01;
-        font-weight: 600;
-      }
-    }
-
-    > p.desc {
-      color: #2e383f;
-      font-weight: 600;
-      margin-bottom: 35px;
-    }
-
-    > span {
-      font-size: 14px;
-      font-weight: 600;
-    }
-  }
 }
 .more_btn {
   font-size: 14px;
@@ -290,6 +236,7 @@ export default {
   created() {
     this.index = this.$route.params.id - 1;
   },
+
   data() {
     return {
       subtop_img: {
@@ -367,6 +314,9 @@ export default {
   methods: {
     detailShow() {
       this.show = true;
+    },
+    numberFormat(val) {
+      return String(val).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
   },
 };

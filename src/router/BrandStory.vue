@@ -4,11 +4,10 @@
       <!-- <modal-popup /> -->
       <section id="section1" class="content_item show">
         <div class="content">
-          <h2>우다움 이야기</h2>
-          <p class="sub-tit">‘숙성 투뿔 한우 전문점’</p>
+          <h2>{{ $t("brand_story_01.title") }}</h2>
+          <p class="sub-tit">{{ $t("brand_story_01.sub_title") }}</p>
           <p class="content">
-            우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여 <br />
-            한우 본연의 맛을 지키는 대한민국 숙성 투뿔한우암소 전문점 입니다.
+            {{ $t("brand_story_01.content") }}
           </p>
         </div>
 
@@ -19,11 +18,10 @@
 
       <section id="section2" class="content_item">
         <div class="content">
-          <h2>한우 이야기</h2>
-          <p class="sub-tit">‘저온 숙성과정을 거친 1++ 최상급 암소 한우’</p>
+          <h2>{{ $t("brand_story_02.title") }}</h2>
+          <p class="sub-tit">{{ $t("brand_story_02.sub_title") }}</p>
           <p class="content">
-            대한민국에서 건강하게 자란 1++등급 암소 한우만 엄선하여
-            <br />정성스럽게 손질하고 숙성하였고 맛의 깊이는 더 깊어졌습니다.
+            {{ $t("brand_story_02.content") }}
           </p>
         </div>
         <div class="image" :style="section_img_02">></div>
@@ -32,11 +30,10 @@
 
       <section id="section3" class="content_item">
         <div class="content">
-          <h2>공간 이야기</h2>
-          <p class="sub-tit">‘지금 이 순간을 더 특별하게'</p>
+          <h2>{{ $t("brand_story_03.title") }}</h2>
+          <p class="sub-tit">{{ $t("brand_story_03.sub_title") }}</p>
           <p class="content">
-            우다움+82 에서는 고객님의 시간이 더 특별해 질 수 있도록
-            <br />프라이빗한 공간과 편안한 다이닝 공간을 준비했습니다.
+            {{ $t("brand_story_03.content") }}
           </p>
         </div>
         <div class="image" :style="section_img_03"></div>
@@ -48,11 +45,10 @@
       <!-- <modal-popup /> -->
       <section id="mb_section1" class="content_item show">
         <div class="content">
-          <h2>우다움 이야기</h2>
-          <p class="sub-tit">‘숙성 투뿔 한우 전문점’</p>
+          <h2>{{ $t("brand_story_01.title") }}</h2>
+          <p class="sub-tit">{{ $t("brand_story_01.sub_title") }}</p>
           <p class="content">
-            우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여 <br />
-            한우 본연의 맛을 지키는 대한민국 숙성 투뿔한우암소 전문점 입니다.
+            {{ $t("brand_story_01.content") }}
           </p>
         </div>
 
@@ -63,11 +59,10 @@
 
       <section id="mb_section2" class="content_item">
         <div class="content">
-          <h2>한우 이야기</h2>
-          <p class="sub-tit">‘저온 숙성과정을 거친 1++ 최상급 암소 한우’</p>
+          <h2>{{ $t("brand_story_02.title") }}</h2>
+          <p class="sub-tit">{{ $t("brand_story_02.sub_title") }}</p>
           <p class="content">
-            대한민국에서 건강하게 자란 1++등급 암소 한우만 엄선하여
-            <br />정성스럽게 손질하고 숙성하였고 맛의 깊이는 더 깊어졌습니다.
+            {{ $t("brand_story_02.content") }}
           </p>
         </div>
         <div class="image" :style="section_img_02">></div>
@@ -76,11 +71,10 @@
 
       <section id="mb_section3" class="content_item">
         <div class="content">
-          <h2>공간 이야기</h2>
-          <p class="sub-tit">‘지금 이 순간을 더 특별하게'</p>
+          <h2>{{ $t("brand_story_03.title") }}</h2>
+          <p class="sub-tit">{{ $t("brand_story_03.sub_title") }}</p>
           <p class="content">
-            우다움+82 에서는 고객님의 시간이 더 특별해 질 수 있도록
-            <br />프라이빗한 공간과 편안한 다이닝 공간을 준비했습니다.
+            {{ $t("brand_story_03.content") }}
           </p>
         </div>
         <div class="image" :style="section_img_03"></div>
@@ -158,6 +152,7 @@
         }
 
         &.content {
+          width: 510px;
           font-size: 18px;
           opacity: 0;
           transform: translateY(100px);
@@ -252,6 +247,7 @@
         }
 
         &.content {
+          width: 510px;
           font-size: 12px;
           opacity: 0;
           transform: translateY(100px);

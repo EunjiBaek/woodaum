@@ -10,7 +10,7 @@
       <h2>{{ name }}</h2>
       <span>{{ en_name }}</span>
 
-      <p class="menu_desc">한우의 다양한 부위를 맛볼 수 있는 메뉴</p>
+      <p class="menu_desc">{{ desc }}</p>
 
       <p class="warnnig">
         신선한 야채가 정량으로 제공되며, 상기 이미지는 실제와 다를 수 있습니다.
@@ -27,6 +27,7 @@ export default {
     name: String,
     en_name: String,
     imgSrc: String,
+    desc: String,
   },
   methods: {
     modalClose: function () {

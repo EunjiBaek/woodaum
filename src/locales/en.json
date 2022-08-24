@@ -1,3 +1,35 @@
 {
-  "cancel": "cancel"
+  "main_slide_01": {
+    "title": "Korean Premium 1++ Aged-Beef Restaurant",
+    "sub_title": "Woodaum+82 is a restaurant specialized in Korean Premium Aged-Beef who maximizes the unique Korean beef flavor by using Woodaum’s special aging technology on high quality beef."
+  },
+  "main_slide_02": {
+    "title": "Woodaum Gift Sets Reservation",
+    "sub_title": "Express your gratitudes to the loved ones with Woodaum+82 gift sets.",
+    "sub_title_02": "Yongsan Branch (02)792-1992ㅣ Bundang Branch (031)726-8292"
+  },
+  "main_slide_03": {
+    "title": "Special Space WOODAUM",
+    "sub_title": "Woodaum+82 prepared private and comfortable dining space for customers to make the moment more special for all customers"
+  },
+  "main_card_list": {
+    "list_01": "Make a reservation",
+    "list_02": "Go to gift set",
+    "list_03": "Find a store"
+  },
+  "brand_story_01": {
+    "title": "Woodaum Story",
+    "sub_title": "‘Korean Premium Aged-Beef Restaurant’",
+    "content": "Woodaum+82 is a restaurant specialized in Korean Premium Aged-Beef who maximizes the unique Korean beef flavor by using Woodaum’s special aging technology on high quality beef."
+  },
+  "brand_story_02": {
+    "title": "Korean Beef Story",
+    "sub_title": "‘1++ grade dry-aged Korean Premium beef’",
+    "content": "We handpicked only 1++ grade Korean premium cow grew up healthy in Korea, and we carefully aged beef to lift the flavor."
+  },
+  "brand_story_03": {
+    "title": "Space Story",
+    "sub_title": "‘Make the moment more special’",
+    "content": "Woodaum+82 prepared private and comfortable dining space for customers to make the moment more special for all customers"
+  }
 }

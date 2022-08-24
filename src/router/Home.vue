@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="main_slide">
-      <swiper
-        :autoplay="{
+      <!-- :autoplay="{
           delay: 6000,
           disableOnInteraction: false,
-        }"
+        }" -->
+      <swiper
         :modules="modules"
         :slides-per-view="1"
         :loop="true"
@@ -24,7 +24,8 @@
           <div class="text">
             <h1 data-swiper-parallax="-500">{{ mainslide.title }}</h1>
             <p data-swiper-parallax="-300">
-              {{ mainslide.sub_title }}
+              {{ mainslide.sub_title }} <br />
+              {{ mainslide.sub_title_02 }}
             </p>
           </div>
         </swiper-slide>
@@ -41,7 +42,7 @@
           >
             <div class="cnt">
               <h2>RESERVATION</h2>
-              <span>예약하기</span>
+              <span>{{ $t("main_card_list.list_01") }}</span>
             </div>
             <div class="icon">
               <v-lazy-image
@@ -68,7 +69,7 @@
           <router-link to="/gift/giftset">
             <div class="cnt">
               <h2>GIFT</h2>
-              <span>선물세트 보러가기</span>
+              <span>{{ $t("main_card_list.list_02") }}</span>
             </div>
             <div class="icon">
               <v-lazy-image
@@ -95,7 +96,7 @@
           <router-link to="/store">
             <div class="cnt">
               <h2>SEARCH</h2>
-              <span>매장 찾기</span>
+              <span>{{ $t("main_card_list.list_03") }}</span>
             </div>
             <div class="icon">
               <v-lazy-image
@@ -201,7 +202,11 @@
                 </p>
               </div>
               <div class="box_img">
-                <img :src="botslide.imgSrc" alt="" />
+                <vue-load-image>
+                  <template v-slot:image>
+                    <img loading="lazy" :src="botslide.imgSrc" alt="" />
+                  </template>
+                </vue-load-image>
               </div>
             </div>
           </div>
@@ -233,7 +238,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { i18n } from "@/locales/i18n";
+import VueLoadImage from "vue-load-image";
 
 import {
   Navigation,
@@ -306,49 +311,51 @@ export default {
       main_slide: [
         {
           id: 1,
-          title: "숙성 1++ 한우 전문점",
-          // title: this.$t("cancel"),
-          sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
-              한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
+          title: this.$t("main_slide_01.title"),
+          sub_title: this.$t("main_slide_01.sub_title"),
           imgSrc: require("../assets/mainImage/main_slide_01.jpg"),
         },
         {
           id: 2,
-          title: "선물세트 예약안내",
-          sub_title: `소중한 분께 우다움+82 선물세트로 마음을 전하세요.
-                      우다움 선물세트 예약안내
-                      용산점 (02)792-1992 ㅣ 분당점(031)726-829`,
+          title: this.$t("main_slide_02.title"),
+          sub_title: this.$t("main_slide_02.sub_title"),
+          sub_title_02: this.$t("main_slide_02.sub_title_02"),
           imgSrc: require("../assets/mainImage/main_slide_03.jpg"),
         },
         {
           id: 3,
-          title: "숙성투뿔한우 전문점",
-          sub_title: `우다움+82는 질 좋은 한우에 우다움 숙성 기술을 더하여
-              한우 본연의 맛을 지키는 대한민국 숙성 한우 전문점 입니다.`,
+          title: this.$t("main_slide_03.title"),
+          sub_title: this.$t("main_slide_03.sub_title"),
           imgSrc: require("../assets/mainImage/main_slide_02.jpg"),
         },
       ],
       main_bot_slide: [
         {
           id: 1,
-          title: "살치살",
+          title: "스페셜",
           sub_title: "Assorted Korean beef",
-          desc: `균형잡힌 마블링과 부드러운 조직감을 지닌
-          최상등급(1++) 살치살`,
+          desc: `한우의 다양한 부위를 맛볼 수 있는 메뉴`,
           imgSrc: require("../assets/menu/menu-1.png"),
         },
         {
           id: 2,
           title: "꽂등심",
           sub_title: "Aged Korean beef rib-eye Korean beef ",
-          desc: `균형잡힌 마블링과 부드러운 조직감을 지닌
-          최상등급(1++) 살치살`,
+          desc: `풍부한 육즙과 육향이 일품인 꽃등심`,
           imgSrc: require("../assets/menu/menu-2.png"),
+        },
+        {
+          id: 3,
+          title: "살치살",
+          sub_title: "Aged Korean beef chuck flap tail",
+          desc: `진한 육즙과 눈꽃모양의 마블링, 녹는 식감`,
+          imgSrc: require("../assets/menu/menu-5.png"),
         },
       ],
     };
   },
   components: {
+    "vue-load-image": VueLoadImage,
     VLazyImage,
     Swiper,
     SwiperSlide,
