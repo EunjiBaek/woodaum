@@ -195,8 +195,12 @@
           <div class="container">
             <div class="box">
               <div class="box_cnt">
-                <h2>{{ botslide.title }}</h2>
-                <span>{{ botslide.sub_title }}</span>
+                <!-- <span v-if="$i18n.locale === 'ko'">{{ menu.name }}</span> -->
+                <h2 v-if="$i18n.locale === 'ko'">{{ botslide.title }}</h2>
+                <h2 v-else>{{ botslide.sub_title }}</h2>
+                <span v-if="$i18n.locale === 'ko'">{{
+                  botslide.sub_title
+                }}</span>
                 <p>
                   {{ botslide.desc }}
                 </p>
@@ -334,21 +338,21 @@ export default {
           id: 1,
           title: "스페셜",
           sub_title: "Assorted Korean beef",
-          desc: `한우의 다양한 부위를 맛볼 수 있는 메뉴`,
+          desc: this.$t("manu_01.desc"),
           imgSrc: require("../assets/menu/menu-1.png"),
         },
         {
           id: 2,
           title: "꽂등심",
           sub_title: "Aged Korean beef rib-eye Korean beef ",
-          desc: `풍부한 육즙과 육향이 일품인 꽃등심`,
+          desc: this.$t("manu_02.desc"),
           imgSrc: require("../assets/menu/menu-2.png"),
         },
         {
           id: 3,
           title: "살치살",
           sub_title: "Aged Korean beef chuck flap tail",
-          desc: `진한 육즙과 눈꽃모양의 마블링, 녹는 식감`,
+          desc: this.$t("manu_05.desc"),
           imgSrc: require("../assets/menu/menu-5.png"),
         },
       ],
