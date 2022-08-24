@@ -31,5 +31,58 @@
     "title": "Space Story",
     "sub_title": "‘Make the moment more special’",
     "content": "Woodaum+82 prepared private and comfortable dining space for customers to make the moment more special for all customers"
+  },
+  "subtop_menu": {
+    "content": "Woodaum+82 used Woodaum’s special aging technology to maximize the tender texture of Korean beef."
+  },
+  "subtop_store": {
+    "content": "If you would like to visit the restaurant, please make a reservation via call or online reservation.",
+    "content_02": "We guarantee you that we will make a constant effort to improve ourselves and keep consistent commitment."
+  },
+  "store_info": {
+    "title": "Branches",
+    "reserve_btn": "Reservation"
+  },
+  "store_younsan": {
+    "name": "Yongsan Branch",
+    "address": "26 Hangang-daero 40-gil, Hangangdaero40Gil Yongsan-gu, Seoul"
+  },
+  "store_bundang": {
+    "name": "Bundang Branch",
+    "address": "6, Jeongjail-ro 156beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do"
+  },
+  "menu_tab": {
+    "tab_01": "Grilled Dish",
+    "tab_02": "일품요리"
+  },
+  "manu_01": {
+    "desc": "Sampler package with a mix of Korean beef cuts"
+  },
+  "manu_02": {
+    "desc": "Rib-eye with flavorful gravy and intense aroma"
+  },
+  "manu_03": {
+    "desc": "High quality cut with well-balanced intermuscular fat"
+  },
+  "manu_04": {
+    "desc": "Special tenderloin with low fat and light flavor"
+  },
+  "manu_05": {
+    "desc": "Chuck flap tail with snowflake-shaped marbling, flavorful gravy, and mellow texture"
+  },
+  "manu_06": {
+    "desc": "Rib-eye cap is the outer muscle of the beef rib-eye roll in a spiral shape, which is a premium grade beef (1++ grade)"
+  },
+  "manu_07": {
+    "desc": "Thin skirt with intense aroma and unique texture"
+  },
+  "manu_08": {
+    "desc": "Think flank with unique umami and tender texture"
+  },
+  "manu_09": {
+    "desc": "Thin-sliced broiled Korean beef with fresh vegetables & home-made sauce"
+  },
+  "manu_10": {
+    "desc": "Korean beef tartare with oriental sauce & pear slice"
   }
 }

@@ -4,16 +4,15 @@
       <div class="sub_desc">
         <strong>WOODAUM+82 Store</strong>
         <p>
-          방문을 앞둔 고객분께서는 전화예약을 주시거나, 아래의 예약버튼을
-          눌러주세요. <br />
-          변치않는 마음과 발전하는 모습으로 찾아뵐 것을 약속드립니다.
+          {{ $t("subtop_store.content") }} <br />
+          {{ $t("subtop_store.content_02") }}
         </p>
       </div>
     </div>
 
     <div class="sub_content">
       <div class="container">
-        <h3>지점안내</h3>
+        <h3>{{ $t("store_info.title") }}</h3>
 
         <div class="store_info_wrap">
           <div v-for="store in stores" class="box" :key="store.id">
@@ -30,7 +29,9 @@
                   <a :href="store.viewSrc">View</a>
                 </button>
                 <button type="button" class="reserve" target="_blank">
-                  <a :href="store.reserve">예약하기</a>
+                  <a :href="store.reserve">{{
+                    $t("store_info.reserve_btn")
+                  }}</a>
                 </button>
               </div>
             </div>
@@ -199,8 +200,8 @@ export default {
       stores: [
         {
           id: 1,
-          name: "용산점",
-          address: "서울시 용산구 한강대로 40길 26, 1층",
+          name: this.$t("store_younsan.name"),
+          address: this.$t("store_younsan.address"),
           number: "02-792-1992",
           imgSrc: require("../assets/store/store-1.jpg"),
           reserve: "https://app.catchtable.co.kr/ct/search/total",
@@ -208,8 +209,8 @@ export default {
         },
         {
           id: 2,
-          name: "분당점",
-          address: "경기도 성남시 분당구 정자일로 156번길 6, 뉴본타워 2F",
+          name: this.$t("store_bundang.name"),
+          address: this.$t("store_bundang.address"),
           number: "031-726-8292",
           imgSrc: require("../assets/store/store-2.jpg"),
           reserve: "https://app.catchtable.co.kr/ct/search/total",

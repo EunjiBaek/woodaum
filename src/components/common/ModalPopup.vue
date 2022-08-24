@@ -7,8 +7,9 @@
       <img :src="imgSrc" />
     </div>
     <div class="cnt_wrap">
-      <h2>{{ name }}</h2>
-      <span>{{ en_name }}</span>
+      <h2 v-if="$i18n.locale === 'ko'">{{ name }}</h2>
+      <h2 v-else>{{ en_name }}</h2>
+      <span v-if="$i18n.locale === 'ko'">{{ en_name }}</span>
 
       <p class="menu_desc">{{ desc }}</p>
 

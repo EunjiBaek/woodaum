@@ -17,8 +17,7 @@
       <div class="sub_desc">
         <strong>WOODAUM+82 Broiled</strong>
         <p>
-          우다움+82는 우다움 숙성 기술을 더하여 <br />
-          한우 특유의 부드러운 풍미를 최대로 즐기실 수 있도록 하였습니다.
+          {{ $t("subtop_menu.content") }}
         </p>
       </div>
     </div>
@@ -41,8 +40,11 @@
                 <img :src="menu.imgSrc" alt="" />
               </div>
               <div class="content">
-                <span>{{ menu.name }}</span>
-                <p>{{ menu.en_name }}</p>
+                <span v-if="$i18n.locale === 'ko'">{{ menu.name }}</span>
+                <span v-else>{{ menu.en_name }}</span>
+                <p v-if="$i18n.locale === 'ko'">
+                  {{ menu.en_name }}
+                </p>
               </div>
             </div>
           </div>
@@ -62,8 +64,11 @@
                 <img :src="menu.imgSrc" alt="" />
               </div>
               <div class="content">
-                <span>{{ menu.name }}</span>
-                <p>{{ menu.en_name }}</p>
+                <span v-if="$i18n.locale === 'ko'">{{ menu.name }}</span>
+                <span v-else>{{ menu.en_name }}</span>
+                <p v-if="$i18n.locale === 'ko'">
+                  {{ menu.en_name }}
+                </p>
               </div>
             </div>
           </div>
@@ -283,13 +288,13 @@ export default {
         backgroundImage: `url(${require("../assets/subtopImage/subtop_menu.png")})`,
       },
       currentTab: 0, // 기본 currentTab 값 지정
-      tabs: ["구이류", "일품요리"],
+      tabs: [this.$t("menu_tab.tab_01"), this.$t("menu_tab.tab_02")],
       menuDetails: [
         {
           id: 1,
           name: "스페셜",
           en_name: "Assorted Korean beef",
-          desc: "한우의 다양한 부위를 맛볼 수 있는 메뉴",
+          desc: this.$t("manu_01.desc"),
           imgSrc: require("../assets/menu/menu-1.png"),
           special: false,
         },
@@ -297,7 +302,7 @@ export default {
           id: 2,
           name: "꽃등심",
           en_name: "Aged Korean beef rib-eye Korean beef",
-          desc: "풍부한 육즙과 육향이 일품인 꽃등심",
+          desc: this.$t("manu_02.desc"),
           imgSrc: require("../assets/menu/menu-2.png"),
           special: false,
         },
@@ -305,7 +310,7 @@ export default {
           id: 3,
           name: "등심",
           en_name: "Aged Korean beef rib-eye Korean beef",
-          desc: "육질과 지방이 잘 어우러진 고급 부위",
+          desc: this.$t("manu_03.desc"),
           imgSrc: require("../assets/menu/menu-3.png"),
           special: false,
         },
@@ -313,7 +318,7 @@ export default {
           id: 4,
           name: "특안심",
           en_name: "Aged Korean beef sirloin ",
-          desc: "지방이 적어 담백하고 연한 특안심",
+          desc: this.$t("manu_04.desc"),
           imgSrc: require("../assets/menu/menu-4.png"),
           special: false,
         },
@@ -321,7 +326,7 @@ export default {
           id: 5,
           name: "살치살",
           en_name: "Aged Korean beef chuck flap tail",
-          desc: "진한 육즙과 눈꽃모양의 마블링, 녹는 식감",
+          desc: this.$t("manu_05.desc"),
           imgSrc: require("../assets/menu/menu-5.png"),
           special: true,
         },
@@ -329,7 +334,7 @@ export default {
           id: 6,
           name: "새우살",
           en_name: "Aged Korean beef rib-eye cap",
-          desc: "꽃등심을 감싸는 나선형 모양의 최상 등급(1++)",
+          desc: this.$t("manu_06.desc"),
           imgSrc: require("../assets/menu/menu-6.png"),
           special: true,
         },
@@ -337,7 +342,7 @@ export default {
           id: 7,
           name: "안창살",
           en_name: "Aged Korean beef rib-eye cap",
-          desc: "희귀부위로 뛰어난 육질과 강렬한 육향이 일품",
+          desc: this.$t("manu_07.desc"),
           imgSrc: require("../assets/menu/menu-7.png"),
           special: true,
         },
@@ -345,7 +350,7 @@ export default {
           id: 8,
           name: "치마살",
           en_name: "Aged Korean beef thin flank meat",
-          desc: "연한 식감과 특유의 감칠맛이 느껴지는 치마살",
+          desc: this.$t("manu_08.desc"),
           imgSrc: require("../assets/menu/menu-8.png"),
           special: true,
         },
@@ -356,7 +361,7 @@ export default {
           name: "한우 로스편채",
           en_name:
             "Aged Korean Broiled sliced Korean beef with fresh vegetables & sauce chuck flap tail",
-          desc: "겉면을 살짝 익힌 한우와 야채를 소스에 적셔 먹는 요리",
+          desc: this.$t("manu_09.desc"),
           imgSrc: require("../assets/menu/menu-9.png"),
           special: false,
         },
@@ -364,7 +369,7 @@ export default {
           id: 10,
           name: "한우 육회",
           en_name: "Aged Korean beef chuck flap tail",
-          desc: "한우를 채썰어 소스에 버무린 회 요리",
+          desc: this.$t("manu_10.desc"),
           imgSrc: require("../assets/menu/menu-10.png"),
           special: false,
         },

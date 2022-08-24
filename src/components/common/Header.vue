@@ -206,8 +206,13 @@
         <div class="lang-list">
           <ul>
             <!-- $i18n.locale = 'en' -->
-            <li><a href="#" v-on:click="choiceLang('ko')">KOR</a></li>
-            <li><a href="#" v-on:click="choiceLang('en')">EN</a></li>
+            <li :class="{ on: currentLang === 'ko' }">
+              <a href="#" v-on:click="choiceLang('ko')">KOR</a>
+            </li>
+
+            <li :class="{ on: currentLang === 'en' }">
+              <a href="#" v-on:click="choiceLang('en')">EN</a>
+            </li>
           </ul>
         </div>
       </div>
