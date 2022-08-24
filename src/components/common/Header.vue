@@ -39,7 +39,7 @@
                 "
               />
             </div>
-            <span>예약하기</span>
+            <span>{{ $t("gnb_reserve.menu_01") }}</span>
           </a>
         </li>
 
@@ -58,7 +58,7 @@
                 "
               />
             </div>
-            <span>선물세트</span>
+            <span>{{ $t("gnb_gift.menu_01") }}</span>
           </router-link>
         </li>
 
@@ -127,9 +127,21 @@
               <router-link to="/brandStory">BRAND STORY</router-link>
               <div class="sub-menu" v-if="actived === true">
                 <ul>
-                  <li><a href="/brandStory#section1">우다움 이야기</a></li>
-                  <li><a href="/brandStory#section2">한우 이야기</a></li>
-                  <li><a href="/brandStory#section3">공간 이야기</a></li>
+                  <li>
+                    <a href="/brandStory#section1">{{
+                      $t("gnb_brandstory.menu_01")
+                    }}</a>
+                  </li>
+                  <li>
+                    <a href="/brandStory#section2">{{
+                      $t("gnb_brandstory.menu_02")
+                    }}</a>
+                  </li>
+                  <li>
+                    <a href="/brandStory#section3">
+                      {{ $t("gnb_brandstory.menu_03") }}
+                    </a>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -142,13 +154,13 @@
                   <li>
                     <router-link
                       :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
-                      >구이류</router-link
+                      >{{ $t("gnb_menu.menu_01") }}</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       :to="{ name: 'MenuPage', params: { name: 'menu3' } }"
-                      >일품 요리</router-link
+                      >{{ $t("gnb_menu.menu_02") }}</router-link
                     >
                   </li>
                 </ul>
@@ -163,13 +175,13 @@
                   <li>
                     <router-link
                       :to="{ name: 'Gift', params: { name: 'giftset' } }"
-                      >선물 세트</router-link
+                      >{{ $t("gnb_gift.menu_01") }}</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       :to="{ name: 'Gift', params: { name: 'package' } }"
-                      >포장 안내</router-link
+                      >{{ $t("gnb_gift.menu_02") }}</router-link
                     >
                   </li>
                 </ul>
@@ -179,7 +191,11 @@
               <router-link to="/store">STORE</router-link>
               <div class="sub-menu" v-if="actived === true">
                 <ul>
-                  <li><router-link to="/store">지점 안내</router-link></li>
+                  <li>
+                    <router-link to="/store">{{
+                      $t("gnb_store.menu_01")
+                    }}</router-link>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -195,7 +211,7 @@
                     <a
                       href="https://app.catchtable.co.kr/ct/search/total"
                       target="_blank"
-                      >매장 예약</a
+                      >{{ $t("gnb_reserve.menu_01") }}</a
                     >
                   </li>
                 </ul>
@@ -231,8 +247,13 @@
             </div>
             <div class="lang-list">
               <ul>
-                <li class="on"><a href="#">KOR</a></li>
-                <li><a href="#">EN</a></li>
+                <li :class="{ on: currentLang === 'ko' }">
+                  <a href="#" v-on:click="choiceLang('ko')">KOR</a>
+                </li>
+
+                <li :class="{ on: currentLang === 'en' }">
+                  <a href="#" v-on:click="choiceLang('en')">EN</a>
+                </li>
               </ul>
             </div>
           </div>

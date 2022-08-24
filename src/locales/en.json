@@ -1,4 +1,23 @@
 {
+  "gnb_brandstory": {
+    "menu_01": "Woodaum Story",
+    "menu_02": "Korean Beef Story",
+    "menu_03": "Space Story"
+  },
+  "gnb_menu": {
+    "menu_01": "Grilled Dish",
+    "menu_02": "일품 요리"
+  },
+  "gnb_gift": {
+    "menu_01": "Gift Sets",
+    "menu_02": "Packaging"
+  },
+  "gnb_store": {
+    "menu_01": "Branches"
+  },
+  "gnb_reserve": {
+    "menu_01": "reservation"
+  },
   "main_slide_01": {
     "title": "Korean Premium 1++ Aged-Beef Restaurant",
     "sub_title": "Woodaum+82 is a restaurant specialized in Korean Premium Aged-Beef who maximizes the unique Korean beef flavor by using Woodaum’s special aging technology on high quality beef."
