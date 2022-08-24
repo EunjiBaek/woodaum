@@ -223,6 +223,8 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      box-sizing: border-box;
+      padding: 0 25px;
 
       h2 {
         color: white;
@@ -279,6 +281,10 @@
   }
   #mobile_brandstory {
     display: block;
+  }
+  #mobile_brandstory section.show > .content > p.sub-tit,
+  #mobile_brandstory section.show > .content > p.content {
+    width: 100%;
   }
 }
 </style>

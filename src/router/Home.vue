@@ -530,10 +530,13 @@ export default {
         justify-content: center;
         align-items: center;
         z-index: 2;
+        box-sizing: border-box;
+        padding: 0 25px;
 
         > h1 {
           margin-bottom: 45px;
           color: #ffffff;
+          text-align: center;
           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
 

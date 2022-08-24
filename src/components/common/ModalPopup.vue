@@ -71,6 +71,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    h2 {
+      text-align: center;
+    }
     span {
       display: inline-block;
       font-size: 12px;
