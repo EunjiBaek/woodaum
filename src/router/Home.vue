@@ -18,9 +18,9 @@
       >
         <!-- main_slide -->
         <swiper-slide v-for="mainslide in main_slide" :key="mainslide.id">
-          <div class="img">
-            <img :src="mainslide.imgSrc" alt="" />
-          </div>
+          <lazy-component @show="handler" class="img">
+            <img v-lazy="mainslide.imgSrc" alt="" />
+          </lazy-component>
           <div class="text">
             <h1 data-swiper-parallax="-500">{{ mainslide.title }}</h1>
             <p data-swiper-parallax="-300">
@@ -135,8 +135,8 @@
         <div class="video_desc">
           <h2>WE ARE WOODAUM+82</h2>
           <p>
-            소고기 중의 소고기, 우다움 +82의 소고기는 <br />
-            잠자던 미식 세포를 깨우는 한점의 예술입니다.
+            {{ $t("main_youtube.desc_01") }} <br />
+            {{ $t("main_youtube.desc_02") }}
           </p>
         </div>
       </div>
@@ -388,6 +388,9 @@ export default {
       } else {
         this.paly = true;
       }
+    },
+    handler(component) {
+      console.log("this component is showing");
     },
   },
   setup() {

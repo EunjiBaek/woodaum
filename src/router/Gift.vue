@@ -16,8 +16,8 @@
       <div class="sub_desc">
         <strong>WOODAUM+82 Broiled</strong>
         <p>
-          우다움 한우는 믿을 수 있습니다.<br />
-          우리땅에서 나고 자란 한우를 깨끗한 환경에서 작업해 보내드립니다.
+          {{ $t("subtop_gift.content") }}<br />
+          {{ $t("subtop_gift.content_02") }}
         </p>
       </div>
     </div>
@@ -27,11 +27,19 @@
         <div class="tab-content">
           <div class="gift_wrap" v-show="currentTab == 0">
             <div class="cnt_top">
-              <strong>총 6개 상품</strong>
+              <strong>{{
+                $t("gift_page.total_leng", { n: this.giftDetails.length })
+              }}</strong>
               <select name="" id="gift_filter" @change="sortSelect($event)">
-                <option value="popularSort">인기상품순</option>
-                <option value="lowPriceSort">낮은가격순</option>
-                <option value="highPriceSort">높은가격순</option>
+                <option value="popularSort">
+                  {{ $t("gift_page.select_01") }}
+                </option>
+                <option value="lowPriceSort">
+                  {{ $t("gift_page.select_02") }}
+                </option>
+                <option value="highPriceSort">
+                  {{ $t("gift_page.select_03") }}
+                </option>
               </select>
             </div>
 
@@ -325,58 +333,58 @@ export default {
         backgroundImage: `url(${require("../assets/subtopImage/subtop_gift.png")})`,
       },
       currentTab: 0, // 기본 currentTab 값 지정
-      tabs: ["선물세트", "포장안내"],
+      tabs: [this.$t("gift_tab.tab_01"), this.$t("gift_tab.tab_02")],
       giftDetails: [
         {
           id: 1,
-          name: "한우 스페셜 세트 A (3.1kg)",
-          desc_01: "꽃등심 900g, 등심 800g, 안심 500g, 불고기 800g",
-          desc_02: "안심 보냉가방/박스 포장",
+          name: this.$t("giftset_01.name"),
+          desc_01: this.$t("giftset_01.desc_01"),
+          desc_02: this.$t("giftset_01.desc_02"),
           price: 500000,
           imgSrc: require("../assets/gift/gift_01.png"),
           soldout: true,
         },
         {
           id: 2,
-          name: "한우 스페셜 세트 B (1.7kg)",
-          desc_01: "등심 600g, 안심 600g, 불고기 500g",
-          desc_02: "안심 보냉가방/박스 포장",
+          name: this.$t("giftset_02.name"),
+          desc_01: this.$t("giftset_02.desc_01"),
+          desc_02: this.$t("giftset_02.desc_02"),
           price: 300000,
           imgSrc: require("../assets/gift/gift_02.png"),
           soldout: false,
         },
         {
           id: 3,
-          name: "우다움 양념LA갈비 세트",
-          desc_01: "양념 LA갈비 1.2kg X 2pack",
-          desc_02: "스티로폼박스/아이스팩/부직포 가방",
+          name: this.$t("giftset_03.name"),
+          desc_01: this.$t("giftset_03.desc_01"),
+          desc_02: this.$t("giftset_03.desc_02"),
           price: 120000,
           imgSrc: require("../assets/gift/gift_03.png"),
           soldout: false,
         },
         {
           id: 4,
-          name: "한우 꽃등심",
-          desc_01: "꽃등심 1kg",
-          desc_02: "안심 보냉박스 포장",
+          name: this.$t("giftset_04.name"),
+          desc_01: this.$t("giftset_04.desc_01"),
+          desc_02: this.$t("giftset_04.desc_02"),
           price: 250000,
           imgSrc: require("../assets/gift/gift_04.png"),
           soldout: false,
         },
         {
           id: 5,
-          name: "한우 안심",
-          desc_01: "안심 1kg",
-          desc_02: "안심 보냉박스 포장",
+          name: this.$t("giftset_05.name"),
+          desc_01: this.$t("giftset_05.desc_01"),
+          desc_02: this.$t("giftset_05.desc_02"),
           price: 240000,
           imgSrc: require("../assets/gift/gift_05.png"),
           soldout: false,
         },
         {
           id: 6,
-          name: "한우 안심",
-          desc_01: "등심 1kg",
-          desc_02: "안심 보냉박스 포장",
+          name: this.$t("giftset_06.name"),
+          desc_01: this.$t("giftset_06.desc_01"),
+          desc_02: this.$t("giftset_06.desc_02"),
           price: 230000,
           imgSrc: require("../assets/gift/gift_06.png"),
           soldout: false,

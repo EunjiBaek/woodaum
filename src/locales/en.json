@@ -36,6 +36,15 @@
     "list_02": "Go to gift set",
     "list_03": "Find a store"
   },
+  "main_youtube": {
+    "desc_01": "we are woodaum Beef among beef, beef with elegance +82",
+    "desc_02": "It is a piece of art that awakens the sleeping phagocytic cells."
+  },
+  "footer": {
+    "list_01": "CEO : Ki-hwan Kim",
+    "list_02": "Address: 10F Jongno Place, 120 Changgyeonggung-ro, Jongno-gu, Seoul",
+    "list_03": "Business registration number: 114-81-97424 ㅣ Inquiries: 02-6900-7605"
+  },
   "brand_story_01": {
     "title": "Woodaum Story",
     "sub_title": "‘Korean Premium Aged-Beef Restaurant’",
@@ -72,7 +81,7 @@
   },
   "menu_tab": {
     "tab_01": "Grilled Dish",
-    "tab_02": "일품요리"
+    "tab_02": "One-Dish Meal"
   },
   "manu_01": {
     "desc": "Sampler package with a mix of Korean beef cuts"
@@ -103,5 +112,50 @@
   },
   "manu_10": {
     "desc": "Korean beef tartare with oriental sauce & pear slice"
+  },
+  "gift_tab": {
+    "tab_01": "Gift Sets",
+    "tab_02": "Packaging"
+  },
+  "subtop_gift": {
+    "content": "Woodaum Korean beef is trustworthy.",
+    "content_02": "We only use Korean cow born and raised in our land, and prepare beef in a spotless environment."
+  },
+  "gift_page": {
+    "total_leng": "Total of {n} products",
+    "select_01": "Most Popular",
+    "select_02": "Lowest Price",
+    "select_03": "Highest Price"
+  },
+  "giftset_01": {
+    "name": "HANWOO Special setA (3kg)",
+    "desc_01": "rib-eye 900g, sirloin 800g, tenderloin 500g, chuck roll 800g",
+    "desc_02": "Cooler box/Cooler bag packaging"
+  },
+  "giftset_02": {
+    "name": "HANWOO Special setB (1.7kg)",
+    "desc_01": "sirloin 600g, tenderloin 600g, chuck roll 500g",
+    "desc_02": "Cooler box/Cooler bag packaging"
+  },
+  "giftset_03": {
+    "name": "WOODAUM LA galbi set",
+    "desc_01": "LA galbi 1.2kg x 2pack",
+    "desc_02": "Styrofoam box/ice pack/Non-woven bag"
+  },
+
+  "giftset_04": {
+    "name": "Aged Korean beef rib-eye",
+    "desc_01": "rib-eye 1kg",
+    "desc_02": "Cooler box packaging"
+  },
+  "giftset_05": {
+    "name": "Aged Korean beef tenderloin",
+    "desc_01": "tenderloin 1kg",
+    "desc_02": "Cooler box packaging"
+  },
+  "giftset_06": {
+    "name": "Aged Korean beef sirloin",
+    "desc_01": "sirloin 1kg",
+    "desc_02": "Cooler box packaging"
   }
 }

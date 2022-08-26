@@ -109,6 +109,7 @@
       line-height: 45px;
       text-align: center;
       display: inline-block;
+      white-space: nowrap;
       cursor: pointer;
       &.active {
         > a {
