@@ -27,6 +27,7 @@
     "vue-burger-menu": "^2.0.5",
     "vue-i18n": "^9.2.0",
     "vue-js-modal": "^2.0.1",
+    "vue-lazyload": "^3.0.0-rc.2",
     "vue-load-image": "^1.1.0",
     "vue-loader": "^17.0.0",
     "vue-router": "^4.0.13",

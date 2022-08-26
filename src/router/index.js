@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "./Home.vue";
-import MenuPage from "./MenuPage.vue";
-import BrandStory from "./BrandStory";
-import Gift from "./Gift";
-import GiftSet from "./GiftSet";
-import StoreInfo from "./StoreInfo";
-import NotFound from "./NotFound";
+// import Home from "./Home.vue";
+// import MenuPage from "./MenuPage.vue";
+// import BrandStory from "./BrandStory";
+// import Gift from "./Gift";
+// import GiftSet from "./GiftSet";
+// import StoreInfo from "./StoreInfo";
+// import NotFound from "./NotFound";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,39 +13,39 @@ const router = createRouter({
     {
       path: "/",
       name: "Home",
-      component: Home,
+      component: () => import("./Home.vue"),
     },
     {
       path: "/menu/:name",
       name: "MenuPage",
-      component: MenuPage,
+      component: () => import("./MenuPage.vue"),
       props: true,
     },
     {
       path: "/gift/:name",
       name: "Gift",
-      component: Gift,
+      component: () => import("./Gift.vue"),
       props: true,
     },
     {
       path: "/gift/giftset/:id",
       name: "GiftSet",
-      component: GiftSet,
+      component: () => import("./GiftSet.vue"),
       props: true,
     },
     // 브랜드 스토리
     {
       path: "/brandstory",
-      component: BrandStory,
+      component: () => import("./BrandStory.vue"),
     },
     {
       path: "/store",
       name: "StoreInfo",
-      component: StoreInfo,
+      component: () => import("./StoreInfo.vue"),
     },
     {
       path: "/:pathMatch(.*)",
-      component: NotFound,
+      component: () => import("./NotFound.vue"),
     },
   ],
   scrollBehavior() {
