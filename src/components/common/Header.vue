@@ -77,7 +77,7 @@
                 "
               />
             </div>
-            <span>매장찾기</span>
+            <span>{{ $t("gnb_store.menu_01") }}</span>
           </router-link>
         </li>
 

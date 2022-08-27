@@ -4,8 +4,8 @@
       <div class="sub_desc">
         <strong>HANWOO Special Set</strong>
         <p>
-          우다움 한우는 믿을 수 있습니다. <br />
-          우리땅에서 나고 자란 한우를 깨끗한 환경에서 작업해 보내드립니다.
+          {{ $t("subtop_gift.content") }} <br />
+          {{ $t("subtop_gift.content_02") }}
         </p>
       </div>
     </div>
@@ -30,24 +30,23 @@
               <div class="detail_desc">
                 <ul>
                   <li>
-                    <span>배송구분</span>
-                    <p>바로배송</p>
+                    <span>{{ $t("giftset_list_tit.tit_01") }}</span>
+                    <p>{{ $t("giftset_list_cnt.cnt_01") }}</p>
                   </li>
                   <li>
-                    <span>원산지</span>
-                    <p>국내산</p>
+                    <span>{{ $t("giftset_list_tit.tit_02") }}</span>
+                    <p>{{ $t("giftset_list_cnt.cnt_02") }}</p>
                   </li>
                   <li>
-                    <span>포장타입</span>
-                    <p>냉장/스티로폼</p>
+                    <span>{{ $t("giftset_list_tit.tit_03") }}</span>
+                    <p>{{ $t("giftset_list_cnt.cnt_03") }}</p>
                   </li>
                   <li>
-                    <span>안내사항</span>
+                    <span>{{ $t("giftset_list_tit.tit_04") }}</span>
                     <p>
-                      해당 상품은 냉장 제품입니다. 상품 수령 후 최대한 빠른
-                      시일내에 섭취를 권장드립니다. 비닐포장 등에 의해 산소가
-                      공급되지않아 간혹 검붉게 변하는 현상이 발생할 수 있으나,
-                      산소와 접촉하면 선홍색으로 돌아오는 점 안내드립니다.
+                      {{ $t("giftset_list_cnt.cnt_04_lsit01") }}
+                      {{ $t("giftset_list_cnt.cnt_04_lsit02") }}
+                      {{ $t("giftset_list_cnt.cnt_04_lsit03") }}
                     </p>
                   </li>
                 </ul>
@@ -60,9 +59,9 @@
             class="product_detail_img_wrap"
             :class="{ active: show === true }"
           >
-            <h3>상품설명</h3>
+            <h3>{{ $t("giftset_desc.tit") }}</h3>
             <div class="img_wrap">
-              <img :src="giftDetails[index].pageDetail" />
+              <img :src="giftDetails[index].pageDetail[$i18n.locale]" />
             </div>
             <div v-if="!show" class="gradation"></div>
           </div>
@@ -71,7 +70,7 @@
             class="more_btn"
             @click="detailShow"
           >
-            상품설명 더보기
+            {{ $t("giftset_desc.btn") }}
           </div>
         </div>
       </div>
@@ -226,6 +225,13 @@
 </style>
 
 <script>
+import detailPgae01_ko from "@/assets/prodcutDetails/product_details_01.jpg";
+import detailPgae01_en from "@/assets/prodcutDetails/product_details_01_en.jpg";
+import detailPgae02_ko from "@/assets/prodcutDetails/product_details_02.jpg";
+import detailPgae02_en from "@/assets/prodcutDetails/product_details_02_en.jpg";
+import detailPgae03_ko from "@/assets/prodcutDetails/product_details_03.jpg";
+import detailPgae03_en from "@/assets/prodcutDetails/product_details_03_en.jpg";
+
 export default {
   name: "GiftSet",
   props: {
@@ -253,7 +259,10 @@ export default {
           price: 500000,
           imgSrc: require("../assets/gift/gift_01.png"),
           soldout: true,
-          pageDetail: require("../assets/prodcutDetails/product_details_01.jpg"),
+          pageDetail: {
+            ko: detailPgae01_ko,
+            en: detailPgae01_en,
+          },
         },
         {
           id: 2,
@@ -263,7 +272,10 @@ export default {
           price: 300000,
           imgSrc: require("../assets/gift/gift_02.png"),
           soldout: false,
-          pageDetail: require("../assets/prodcutDetails/product_details_02.jpg"),
+          pageDetail: {
+            ko: detailPgae02_ko,
+            en: detailPgae02_en,
+          },
         },
         {
           id: 3,
@@ -273,7 +285,10 @@ export default {
           price: 120000,
           imgSrc: require("../assets/gift/gift_03.png"),
           soldout: false,
-          pageDetail: require("../assets/prodcutDetails/product_details_03.jpg"),
+          pageDetail: {
+            ko: detailPgae03_ko,
+            en: detailPgae03_en,
+          },
         },
         {
           id: 4,

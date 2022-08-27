@@ -6,7 +6,7 @@
   },
   "gnb_menu": {
     "menu_01": "Grilled Dish",
-    "menu_02": "일품 요리"
+    "menu_02": "One-Dish Meal"
   },
   "gnb_gift": {
     "menu_01": "Gift Sets",
@@ -16,7 +16,7 @@
     "menu_01": "Branches"
   },
   "gnb_reserve": {
-    "menu_01": "reservation"
+    "menu_01": "Reservation"
   },
   "main_slide_01": {
     "title": "Korean Premium 1++ Aged-Beef Restaurant",
@@ -121,6 +121,9 @@
     "content": "Woodaum Korean beef is trustworthy.",
     "content_02": "We only use Korean cow born and raised in our land, and prepare beef in a spotless environment."
   },
+  "page_price": {
+    "currency": "won"
+  },
   "gift_page": {
     "total_leng": "Total of {n} products",
     "select_01": "Most Popular",
@@ -157,5 +160,42 @@
     "name": "Aged Korean beef sirloin",
     "desc_01": "sirloin 1kg",
     "desc_02": "Cooler box packaging"
+  },
+  "giftset_list_tit": {
+    "tit_01": "Shipping",
+    "tit_02": "Origin",
+    "tit_03": "Packaging Type",
+    "tit_04": "Notification"
+  },
+  "giftset_list_cnt": {
+    "cnt_01": "Direct Delivery",
+    "cnt_02": "Domestic",
+    "cnt_03": "Refrigerated/Styrofoam",
+    "cnt_04_lsit01": "This product must be refrigerated.",
+    "cnt_04_lsit02": "We recommend you to consume the product while it’s fresh within a few days of purchase.",
+    "cnt_04_lsit03": "The product can change its color into dark red cased by lack of oxygen from the seal packaging, but this is just temporary and the color will turn back to pink once the product meets oxygen."
+  },
+  "giftset_desc": {
+    "tit": "Product Description",
+    "btn": "Product Description Detail"
+  },
+  "gift_detail_page": {
+    "page_01": "../assets/prodcutDetails/product_details_01_en.jpg"
+  },
+  "package_01": {
+    "tit": "고급 보냉백",
+    "desc": "내구성을 강화하여 보냉효과를 높였으며, 재사용이 가능하여 환경까지 생각했습니다."
+  },
+  "package_02": {
+    "tit": "PP 트레이 바스켓",
+    "desc": "수분과 열에 강한 PP재질을 사용하여 제품을 안전하게 보호하였습니다."
+  },
+  "package_03": {
+    "tit": "고급 보냉박스",
+    "desc": "스치로폼으로 만들어진 박스로 외관으로는 보이지않게 디자인하여 제품신선도에 용이하며 품격을 높였습니다."
+  },
+  "package_04": {
+    "tit": "물 100%  아이스팩",
+    "desc": "수분과 열에 강한 PP재질을 사용하여 제품을 안전하게 보호하였습니다."
   }
 }

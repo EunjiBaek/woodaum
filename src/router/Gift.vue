@@ -69,7 +69,8 @@
                     <strong
                       class="price"
                       :class="{ soldout: gift.soldout === true }"
-                      >{{ numberFormat(gift.price) }}원</strong
+                      >{{ numberFormat(gift.price)
+                      }}{{ $t("page_price.currency") }}</strong
                     >
                   </div>
                 </router-link>
@@ -78,8 +79,59 @@
           </div>
 
           <div class="package_wrap" v-show="currentTab == 1">
-            <div>
-              <p>준비중입니다.</p>
+            <div class="package_all_img">
+              <img :src="require('@/assets/package/package_all.png')" />
+            </div>
+
+            <div class="package_opt_desc">
+              <div class="list">
+                <div class="img">
+                  <img :src="require('@/assets/package/package_01.png')" />
+                </div>
+                <div class="cnt">
+                  <h2>고급 보냉백</h2>
+                  <p>
+                    내구성을 강화하여 보냉효과를 높였으며, 재사용이 가능하여
+                    환경까지 생각했습니다.
+                  </p>
+                </div>
+              </div>
+              <div class="list">
+                <div class="img">
+                  <img :src="require('@/assets/package/package_02.png')" />
+                </div>
+                <div class="cnt">
+                  <h2>PP 트레이 바스켓</h2>
+                  <p>
+                    수분과 열에 강한 PP재질을 사용하여 제품을 안전하게
+                    보호하였습니다.
+                  </p>
+                </div>
+              </div>
+              <div class="list">
+                <div class="img">
+                  <img :src="require('@/assets/package/package_03.png')" />
+                </div>
+                <div class="cnt">
+                  <h2>고급 보냉박스</h2>
+                  <p>
+                    스치로폼으로 만들어진 박스로 외관으로는 보이지않게
+                    디자인하여 제품신선도에 용이하며 품격을 높였습니다.
+                  </p>
+                </div>
+              </div>
+              <div class="list">
+                <div class="img">
+                  <img :src="require('@/assets/package/package_04.png')" />
+                </div>
+                <div class="cnt">
+                  <h2>물 100% 아이스팩</h2>
+                  <p>
+                    수분과 열에 강한 PP재질을 사용하여 제품을 안전하게
+                    보호하였습니다.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -98,9 +150,64 @@
   position: relative;
   width: 100%;
 
-  > div {
+  > .package_all_img {
     width: 100%;
-    height: 500px;
+    height: 720px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > img {
+      height: 100%;
+    }
+  }
+
+  > .package_opt_desc {
+    width: 100%;
+    display: flex;
+    font-size: 0;
+    flex-wrap: wrap;
+    gap: 12px 1.5%;
+
+    > .list {
+      position: relative;
+      box-sizing: border-box;
+      width: 49.25%;
+      height: 110px;
+      background-color: #000;
+      border: 1px solid $secondary_color_01;
+      display: flex;
+      align-items: flex-start;
+      padding-left: 186px;
+
+      > .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 186px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        > img {
+          height: 101%;
+        }
+      }
+      > .cnt {
+        box-sizing: border-box;
+        padding: 15px 24px;
+        > h2 {
+          color: $secondary_color_01;
+          margin-bottom: 5px;
+        }
+        > p {
+          color: #ffffff;
+        }
+      }
+    }
   }
 }
 
@@ -254,12 +361,24 @@
     }
   }
 }
+
+@media (max-width: 1250px) {
+  .package_wrap > .package_opt_desc {
+    gap: 12px 0;
+    > .list {
+      width: 100%;
+    }
+  }
+}
 @media (max-width: 995px) {
   .gift_box_wrap {
     gap: 1em 1.5%;
     .box {
       width: 49.25%;
     }
+  }
+  .package_wrap > .package_all_img {
+    height: 450px;
   }
 }
 @media (max-width: 768px) {
@@ -295,10 +414,33 @@
     left: 15px;
     color: #872e28;
   }
+  .package_wrap > .package_all_img {
+    height: 380px;
+  }
+  .package_wrap > .package_opt_desc > .list > .cnt {
+    h2 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
 }
 @media (max-width: 590px) {
   .gift_box_wrap .box .img {
     height: 200px;
+  }
+  .package_wrap > .package_all_img {
+    height: 320px;
+  }
+  .package_wrap > .package_opt_desc > .list > .cnt {
+    padding: 10px 15px 0 15px;
+    h2 {
+      font-size: 15px;
+    }
+    p {
+      font-size: 11px;
+    }
   }
 }
 @media (max-width: 490px) {
@@ -307,6 +449,25 @@
   }
   .gift_box_wrap .box {
     width: 100%;
+  }
+  .package_wrap > .package_all_img {
+    height: 250px;
+  }
+  .package_wrap > .package_opt_desc > .list {
+    padding-left: 160px;
+    > .img {
+      width: 160px;
+    }
+  }
+}
+@media (max-width: 420px) {
+  .package_wrap > .package_opt_desc > .list > .cnt {
+    > h2 {
+      font-size: 13px;
+    }
+    > p {
+      font-size: 10px;
+    }
   }
 }
 </style>
