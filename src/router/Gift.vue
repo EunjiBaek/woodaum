@@ -499,7 +499,7 @@ export default {
           desc_02: this.$t("giftset_01.desc_02"),
           price: 500000,
           imgSrc: require("../assets/gift/gift_01.png"),
-          soldout: true,
+          soldout: false,
         },
         {
           id: 2,

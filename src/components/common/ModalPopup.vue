@@ -14,7 +14,7 @@
       <p class="menu_desc">{{ desc }}</p>
 
       <p class="warnnig">
-        신선한 야채가 정량으로 제공되며, 상기 이미지는 실제와 다를 수 있습니다.
+        {{ $t("modal_warnning") }}
       </p>
     </div>
   </div>
