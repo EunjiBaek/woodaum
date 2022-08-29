@@ -14,19 +14,11 @@ import Footer from "@/components/common/Footer";
 
 export default {
   name: "App",
-  components: { Header, Footer, widgetContainerModal: container },
-  // setup() {
-  //   const { t, locale } = useI18n();
-
-  //   watch(locale, (newlocale) => {
-  //     localStorage.setItem("locale", newlocale);
-  //   });
-
-  //   return {
-  //     t,
-  //     locale,
-  //   };
-  // },
+  components: {
+    Header,
+    Footer,
+    widgetContainerModal: container,
+  },
 };
 </script>
 

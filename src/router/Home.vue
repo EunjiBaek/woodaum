@@ -377,11 +377,6 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  created() {
-    // if (document.domain.toString().indexOf("www.instagram.com") != -1) {
-    //   document.domain = "www.instagram.com";
-    // }
-  },
   computed: {
     swiper() {
       return this.$refs.main_bot_slide;
