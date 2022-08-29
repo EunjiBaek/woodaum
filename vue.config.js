@@ -1,16 +1,18 @@
 const TerserPlugin = require("terser-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  productionSourceMap: false,
+  pwa: {
+    workboxOptions: {
+      exclude: [/_redirects/],
+    },
+  },
   configureWebpack: (config) => {
     config.optimization = {
       minimize: true,
       splitChunks: {
         chunks: "all",
       },
-      minimizer: [new TerserPlugin(), new BundleAnalyzerPlugin()],
+      minimizer: [new TerserPlugin()],
     };
   },
   chainWebpack: (config) => {

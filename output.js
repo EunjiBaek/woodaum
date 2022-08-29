@@ -1212,7 +1212,6 @@
         }
       }
     ),
-    new CleanWebpackPlugin(),
     /* config.plugin('case-sensitive-paths') */
     new CaseSensitivePathsPlugin(),
     /* config.plugin('friendly-errors') */
