@@ -225,6 +225,11 @@ select {
   padding-top: 100px;
 }
 
+img[lazy="loading"] {
+  /*your style here*/
+  background-color: #eee;
+}
+
 @media (max-width: 1250px) {
   .container {
     width: 100%;

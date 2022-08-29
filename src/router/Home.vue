@@ -23,7 +23,7 @@
         <!-- main_slide -->
         <swiper-slide v-for="mainslide in main_slide" :key="mainslide.id">
           <lazy-component @show="handler" class="img">
-            <img v-lazy="mainslide.imgSrc" alt="" />
+            <img v-lazy="mainslide.imgSrc" alt="" lazy="loading" />
           </lazy-component>
           <div class="text">
             <h1 data-swiper-parallax="-500">{{ mainslide.title }}</h1>
@@ -62,7 +62,10 @@
               />
             </div>
             <div class="img">
-              <img :src="require('../assets/mainImage/main_reservation.png')" />
+              <img
+                :src="require('../assets/mainImage/main_reservation.png')"
+                lazy="loading"
+              />
             </div>
           </a>
         </div>
@@ -89,7 +92,10 @@
               />
             </div>
             <div class="img">
-              <img :src="require('../assets/mainImage/main_gift.png')" />
+              <img
+                :src="require('../assets/mainImage/main_gift.png')"
+                lazy="loading"
+              />
             </div>
           </router-link>
         </div>
@@ -116,7 +122,10 @@
               />
             </div>
             <div class="img">
-              <img :src="require('../assets/mainImage/main_search.png')" />
+              <img
+                :src="require('../assets/mainImage/main_search.png')"
+                lazy="loading"
+              />
             </div>
           </router-link>
         </div>
