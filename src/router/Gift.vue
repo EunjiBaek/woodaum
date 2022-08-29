@@ -89,10 +89,9 @@
                   <img :src="require('@/assets/package/package_01.png')" />
                 </div>
                 <div class="cnt">
-                  <h2>고급 보냉백</h2>
+                  <h2>{{ $t("package_01.tit") }}</h2>
                   <p>
-                    내구성을 강화하여 보냉효과를 높였으며, 재사용이 가능하여
-                    환경까지 생각했습니다.
+                    {{ $t("package_01.desc") }}
                   </p>
                 </div>
               </div>
@@ -101,10 +100,9 @@
                   <img :src="require('@/assets/package/package_02.png')" />
                 </div>
                 <div class="cnt">
-                  <h2>PP 트레이 바스켓</h2>
+                  <h2>{{ $t("package_02.tit") }}</h2>
                   <p>
-                    수분과 열에 강한 PP재질을 사용하여 제품을 안전하게
-                    보호하였습니다.
+                    {{ $t("package_02.desc") }}
                   </p>
                 </div>
               </div>
@@ -113,10 +111,9 @@
                   <img :src="require('@/assets/package/package_03.png')" />
                 </div>
                 <div class="cnt">
-                  <h2>고급 보냉박스</h2>
+                  <h2>{{ $t("package_03.tit") }}</h2>
                   <p>
-                    스치로폼으로 만들어진 박스로 외관으로는 보이지않게
-                    디자인하여 제품신선도에 용이하며 품격을 높였습니다.
+                    {{ $t("package_03.desc") }}
                   </p>
                 </div>
               </div>
@@ -125,10 +122,9 @@
                   <img :src="require('@/assets/package/package_04.png')" />
                 </div>
                 <div class="cnt">
-                  <h2>물 100% 아이스팩</h2>
+                  <h2>{{ $t("package_04.tit") }}</h2>
                   <p>
-                    수분과 열에 강한 PP재질을 사용하여 제품을 안전하게
-                    보호하였습니다.
+                    {{ $t("package_04.desc") }}
                   </p>
                 </div>
               </div>
@@ -198,7 +194,7 @@
       }
       > .cnt {
         box-sizing: border-box;
-        padding: 15px 24px;
+        padding: 10px 24px;
         > h2 {
           color: $secondary_color_01;
           margin-bottom: 5px;

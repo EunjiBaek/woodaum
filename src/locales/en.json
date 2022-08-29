@@ -183,19 +183,19 @@
     "page_01": "../assets/prodcutDetails/product_details_01_en.jpg"
   },
   "package_01": {
-    "tit": "고급 보냉백",
-    "desc": "내구성을 강화하여 보냉효과를 높였으며, 재사용이 가능하여 환경까지 생각했습니다."
+    "tit": "Cooler bag packaging",
+    "desc": "It enhances the cooling effect by strengthening the durability, and it is also reusable, considering the environment."
   },
   "package_02": {
-    "tit": "PP 트레이 바스켓",
-    "desc": "수분과 열에 강한 PP재질을 사용하여 제품을 안전하게 보호하였습니다."
+    "tit": "PP tray basket",
+    "desc": "The product is safely protected by using PP material that is resistant to moisture and heat."
   },
   "package_03": {
-    "tit": "고급 보냉박스",
-    "desc": "스치로폼으로 만들어진 박스로 외관으로는 보이지않게 디자인하여 제품신선도에 용이하며 품격을 높였습니다."
+    "tit": "Cooler box",
+    "desc": "The box made of Styrofoam is designed to be invisible from the outside, making it easy for product freshness and high quality."
   },
   "package_04": {
-    "tit": "물 100%  아이스팩",
-    "desc": "수분과 열에 강한 PP재질을 사용하여 제품을 안전하게 보호하였습니다."
+    "tit": "Water 100% icepack",
+    "desc": "Eco-friendly ice packs made with 100% pure water are prepared so that the freshness of the product is maintained and there is no difficulty in disposal."
   }
 }

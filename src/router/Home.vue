@@ -6,6 +6,10 @@
           disableOnInteraction: false,
         }" -->
       <swiper
+        :autoplay="{
+          delay: 6000,
+          disableOnInteraction: false,
+        }"
         :modules="modules"
         :slides-per-view="1"
         :loop="true"
@@ -390,7 +394,7 @@ export default {
       }
     },
     handler(component) {
-      console.log("this component is showing");
+      console.log(component);
     },
   },
   setup() {
@@ -521,6 +525,7 @@ export default {
         top: 0;
         left: 0;
         z-index: 1;
+        background-color: #eee;
 
         > img {
           height: 100%;
