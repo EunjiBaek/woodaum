@@ -214,7 +214,7 @@ export default {
           number: "031-726-8292",
           imgSrc: require("../assets/store/store-2.jpg"),
           reserve: "https://app.catchtable.co.kr/ct/search/total",
-          viewSrc: "https://test.ducon.co.kr/en/tour/7ntbh52wn",
+          viewSrc: "https://test.ducon.co.kr/en/tour/qpjcpgmxt9",
         },
       ],
     };
