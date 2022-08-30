@@ -1142,7 +1142,36 @@
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          // 순서 중요!
+          "vue-style-loader",
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+        ],
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/, // 제외할 경로
+        use: [
+          'babel-loader'
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
+        options: {
+          // Inline files smaller than 10 kB (10240 bytes)
+          limit: 10 * 1024,
+        },
+      },
     ]
   },
   optimization: {

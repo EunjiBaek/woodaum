@@ -22,9 +22,9 @@
       >
         <!-- main_slide -->
         <swiper-slide v-for="mainslide in main_slide" :key="mainslide.id">
-          <lazy-component @show="handler" class="img">
-            <img v-lazy="mainslide.imgSrc" alt="" lazy="loading" />
-          </lazy-component>
+          <div class="img">
+            <img :src="mainslide.imgSrc" alt="" />
+          </div>
           <div class="text">
             <h1 data-swiper-parallax="-500">{{ mainslide.title }}</h1>
             <p data-swiper-parallax="-300">
@@ -219,11 +219,7 @@
                 </p>
               </div>
               <div class="box_img">
-                <vue-load-image>
-                  <template v-slot:image>
-                    <img loading="lazy" :src="botslide.imgSrc" alt="" />
-                  </template>
-                </vue-load-image>
+                <img :src="botslide.imgSrc" alt="" />
               </div>
             </div>
           </div>
@@ -255,7 +251,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import VueLoadImage from "vue-load-image";
 
 import {
   Navigation,
@@ -372,7 +367,6 @@ export default {
     };
   },
   components: {
-    "vue-load-image": VueLoadImage,
     VLazyImage,
     Swiper,
     SwiperSlide,
