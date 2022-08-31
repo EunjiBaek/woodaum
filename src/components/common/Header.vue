@@ -159,7 +159,7 @@
                   </li>
                   <li>
                     <router-link
-                      :to="{ name: 'MenuPage', params: { name: 'menu3' } }"
+                      :to="{ name: 'MenuPage', params: { name: 'menu2' } }"
                       >{{ $t("gnb_menu.menu_02") }}</router-link
                     >
                   </li>
@@ -362,6 +362,11 @@ export default {
     },
   },
   methods: {
+    handleForceUpdate(to) {
+      this.$nextTick(() => {
+        this.$router.push(to);
+      });
+    },
     choiceLang: function (lang) {
       if (lang === this.currentLang) return;
       this.currentLang = lang;

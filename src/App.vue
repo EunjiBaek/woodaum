@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isRouterAlive">
     <widget-container-modal />
     <Header />
     <router-view :key="$route.fullPath" />
@@ -18,6 +18,24 @@ export default {
     Header,
     Footer,
     widgetContainerModal: container,
+  },
+  provide() {
+    return {
+      reload: this.reload,
+    };
+  },
+  data() {
+    return {
+      isRouterAlive: true,
+    };
+  },
+  methods: {
+    reload() {
+      this.isRouterAlive = false;
+      this.$nextTick(function () {
+        this.isRouterAlive = true;
+      });
+    },
   },
 };
 </script>
