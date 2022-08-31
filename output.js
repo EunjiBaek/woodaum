@@ -1321,8 +1321,5 @@ const { VueLoaderPlugin } = require("vue-loader");
     app: [
       './src/main.js'
     ]
-  },
-  devServer: {
-    historyApiFallback: true,
   }
 }
