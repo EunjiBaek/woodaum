@@ -5,7 +5,7 @@ import router from "./router";
 import { i18n } from "@/locales/i18n";
 import VueLazyload from "vue-lazyload";
 
-createSSRApp(App)
+createApp(App)
   .use(router)
   .use(i18n)
   .use(VueLazyload, {
