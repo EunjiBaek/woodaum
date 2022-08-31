@@ -1,9 +1,9 @@
 <template>
   <div>
     <widget-container-modal />
-    <Header v-if="isRouterAlive" />
-    <router-view v-if="isRouterAlive" :key="$route.fullPath" />
-    <Footer v-if="isRouterAlive" />
+    <Header />
+    <router-view :key="$route.fullPath" />
+    <Footer />
   </div>
 </template>
 
@@ -18,24 +18,6 @@ export default {
     Header,
     Footer,
     widgetContainerModal: container,
-  },
-  provide() {
-    return {
-      reload: this.reload,
-    };
-  },
-  data() {
-    return {
-      isRouterAlive: true,
-    };
-  },
-  methods: {
-    reload() {
-      this.isRouterAlive = false;
-      this.$nextTick(function () {
-        this.isRouterAlive = true;
-      });
-    },
   },
 };
 </script>
