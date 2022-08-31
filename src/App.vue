@@ -1,9 +1,9 @@
 <template>
-  <div v-if="isRouterAlive">
+  <div>
     <widget-container-modal />
-    <Header />
-    <router-view :key="$route.fullPath" />
-    <Footer />
+    <Header v-if="isRouterAlive" />
+    <router-view v-if="isRouterAlive" :key="$route.fullPath" />
+    <Footer v-if="isRouterAlive" />
   </div>
 </template>
 
