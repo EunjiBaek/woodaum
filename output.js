@@ -1,3 +1,7 @@
+const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { VueLoaderPlugin } = require("vue-loader");
+
 {
   mode: 'development',
   context: '/Users/ejbaek/Desktop/woodaum',
@@ -1151,6 +1155,7 @@
           "style-loader",
           "css-loader",
           "postcss-loader",
+          "sass-loader"
         ],
       },
       {
@@ -1171,6 +1176,10 @@
           // Inline files smaller than 10 kB (10240 bytes)
           limit: 10 * 1024,
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/,
+        use: "file-loader",
       },
     ]
   },
@@ -1302,7 +1311,11 @@
         eslintPath: '/Users/ejbaek/Desktop/woodaum/node_modules/eslint',
         formatter: 'stylish'
       }
-    )
+    ),
+    new HtmlPlugin({
+      template: "./index.html",
+    }),
+    new VueLoaderPlugin()
   ],
   entry: {
     app: [
