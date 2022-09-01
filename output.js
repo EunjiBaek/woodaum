@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
 
 {
@@ -1315,6 +1316,7 @@ const { VueLoaderPlugin } = require("vue-loader");
     new HtmlPlugin({
       template: "./index.html",
     }),
+    new CleanWebpackPlugin(['dist'], {}),
     new VueLoaderPlugin()
   ],
   entry: {
