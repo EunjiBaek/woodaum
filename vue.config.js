@@ -12,26 +12,26 @@ module.exports = {
       chunkFilename: `css/chunk/[name]${MIN_EXT}.css`,
     },
   },
-  chainWebpack: (config) => {
-    config.output
-      .filename(`js/[name]${MIN_EXT}.js`)
-      .chunkFilename(`js/chunk/[name]${MIN_EXT}.js`);
-    config.when(!IS_LIVE, (config) => {
-      config.devtool("source-map");
-    });
-    config.optimization.merge({
-      splitChunks: {
-        cacheGroups: {
-          defaultVendors: {
-            name: "chunk/vendors",
-          },
-          common: {
-            name: "chunk/common",
-          },
-        },
-      },
-    });
-  },
+  // chainWebpack: (config) => {
+  //   config.output
+  //     .filename(`js/[name]${MIN_EXT}.js`)
+  //     .chunkFilename(`js/chunk/[name]${MIN_EXT}.js`);
+  //   config.when(!IS_LIVE, (config) => {
+  //     config.devtool("source-map");
+  //   });
+  //   config.optimization.merge({
+  //     splitChunks: {
+  //       cacheGroups: {
+  //         defaultVendors: {
+  //           name: "chunk/vendors",
+  //         },
+  //         common: {
+  //           name: "chunk/common",
+  //         },
+  //       },
+  //     },
+  //   });
+  // },
   pwa: {
     workboxOptions: {
       exclude: [/_redirects/],

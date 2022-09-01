@@ -37,7 +37,7 @@
                 Special Part
               </div>
               <div class="img">
-                <img :src="menu.imgSrc" alt="" />
+                <img :data-lazy="menu.imgSrc" v-lazyloadImage alt="" />
               </div>
               <div class="content">
                 <span v-if="$i18n.locale === 'ko'">{{ menu.name }}</span>
@@ -61,7 +61,7 @@
                 Special Part
               </div>
               <div class="img">
-                <img :src="menu.imgSrc" alt="" />
+                <img :data-lazy="menu.imgSrc" v-lazyloadImage alt="" />
               </div>
               <div class="content">
                 <span v-if="$i18n.locale === 'ko'">{{ menu.name }}</span>

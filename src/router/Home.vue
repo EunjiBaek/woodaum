@@ -93,8 +93,8 @@
             </div>
             <div class="img">
               <img
-                :src="require('../assets/mainImage/main_gift.png')"
-                lazy="loading"
+                :data-lazy="require('../assets/mainImage/main_gift.png')"
+                v-lazyloadImage
               />
             </div>
           </router-link>
@@ -123,8 +123,8 @@
             </div>
             <div class="img">
               <img
-                :src="require('../assets/mainImage/main_search.png')"
-                lazy="loading"
+                :data-lazy="require('../assets/mainImage/main_search.png')"
+                v-lazyloadImage
               />
             </div>
           </router-link>
@@ -219,7 +219,7 @@
                 </p>
               </div>
               <div class="box_img">
-                <img :src="botslide.imgSrc" alt="" />
+                <img :data-lazy="botslide.imgSrc" v-lazyloadImage alt="" />
               </div>
             </div>
           </div>

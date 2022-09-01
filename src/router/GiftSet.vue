@@ -14,7 +14,9 @@
       <div class="container">
         <div class="product_desc_wrap">
           <div class="product_cnt">
-            <div class="img"><img :src="giftDetails[index].imgSrc" /></div>
+            <div class="img">
+              <img :data-lazy="giftDetails[index].imgSrc" v-lazyloadImage />
+            </div>
 
             <div class="content">
               <h3>{{ giftDetails[index].name }}</h3>
@@ -61,7 +63,10 @@
           >
             <h3>{{ $t("giftset_desc.tit") }}</h3>
             <div class="img_wrap">
-              <img :src="giftDetails[index].pageDetail[$i18n.locale]" />
+              <img
+                :data-lazy="giftDetails[index].pageDetail[$i18n.locale]"
+                v-lazyloadImage
+              />
             </div>
             <div v-if="!show" class="gradation"></div>
           </div>

@@ -17,7 +17,11 @@
         <div class="store_info_wrap">
           <div v-for="store in stores" class="box" :key="store.id">
             <div class="img">
-              <img v-if="store.imgSrc !== ''" :src="store.imgSrc" />
+              <img
+                v-if="store.imgSrc !== ''"
+                :data-lazy="store.imgSrc"
+                v-lazyloadImage
+              />
               <div class="no_img" v-else>준비중입니다</div>
             </div>
             <div class="content">

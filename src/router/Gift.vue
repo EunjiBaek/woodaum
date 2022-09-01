@@ -54,7 +54,7 @@
                   }"
                 >
                   <div class="img">
-                    <img :src="gift.imgSrc" />
+                    <img :data-lazy="gift.imgSrc" v-lazyloadImage />
                     <div v-if="gift.soldout === true" class="caption">
                       sold out
                     </div>
@@ -80,13 +80,19 @@
 
           <div class="package_wrap" v-show="currentTab == 1">
             <div class="package_all_img">
-              <img :src="require('@/assets/package/package_all.png')" />
+              <img
+                :data-lazy="require('@/assets/package/package_all.png')"
+                v-lazyloadImage
+              />
             </div>
 
             <div class="package_opt_desc">
               <div class="list">
                 <div class="img">
-                  <img :src="require('@/assets/package/package_01.png')" />
+                  <img
+                    :data-lazy="require('@/assets/package/package_01.png')"
+                    v-lazyloadImage
+                  />
                 </div>
                 <div class="cnt">
                   <h2>{{ $t("package_01.tit") }}</h2>
@@ -97,7 +103,10 @@
               </div>
               <div class="list">
                 <div class="img">
-                  <img :src="require('@/assets/package/package_02.png')" />
+                  <img
+                    :data-lazy="require('@/assets/package/package_02.png')"
+                    v-lazyloadImage
+                  />
                 </div>
                 <div class="cnt">
                   <h2>{{ $t("package_02.tit") }}</h2>
@@ -108,7 +117,10 @@
               </div>
               <div class="list">
                 <div class="img">
-                  <img :src="require('@/assets/package/package_03.png')" />
+                  <img
+                    :data-lazy="require('@/assets/package/package_03.png')"
+                    v-lazyloadImage
+                  />
                 </div>
                 <div class="cnt">
                   <h2>{{ $t("package_03.tit") }}</h2>
@@ -119,7 +131,10 @@
               </div>
               <div class="list">
                 <div class="img">
-                  <img :src="require('@/assets/package/package_04.png')" />
+                  <img
+                    :data-lazy="require('@/assets/package/package_04.png')"
+                    v-lazyloadImage
+                  />
                 </div>
                 <div class="cnt">
                   <h2>{{ $t("package_04.tit") }}</h2>

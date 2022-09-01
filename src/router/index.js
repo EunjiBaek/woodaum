@@ -13,39 +13,44 @@ const router = createRouter({
     {
       path: "/",
       name: "Home",
-      component: () => import("./Home.vue"),
+      component: () => import(/* webpackChunkName: "Home" */ "./Home.vue"),
     },
     {
       path: "/menu/:name",
       name: "MenuPage",
-      component: () => import("./MenuPage.vue"),
+      component: () =>
+        import(/* webpackChunkName: "MenuPage" */ "./MenuPage.vue"),
       props: true,
     },
     {
       path: "/gift/:name",
       name: "Gift",
-      component: () => import("./Gift.vue"),
+      component: () => import(/* webpackChunkName: "Gift" */ "./Gift.vue"),
       props: true,
     },
     {
       path: "/gift/giftset/:id",
       name: "GiftSet",
-      component: () => import("./GiftSet.vue"),
+      component: () =>
+        import(/* webpackChunkName: "GiftSet" */ "./GiftSet.vue"),
       props: true,
     },
     // 브랜드 스토리
     {
       path: "/brandstory",
-      component: () => import("./BrandStory.vue"),
+      component: () =>
+        import(/* webpackChunkName: "BrandStory" */ "./BrandStory.vue"),
     },
     {
       path: "/store",
       name: "StoreInfo",
-      component: () => import("./StoreInfo.vue"),
+      component: () =>
+        import(/* webpackChunkName: "StoreInfo" */ "./StoreInfo.vue"),
     },
     {
       path: "/:pathMatch(.*)",
-      component: () => import("./NotFound.vue"),
+      component: () =>
+        import(/* webpackChunkName: "NotFound" */ "./NotFound.vue"),
     },
   ],
   scrollBehavior() {
