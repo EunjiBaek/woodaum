@@ -219,7 +219,7 @@
                 </p>
               </div>
               <div class="box_img">
-                <img :data-lazy="botslide.imgSrc" v-lazyloadImage alt="" />
+                <img :src="botslide.imgSrc" alt="" />
               </div>
             </div>
           </div>
