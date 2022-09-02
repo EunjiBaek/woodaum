@@ -157,6 +157,7 @@
           opacity: 0;
           transform: translateY(100px);
           transition: all 1.6s 0.7s cubic-bezier(0, 0.66, 0.38, 1.01);
+          word-break: keep-all;
         }
       }
     }

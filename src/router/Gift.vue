@@ -8,7 +8,7 @@
             v-bind:class="{ active: currentTab === index }"
             :key="tab.index"
           >
-            <a href="#" v-on:click.prevent="currentTab = index">{{ tab }}</a>
+            <a href="#" v-on:click.prevent="tabClickEvent(index)">{{ tab }}</a>
           </li>
         </ul>
       </div>
@@ -586,6 +586,13 @@ export default {
     },
   },
   methods: {
+    tabClickEvent: function (index) {
+      if (index === 0) {
+        this.$router.push("/gift/giftset");
+      } else {
+        this.$router.push("/gift/package");
+      }
+    },
     sort: function (sortOrder) {
       return this.orderedListOptions[sortOrder]();
     },

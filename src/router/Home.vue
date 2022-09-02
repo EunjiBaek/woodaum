@@ -157,7 +157,7 @@
       <div class="insta_wrap">
         <div class="tit">
           <span></span>
-          <h2>WOODAUM INSTAGRAM</h2>
+          <h2>WOODAUM+82 INSTAGRAM</h2>
           <span></span>
         </div>
 

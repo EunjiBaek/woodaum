@@ -8,7 +8,7 @@
             v-bind:class="{ active: currentTab === index }"
             :key="tab.index"
           >
-            <a href="#" v-on:click.prevent="currentTab = index">{{ tab }}</a>
+            <a href="#" v-on:click.prevent="tabClickEvent(index)">{{ tab }}</a>
             <!-- <a v-on:click.prevent="select($event)">{{ tab }}</a> -->
           </li>
         </ul>
@@ -260,6 +260,13 @@ export default {
   //     openModal(ModalPopup, { title: "hello" });
   //   },
   methods: {
+    tabClickEvent: function (index) {
+      if (index === 0) {
+        this.$router.push("/menu/menu1");
+      } else {
+        this.$router.push("/menu/menu2");
+      }
+    },
     select: function (event) {
       console.log(event.currentTarget.parentNode);
       // this.currentTab = index;
@@ -342,7 +349,7 @@ export default {
         {
           id: 7,
           name: "안창살",
-          en_name: "Aged Korean beef rib-eye cap",
+          en_name: "Aged Korean beef thin skirt",
           desc: this.$t("manu_07.desc"),
           imgSrc: require("../assets/menu/menu-7.png"),
           special: true,
@@ -360,8 +367,7 @@ export default {
         {
           id: 9,
           name: "한우 로스편채",
-          en_name:
-            "Aged Korean Broiled sliced Korean beef with fresh vegetables & sauce chuck flap tail",
+          en_name: "Broiled sliced Korean beef",
           desc: this.$t("manu_09.desc"),
           imgSrc: require("../assets/menu/menu-9.png"),
           special: false,
@@ -369,7 +375,7 @@ export default {
         {
           id: 10,
           name: "한우 육회",
-          en_name: "Aged Korean beef chuck flap tail",
+          en_name: "Korean beef tartar",
           desc: this.$t("manu_10.desc"),
           imgSrc: require("../assets/menu/menu-10.png"),
           special: false,
