@@ -2,7 +2,9 @@
   <div>
     <widget-container-modal />
     <Header />
-    <router-view :key="$route.fullPath" />
+    <div v-if="isApp" class="routerBody">
+      <router-view :key="$route.fullPath" />
+    </div>
     <Footer />
   </div>
 </template>
@@ -14,10 +16,18 @@ import Footer from "@/components/common/Footer";
 
 export default {
   name: "App",
+  data() {
+    return {
+      isApp: false,
+    };
+  },
   components: {
     Header,
     Footer,
     widgetContainerModal: container,
+  },
+  async mounted() {
+    this.isApp = true;
   },
 };
 </script>
@@ -211,6 +221,10 @@ select {
   background-image: url("./assets/icon/select_arrow.png");
   background-position: 95% 50%;
   background-repeat: no-repeat;
+}
+
+.routerBody {
+  min-height: 1000px;
 }
 
 .top_pad {

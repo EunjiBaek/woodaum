@@ -355,6 +355,8 @@ export default {
     $route(to, from) {
       if (to.path != from.path) {
         this.navOpen = false;
+      } else {
+        return window.location.reload();
       }
     },
     currentlang(newLang) {
