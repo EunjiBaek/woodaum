@@ -3,7 +3,7 @@
     <div class="mobile_navigation">
       <ul>
         <li>
-          <router-link to="/">
+          <router-link to="/" v-on:click="homeMove('/')">
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_home[0].imgSrc"
@@ -44,7 +44,10 @@
         </li>
 
         <li>
-          <router-link to="/gift/giftset">
+          <router-link
+            to="/gift/giftset"
+            v-on:click="handleForceUpdate('/giftset')"
+          >
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_gift[0].imgSrc"
@@ -63,7 +66,7 @@
         </li>
 
         <li>
-          <router-link to="/store">
+          <router-link to="/store" v-on:click="handleForceUpdate('/store')">
             <div class="img">
               <v-lazy-image
                 :src="mobile_nav_store_search[0].imgSrc"
@@ -107,7 +110,7 @@
           <i class="fas fa-bars"></i>
         </div>
         <div class="logo">
-          <router-link to="/">
+          <router-link v-on:click="homeMove('/')" to="/">
             <v-lazy-image
               :src="logoImage[0].imgSrc"
               :srcset="
@@ -124,7 +127,11 @@
         <div class="header-slide-menu" v-on:mouseover="overEvent">
           <ul>
             <li>
-              <router-link to="/brandStory">BRAND STORY</router-link>
+              <router-link
+                to="/brandStory"
+                v-on:click="handleForceUpdate('/brandStory')"
+                >BRAND STORY</router-link
+              >
               <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li>
@@ -146,7 +153,9 @@
               </div>
             </li>
             <li>
-              <router-link :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+              <router-link
+                :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+                v-on:click="handleForceUpdate('/menu1')"
                 >MENU</router-link
               >
               <div class="sub-menu" v-if="actived === true">
@@ -154,12 +163,14 @@
                   <li>
                     <router-link
                       :to="{ name: 'MenuPage', params: { name: 'menu1' } }"
+                      v-on:click="handleForceUpdate('/menu1')"
                       >{{ $t("gnb_menu.menu_01") }}</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       :to="{ name: 'MenuPage', params: { name: 'menu2' } }"
+                      v-on:click="handleForceUpdate('/menu2')"
                       >{{ $t("gnb_menu.menu_02") }}</router-link
                     >
                   </li>
@@ -167,7 +178,9 @@
               </div>
             </li>
             <li>
-              <router-link :to="{ name: 'Gift', params: { name: 'giftset' } }"
+              <router-link
+                :to="{ name: 'Gift', params: { name: 'giftset' } }"
+                v-on:click="handleForceUpdate('/giftset')"
                 >GIFT</router-link
               >
               <div class="sub-menu" v-if="actived === true">
@@ -175,12 +188,14 @@
                   <li>
                     <router-link
                       :to="{ name: 'Gift', params: { name: 'giftset' } }"
+                      v-on:click="handleForceUpdate('/giftset')"
                       >{{ $t("gnb_gift.menu_01") }}</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       :to="{ name: 'Gift', params: { name: 'package' } }"
+                      v-on:click="handleForceUpdate('/package')"
                       >{{ $t("gnb_gift.menu_02") }}</router-link
                     >
                   </li>
@@ -188,13 +203,17 @@
               </div>
             </li>
             <li>
-              <router-link to="/store">STORE</router-link>
+              <router-link to="/store" v-on:click="handleForceUpdate('/store')"
+                >STORE</router-link
+              >
               <div class="sub-menu" v-if="actived === true">
                 <ul>
                   <li>
-                    <router-link to="/store">{{
-                      $t("gnb_store.menu_01")
-                    }}</router-link>
+                    <router-link
+                      to="/store"
+                      v-on:click="handleForceUpdate('/store')"
+                      >{{ $t("gnb_store.menu_01") }}</router-link
+                    >
                   </li>
                 </ul>
               </div>
@@ -362,10 +381,18 @@ export default {
     },
   },
   methods: {
+    homeMove(to) {
+      if (this.$route.path === to) {
+        this.$router.go();
+      }
+    },
     handleForceUpdate(to) {
-      this.$nextTick(() => {
-        this.$router.push(to);
-      });
+      if (this.$route.path.includes(to)) {
+        // this.$nextTick(() => {
+        //   this.$router.push(to);
+        // });
+        this.$router.go();
+      }
     },
     choiceLang: function (lang) {
       if (lang === this.currentLang) return;
