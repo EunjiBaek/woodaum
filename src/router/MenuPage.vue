@@ -325,7 +325,7 @@ export default {
         {
           id: 4,
           name: "특안심",
-          en_name: "Aged Korean beef sirloin ",
+          en_name: "Aged Korean beef sirloin",
           desc: this.$t("manu_04.desc"),
           imgSrc: require("../assets/menu/menu-4.png"),
           special: false,
