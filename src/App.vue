@@ -2,7 +2,8 @@
   <div>
     <widget-container-modal />
     <Header />
-    <div v-if="isApp" class="routerBody">
+    <!-- v-if="isApp"  -->
+    <div class="routerBody">
       <router-view :key="$route.fullPath" />
     </div>
     <Footer />
@@ -18,7 +19,7 @@ export default {
   name: "App",
   data() {
     return {
-      isApp: false,
+      // isApp: false,
     };
   },
   components: {
@@ -26,9 +27,9 @@ export default {
     Footer,
     widgetContainerModal: container,
   },
-  async mounted() {
-    this.isApp = true;
-  },
+  // async mounted() {
+  //   this.isApp = true;
+  // },
 };
 </script>
 

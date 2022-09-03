@@ -1,5 +1,6 @@
 <template>
   <div>
+    <SkeletonBox v-if="loading" width="100%" height="100vh" />
     <div class="main_slide">
       <!-- :autoplay="{
           delay: 6000,
@@ -251,6 +252,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import SkeletonBox from "@/components/common/SkeletonBox";
 
 import {
   Navigation,
@@ -265,6 +267,7 @@ export default {
   name: "HomePage",
   data() {
     return {
+      loading: true,
       paly: true,
       swiperObj: null,
       iframeList: [
@@ -402,6 +405,8 @@ export default {
     };
   },
   components: {
+    // eslint-disable-next-line vue/no-unused-components
+    SkeletonBox,
     VLazyImage,
     Swiper,
     SwiperSlide,
@@ -410,6 +415,9 @@ export default {
     swiper() {
       return this.$refs.main_bot_slide;
     },
+  },
+  created() {
+    this.loading = false;
   },
   methods: {
     slideChangeTransitionEnd(index) {
@@ -523,6 +531,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
 
+.skeltone {
+  background-color: #ccc;
+}
+
 #header {
   position: fixed;
   left: 0;
@@ -558,7 +570,6 @@ export default {
         top: 0;
         left: 0;
         z-index: 1;
-        background-color: #eee;
 
         > img {
           height: 100%;
@@ -826,7 +837,7 @@ export default {
 
 @media (max-width: 1250px) {
   .main_slide {
-    height: 620px;
+    // height: 620px;
     .main_top_swiper .swiper-slide > .text > h1 {
       font-size: 24px;
       margin-bottom: 35px;
