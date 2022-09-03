@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SkeletonBox v-if="loading" width="100%" height="100vh" />
     <div class="main_slide">
       <!-- :autoplay="{
           delay: 6000,
