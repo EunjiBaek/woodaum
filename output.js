@@ -2,6 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 
 {
   mode: 'development',
@@ -1154,7 +1156,7 @@ const { VueLoaderPlugin } = require("vue-loader");
           // 순서 중요!
           "vue-style-loader",
           "style-loader",
-          "css-loader",
+          { loader: 'css-loader', options: { minimize: true } },
           "postcss-loader",
           "sass-loader"
         ],
@@ -1179,12 +1181,20 @@ const { VueLoaderPlugin } = require("vue-loader");
         },
       },
       {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loader: 'image-webpack-loader',
+        // This will apply the loader before the other ones
+        enforce: 'pre',
+      },
+      {
         test: /\.(png|jpe?g|gif|webp)$/,
         use: "file-loader",
       },
     ]
   },
   optimization: {
+    nodeEnv: 'production',
+    concatenateModules: true,
     minimize: true,
     splitChunks: {
       chunks: 'all'
@@ -1233,6 +1243,7 @@ const { VueLoaderPlugin } = require("vue-loader");
     ]
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     /* config.plugin('vue-loader') */
     new VueLoaderPlugin(),
     /* config.plugin('feature-flags') */

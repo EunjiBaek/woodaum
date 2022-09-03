@@ -18,6 +18,7 @@
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "i": "^0.3.7",
+    "image-webpack-loader": "^8.1.0",
     "jenesius-vue-modal": "^1.7.0",
     "jquery": "^3.6.0",
     "mini-css-extract-plugin": "^2.6.1",
