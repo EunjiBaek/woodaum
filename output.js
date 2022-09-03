@@ -1197,7 +1197,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     concatenateModules: true,
     minimize: true,
     splitChunks: {
-      chunks: 'all'
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        },
+      }
     },
     minimizer: [
       {
@@ -1242,8 +1248,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
       }
     ]
   },
+  configureWebpack: { plugins: [new BundleAnalyzerPlugin()] },
   plugins: [
-    new BundleAnalyzerPlugin(),
     /* config.plugin('vue-loader') */
     new VueLoaderPlugin(),
     /* config.plugin('feature-flags') */
