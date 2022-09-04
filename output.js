@@ -7,8 +7,6 @@ const { VueLoaderPlugin } = require("vue-loader");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
 
-const webpackMode = process.env.NODE_ENV || 'development';
-
 {
   mode: 'production',
   context: '/Users/ejbaek/Desktop/woodaum',
@@ -1345,25 +1343,4 @@ const webpackMode = process.env.NODE_ENV || 'development';
       './src/main.js'
     ]
   }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
 }
