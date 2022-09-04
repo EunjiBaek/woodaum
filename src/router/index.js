@@ -1,11 +1,4 @@
 import VueRouter, { createRouter, createWebHistory } from "vue-router";
-// import Home from "./Home.vue";
-// import MenuPage from "./MenuPage.vue";
-// import BrandStory from "./BrandStory";
-// import Gift from "./Gift";
-// import GiftSet from "./GiftSet";
-// import StoreInfo from "./StoreInfo";
-// import NotFound from "./NotFound";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,44 +6,53 @@ const router = createRouter({
     {
       path: "/",
       name: "Home",
-      component: () => import(/* webpackChunkName: "Home" */ "./Home.vue"),
+      component: (r) =>
+        require.ensure([], () => r(require("./Home.vue")), "demo"),
+      // component: () => import(/* webpackChunkName: "Home" */ "./Home.vue"),
     },
     {
       path: "/menu/:name",
       name: "MenuPage",
       component: () =>
-        import(/* webpackChunkName: "MenuPage" */ "./MenuPage.vue"),
+        require.ensure([], () => r(require("./MenuPage.vue")), "demo"),
+      // import(/* webpackChunkName: "MenuPage" */ "./MenuPage.vue"),
       props: true,
     },
     {
       path: "/gift/:name",
       name: "Gift",
-      component: () => import(/* webpackChunkName: "Gift" */ "./Gift.vue"),
+      component: () =>
+        require.ensure([], () => r(require("./Gift.vue")), "demo"),
+      // import(/* webpackChunkName: "Gift" */ "./Gift.vue"),
       props: true,
     },
     {
       path: "/gift/giftset/:id",
       name: "GiftSet",
       component: () =>
-        import(/* webpackChunkName: "GiftSet" */ "./GiftSet.vue"),
+        require.ensure([], () => r(require("./GiftSet.vue")), "demo"),
+      // import(/* webpackChunkName: "GiftSet" */ "./GiftSet.vue"),
       props: true,
     },
     // 브랜드 스토리
     {
       path: "/brandstory",
       component: () =>
-        import(/* webpackChunkName: "BrandStory" */ "./BrandStory.vue"),
+        require.ensure([], () => r(require("./BrandStory.vue")), "demo"),
+      // import(/* webpackChunkName: "BrandStory" */ "./BrandStory.vue"),
     },
     {
       path: "/store",
       name: "StoreInfo",
       component: () =>
-        import(/* webpackChunkName: "StoreInfo" */ "./StoreInfo.vue"),
+        require.ensure([], () => r(require("./StoreInfo.vue")), "demo"),
+      // import(/* webpackChunkName: "StoreInfo" */ "./StoreInfo.vue"),
     },
     {
       path: "/:pathMatch(.*)",
       component: () =>
-        import(/* webpackChunkName: "NotFound" */ "./NotFound.vue"),
+        require.ensure([], () => r(require("./NotFound.vue")), "demo"),
+      // import(/* webpackChunkName: "NotFound" */ "./NotFound.vue"),
     },
   ],
   scrollBehavior() {
