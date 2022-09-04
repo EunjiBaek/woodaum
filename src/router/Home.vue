@@ -6,6 +6,10 @@
           disableOnInteraction: false,
         }" -->
       <swiper
+        :autoplay="{
+          delay: 6000,
+          disableOnInteraction: false,
+        }"
         :modules="modules"
         :slides-per-view="1"
         :loop="true"
