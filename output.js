@@ -1342,5 +1342,10 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     app: [
       './src/main.js'
     ]
+  },
+  externals: {
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'ElementUI': 'ELEMENT',
   }
 }
