@@ -11,6 +11,43 @@ createApp(App)
   .use(VueLazyload, {
     lazyComponent: true,
   })
+  .directive("textLoad", {
+    mounted(el) {
+      function textLoad(targetElement) {
+        console.log(targetElement);
+        targetElement.setAttribute("class", "text on");
+      }
+
+      function textIntersectionApi() {
+        const options = {
+          root: null,
+          threshold: 0.5,
+          rootMargin: "0px",
+        };
+
+        const textLoadCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // 감지대상이 교차영역에 진입 할 경우
+              textLoad(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        };
+
+        const textLoadingIO = new IntersectionObserver(
+          textLoadCallback,
+          options
+        );
+        textLoadingIO.observe(el);
+      }
+
+      // 지원되는 브라우저가 있기때문에, 이런식으로 처리
+      // window.IntersectionObserver ? textIntersectionApi() : textLoad(el);
+
+      textLoad(el);
+    },
+  })
   .directive("lazyloadImage", {
     mounted(el) {
       function imageLoad(targetElement) {

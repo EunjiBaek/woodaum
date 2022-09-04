@@ -6,10 +6,6 @@
           disableOnInteraction: false,
         }" -->
       <swiper
-        :autoplay="{
-          delay: 6000,
-          disableOnInteraction: false,
-        }"
         :modules="modules"
         :slides-per-view="1"
         :loop="true"
@@ -253,20 +249,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import SkeletonBox from "@/components/common/SkeletonBox";
 
-import {
-  Navigation,
-  Pagination,
-  Autoplay,
-  Parallax,
-  EffectFade,
-  Controller,
-} from "swiper";
+import { Navigation, Pagination, Autoplay, Parallax, Controller } from "swiper";
 
 export default {
   name: "HomePage",
   data() {
     return {
-      loading: true,
       paly: true,
       swiperObj: null,
       iframeList: [
@@ -415,9 +403,6 @@ export default {
       return this.$refs.main_bot_slide;
     },
   },
-  created() {
-    this.loading = false;
-  },
   methods: {
     slideChangeTransitionEnd(index) {
       // this.main_bot_slide.length
@@ -445,14 +430,7 @@ export default {
     return {
       controlledSwiper,
       setControlledSwiper,
-      modules: [
-        Navigation,
-        Pagination,
-        Autoplay,
-        Parallax,
-        EffectFade,
-        Controller,
-      ],
+      modules: [Navigation, Pagination, Autoplay, Parallax, Controller],
     };
   },
 };
@@ -460,6 +438,12 @@ export default {
 
 <style lang="scss">
 @import "@/scss/main.scss";
+
+.Skeleton {
+  width: 100%;
+  height: 100vh;
+  background-color: #cccccc;
+}
 
 .swiper-slide-duplicate {
   font-size: 18px;
@@ -554,10 +538,10 @@ export default {
 
     .swiper-slide {
       position: relative;
-      background: #fafaf6;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #ffffff;
 
       > .img {
         width: 100%;
@@ -583,6 +567,7 @@ export default {
         z-index: 2;
         box-sizing: border-box;
         padding: 0 25px;
+        transition: all 0.3s ease-in;
 
         > h1 {
           margin-bottom: 45px;
@@ -836,7 +821,7 @@ export default {
 
 @media (max-width: 1250px) {
   .main_slide {
-    // height: 620px;
+    height: 620px;
     .main_top_swiper .swiper-slide > .text > h1 {
       font-size: 24px;
       margin-bottom: 35px;

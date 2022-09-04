@@ -130,6 +130,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
       h2 {
         color: white;
         font-size: 32px;
@@ -226,6 +227,7 @@
       flex-direction: column;
       box-sizing: border-box;
       padding: 0 25px;
+      transition: all 0.3s ease-in-out;
 
       h2 {
         color: white;
