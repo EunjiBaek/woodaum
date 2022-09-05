@@ -6,9 +6,13 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
 {
   mode: 'production',
+  chainWebpack: config => {
+    config.plugins.delete('prefetch');
+  },
   context: '/Users/ejbaek/Desktop/woodaum',
   output: {
     hashFunction: 'xxhash64',
@@ -1250,7 +1254,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
       }
     ]
   },
-  configureWebpack: { plugins: [new BundleAnalyzerPlugin()] },
+  configureWebpack: { plugins: [new BundleAnalyzerPlugin(), new VuetifyLoaderPlugin()] },
   plugins: [
     /* config.plugin('vue-loader') */
     new VueLoaderPlugin(),
